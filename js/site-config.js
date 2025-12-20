@@ -6,7 +6,7 @@ class SiteConfig {
   }
   async init() {
     try {
-      const response = await fetch('config/site-config.json');
+      const response = await fetch('./config/site-config.json');
       this.config = await response.json();
       console.log('配置文件加载完成:', this.config);
       // 设置加载完成标志
@@ -166,4 +166,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 100);
 
 });
+
 
