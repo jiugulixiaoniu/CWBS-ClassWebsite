@@ -1,0 +1,1171 @@
+/* Windows 10 Metro UI 风格 - 规则页面 */
+
+:root {
+    /* Windows 10 Metro UI 颜色变量 */
+    --win10-primary: #0078d7;
+    --win10-primary-hover: #106ebe;
+    --win10-primary-active: #005a9e;
+    --win10-secondary: #00bcf2;
+    --win10-accent: #0078d7;
+    --win10-text-primary: #000000;
+    --win10-text-secondary: #616161;
+    --win10-text-tertiary: #a6a6a6;
+    --win10-text-white: #ffffff;
+    --win10-background-primary: #ffffff;
+    --win10-background-secondary: #f5f5f5;
+    --win10-background-tertiary: #e6e6e6;
+    --win10-border-color: #e6e6e6;
+    --win10-surface: #ffffff;
+    --win10-surface-hover: #f5f5f5;
+    --win10-success: #107c10;
+    --win10-warning: #ff8c00;
+    --win10-error: #e81123;
+    --win10-info: #0078d7;
+
+    /* Metro UI 特有变量 - 方角设计 */
+    --win10-border-radius: 0px;
+    --win10-border-radius-small: 0px;
+    --win10-border-radius-large: 0px;
+    --win10-border-radius-full: 0px;
+
+    /* Metro UI 阴影效果 - 最小化阴影 */
+    --win10-shadow-sm: none;
+    --win10-shadow-md: none;
+    --win10-shadow-lg: none;
+    --win10-shadow-button: 0 0 0 1px rgba(0, 0, 0, 0.2);
+
+    /* Metro UI 过渡动画 - 快速直接 */
+    --win10-transition: all 0.1s ease;
+
+    /* Metro UI 毛玻璃效果 - 简单透明 */
+    --win10-blur: blur(0px);
+    --win10-glass-bg: rgba(255, 255, 255, 0.9);
+    --win10-glass-bg-dark: rgba(0, 0, 0, 0.8);
+    --win10-glass-border: 1px solid rgba(0, 0, 0, 0.1);
+    --win10-glass-shadow: none;
+
+    /* Metro UI 间距系统 */
+    --win10-spacing-xs: 4px;
+    --win10-spacing-sm: 8px;
+    --win10-spacing-md: 16px;
+    --win10-spacing-lg: 24px;
+    --win10-spacing-xl: 32px;
+    --win10-spacing-xxl: 48px;
+}
+
+/* 全局样式 */
+body.win10 {
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--win10-text-primary);
+    background-color: var(--win10-background-primary);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/* 导航栏样式 - 简洁Metro风格 */
+.win10 .navbar {
+    background-color: var(--win10-background-primary) !important;
+    border-bottom: 1px solid var(--win10-border-color);
+    color: var(--win10-text-primary);
+    box-shadow: none;
+}
+
+.win10 .navbar .navbar-brand .site-name {
+    color: var(--win10-text-primary);
+    font-weight: 600;
+}
+
+.win10 .navbar .navbar-brand .site-description {
+    color: var(--win10-text-secondary);
+}
+
+.win10 .navbar .navbar-menu a {
+    color: var(--win10-text-primary);
+    background-color: transparent;
+    border: none;
+    margin: 0 var(--win10-spacing-xs);
+    padding: var(--win10-spacing-sm) var(--win10-spacing-md);
+    border-radius: var(--win10-border-radius);
+    transition: var(--win10-transition);
+    font-weight: 500;
+}
+
+.win10 .navbar .navbar-menu a:hover {
+    background-color: var(--win10-surface-hover);
+    color: var(--win10-primary);
+}
+
+.win10 .navbar .navbar-actions button {
+    background-color: transparent;
+    color: var(--win10-text-primary);
+    border: none;
+    margin: 0 var(--win10-spacing-xs);
+    padding: var(--win10-spacing-sm);
+    border-radius: var(--win10-border-radius);
+    transition: var(--win10-transition);
+}
+
+.win10 .navbar .navbar-actions button:hover {
+    background-color: var(--win10-surface-hover);
+    color: var(--win10-primary);
+}
+
+/* 移动端菜单 */
+.win10 .mobile-menu {
+    background-color: var(--win10-background-primary) !important;
+    border: 1px solid var(--win10-border-color);
+    box-shadow: none;
+    border-radius: var(--win10-border-radius);
+    color: var(--win10-text-primary);
+}
+
+.win10 .mobile-menu .mobile-menu-content a {
+    color: var(--win10-text-primary);
+    border: none;
+    margin: var(--win10-spacing-xs);
+    padding: var(--win10-spacing-sm) var(--win10-spacing-md);
+    border-radius: var(--win10-border-radius);
+    transition: var(--win10-transition);
+}
+
+.win10 .mobile-menu .mobile-menu-content a:hover {
+    background-color: var(--win10-surface-hover);
+    color: var(--win10-primary);
+}
+
+/* 英雄区域 */
+.win10 .glass-card {
+    background: var(--win10-glass-bg);
+    border: var(--win10-glass-border);
+    box-shadow: var(--win10-glass-shadow);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-xl);
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 .text-gradient {
+    background: linear-gradient(90deg, var(--win10-primary) 0%, var(--win10-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    display: inline-block;
+}
+
+/* 英雄标题样式 */
+.win10 .hero-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: var(--win10-spacing-lg);
+    line-height: 1.2;
+}
+
+/* 英雄副标题样式 */
+.win10 .hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--win10-text-secondary);
+    margin-bottom: var(--win10-spacing-xl);
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+.win10 .bg-primary\/10 {
+    background-color: rgba(0, 120, 215, 0.1);
+    border-radius: var(--win10-border-radius);
+}
+
+.win10 .bg-secondary\/10 {
+    background-color: rgba(0, 188, 242, 0.1);
+    border-radius: var(--win10-border-radius);
+}
+
+.win10 .text-primary {
+    color: var(--win10-primary);
+}
+
+.win10 .text-secondary {
+    color: var(--win10-secondary);
+}
+
+/* 内容区域 */
+.win10 .glass-effect {
+    background: var(--win10-glass-bg);
+    border: var(--win10-glass-border);
+    box-shadow: var(--win10-shadow-sm);
+    border-radius: var(--win10-border-radius);
+}
+
+/* 页脚 */
+.win10 footer {
+    background-color: var(--win10-text-primary) !important;
+    color: var(--win10-text-white);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.win10 footer h4 {
+    color: var(--win10-text-white);
+    position: relative;
+    padding-bottom: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-lg);
+    border-bottom: 2px solid var(--win10-primary);
+}
+
+.win10 footer a {
+    color: var(--win10-text-white);
+    opacity: 0.8;
+    transition: var(--win10-transition);
+}
+
+.win10 footer a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* 返回顶部按钮 */
+.win10 .back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: var(--win10-primary) !important;
+    color: var(--win10-text-white);
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: var(--win10-border-radius);
+    box-shadow: var(--win10-shadow-button);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--win10-transition);
+    z-index: 1000;
+}
+
+.win10 .back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.win10 .back-to-top:hover {
+    background-color: var(--win10-primary-hover) !important;
+    transform: translateY(-2px);
+}
+
+/* 按钮样式 */
+.win10 button {
+    background-color: var(--win10-primary);
+    color: var(--win10-text-white);
+    border: none;
+    padding: var(--win10-spacing-sm) var(--win10-spacing-lg);
+    border-radius: var(--win10-border-radius);
+    font-weight: 600;
+    transition: var(--win10-transition);
+    box-shadow: var(--win10-shadow-button);
+}
+
+.win10 button:hover {
+    background-color: var(--win10-primary-hover);
+}
+
+.win10 button:active {
+    background-color: var(--win10-primary-active);
+}
+
+/* 卡片样式 */
+.win10 .card {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-sm);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-md);
+    transition: var(--win10-transition);
+}
+
+.win10 .card:hover {
+    background-color: var(--win10-surface-hover);
+}
+
+/* 表单样式 */
+.win10 input,
+.win10 textarea,
+.win10 select {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-sm) var(--win10-spacing-md);
+    color: var(--win10-text-primary);
+    font-family: inherit;
+    transition: var(--win10-transition);
+}
+
+.win10 input:focus,
+.win10 textarea:focus,
+.win10 select:focus {
+    outline: none;
+    border-color: var(--win10-primary);
+}
+
+/* 规则页面特定样式 */
+.win10 .rules-section {
+    padding: var(--win10-spacing-xxl) 0;
+    background-color: var(--win10-background-secondary);
+}
+
+.win10 .rules-container {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-xl);
+    box-shadow: var(--win10-shadow-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 优化规则目录和概述的布局 */
+.win10 .rules-toc {
+    margin-bottom: var(--win10-spacing-xl);
+}
+
+.win10 .rules-overview {
+    margin-bottom: var(--win10-spacing-xl);
+}
+
+.win10 .rules-container h2 {
+    color: var(--win10-primary);
+    border-bottom: 2px solid var(--win10-primary);
+    padding-bottom: var(--win10-spacing-sm);
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.win10 .rule-item {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    border-left: 4px solid var(--win10-primary);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-lg);
+    margin-bottom: var(--win10-spacing-md);
+    box-shadow: var(--win10-shadow-sm);
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.win10 .rule-item.highlight {
+    background-color: var(--win10-background-tertiary);
+    transform: translateX(4px);
+}
+
+.win10 .rule-item h3 {
+    color: var(--win10-primary);
+    margin-top: 0;
+    margin-bottom: var(--win10-spacing-sm);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.win10 .rule-item p {
+    color: var(--win10-text-primary);
+    margin-bottom: 0;
+}
+
+/* 规则列表样式 */
+.win10 .rule-item ul,
+.win10 .modern-list {
+    padding-left: var(--win10-spacing-md);
+    margin: 0;
+    list-style-type: none;
+}
+
+.win10 .rule-item ul li,
+.win10 .modern-list li {
+    color: var(--win10-text-primary);
+    padding: var(--win10-spacing-xs) 0;
+    line-height: 1.5;
+    position: relative;
+}
+
+.win10 .rule-item ul li::before,
+.win10 .modern-list li::before {
+    content: "•";
+    color: var(--win10-primary);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    margin-right: var(--win10-spacing-xs);
+}
+
+.win10 .rule-item.important {
+    border-left-color: var(--win10-error);
+    background-color: rgba(232, 17, 35, 0.05);
+}
+
+.win10 .rule-item.important h3 {
+    color: var(--win10-error);
+}
+
+.win10 .rule-item.warning {
+    border-left-color: var(--win10-warning);
+    background-color: rgba(255, 140, 0, 0.05);
+}
+
+.win10 .rule-item.warning h3 {
+    color: var(--win10-warning);
+}
+
+.win10 .rule-item.info {
+    border-left-color: var(--win10-info);
+    background-color: rgba(0, 120, 215, 0.05);
+}
+
+.win10 .rule-item.info h3 {
+    color: var(--win10-info);
+}
+
+/* 规则目录样式 */
+.win10 .rules-toc {
+    background-color: var(--win10-background-secondary);
+    padding: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-lg);
+    border-radius: var(--win10-border-radius);
+    border-left: 4px solid var(--win10-primary);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.win10 .rules-toc h3 {
+    color: var(--win10-primary);
+    margin-top: 0;
+    margin-bottom: var(--win10-spacing-md);
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.win10 .rules-toc ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.win10 .rules-toc li {
+    margin-bottom: var(--win10-spacing-sm);
+    padding: 0;
+}
+
+.win10 .rules-toc a {
+    color: var(--win10-text-primary);
+    text-decoration: none;
+    padding: var(--win10-spacing-xs) var(--win10-spacing-sm);
+    display: block;
+    border-radius: var(--win10-border-radius-small);
+    transition: var(--win10-transition);
+}
+
+.win10 .rules-toc a:hover {
+    background-color: var(--win10-background-tertiary);
+    color: var(--win10-primary);
+    transform: translateX(4px);
+    text-decoration: none;
+}
+
+/* 规则概述样式 */
+.win10 .rules-overview {
+    background-color: var(--win10-background-secondary);
+    padding: var(--win10-spacing-lg);
+    margin-bottom: var(--win10-spacing-lg);
+    border-radius: var(--win10-border-radius);
+    border-left: 4px solid var(--win10-secondary);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.win10 .rules-overview h2 {
+    color: var(--win10-secondary);
+    border-bottom: none;
+    margin-top: 0;
+    margin-bottom: var(--win10-spacing-md);
+}
+
+.win10 .rules-overview p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--win10-text-primary);
+    font-size: 1rem;
+}
+
+/* 规则搜索 */
+.win10 .rules-search {
+    background-color: var(--win10-background-secondary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 .rules-search input {
+    width: 100%;
+    border: 1px solid var(--win10-border-color);
+    padding: var(--win10-spacing-sm) var(--win10-spacing-md);
+}
+
+.win10 .rules-search button {
+    margin-top: var(--win10-spacing-sm);
+    width: 100%;
+}
+
+/* 规则标签 */
+.win10 .rule-tag {
+    display: inline-block;
+    background-color: var(--win10-primary);
+    color: var(--win10-text-white);
+    padding: 2px var(--win10-spacing-sm);
+    margin-right: var(--win10-spacing-sm);
+    border-radius: var(--win10-border-radius);
+    font-size: 0.8em;
+}
+
+.win10 .rule-tag.important {
+    background-color: var(--win10-error);
+}
+
+.win10 .rule-tag.warning {
+    background-color: var(--win10-warning);
+}
+
+.win10 .rule-tag.info {
+    background-color: var(--win10-info);
+}
+
+/* 规则网格布局 */
+.win10 .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--win10-spacing-lg);
+    max-width: 100%;
+    margin-top: var(--win10-spacing-xl);
+}
+
+/* 响应式布局 */
+@media (min-width: 768px) {
+    .win10 .rules-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--win10-spacing-lg);
+    }
+}
+
+@media (min-width: 1024px) {
+    .win10 .rules-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: var(--win10-spacing-xl);
+    }
+}
+
+
+
+.win10 .rule-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--win10-shadow-md);
+    background-color: var(--win10-background-tertiary);
+}
+
+.win10 .rule-item ul {
+    flex-grow: 1;
+}
+
+/* 班级公约样式 */
+.win10 .agreement-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--win10-spacing-md);
+    margin-top: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+@media (min-width: 768px) {
+    .win10 .agreement-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .win10 .agreement-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.win10 .agreement-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--win10-spacing-md);
+    background-color: var(--win10-background-secondary);
+    border-radius: var(--win10-border-radius);
+    border: 1px solid var(--win10-border-color);
+    transition: var(--win10-transition);
+}
+
+.win10 .agreement-item:hover {
+    background-color: var(--win10-background-tertiary);
+    transform: translateY(-2px);
+}
+
+.win10 .agreement-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--win10-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--win10-spacing-sm);
+    color: var(--win10-text-white);
+    font-size: 1.25rem;
+}
+
+.win10 .agreement-item p {
+    margin: 0;
+    color: var(--win10-text-primary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* 规则折叠/展开 */
+.win10 .rule-toggle {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    color: var(--win10-text-primary);
+    padding: var(--win10-spacing-sm) var(--win10-spacing-md);
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+
+.win10 .rule-toggle:hover {
+    background-color: var(--win10-surface-hover);
+}
+
+.win10 .rule-content {
+    display: none;
+    padding: var(--win10-spacing-md);
+    border-top: 1px solid var(--win10-border-color);
+}
+
+.win10 .rule-content.show {
+    display: block;
+}
+
+/* 动画效果 */
+.win10 [data-aos] {
+    transition-property: transform, opacity;
+}
+
+.win10 .aos-animate {
+    transform: translateZ(0);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .win10 .navbar-menu {
+        display: none;
+    }
+
+    .win10 .mobile-menu-btn {
+        display: block;
+    }
+
+    .win10 .glass-card {
+        padding: var(--win10-spacing-md);
+    }
+
+    /* 响应式页脚 */
+@media (max-width: 768px) {
+    /* 确保页脚中所有文字都为白色 */
+.win10 footer * {
+    color: #ffffff !important;
+}
+
+/* 页脚链接特殊样式 */
+.win10 footer a,
+.win10 footer a:link,
+.win10 footer a:visited,
+.win10 footer a:hover,
+.win10 footer a:active {
+    color: #ffffff !important;
+    opacity: 1;
+    text-decoration: none !important;
+}
+
+/* 版权信息样式 */
+.win10 .footer-copyright {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 0.875rem;
+    margin: 0;
+}
+}
+
+    .win10 .rules-container {
+        padding: var(--win10-spacing-md);
+    }
+}
+
+/* 自定义页脚样式 */
+/* 页脚 */
+.win10 footer {
+    background-color: var(--win10-primary) !important;
+    color: var(--win10-text-white);
+    border-top: none;
+    padding: var(--win10-spacing-xxl) 0;
+}
+
+/* 页脚容器样式 */
+.win10 footer .container {
+    width: 100%;
+    padding-left: var(--win10-spacing-lg);
+    padding-right: var(--win10-spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 页脚内容区域 - 使用flex布局实现横向排版 */
+.win10 footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-xl);
+    width: 100%;
+}
+
+/* 确保在中等屏幕及以上正确横向排版 */
+@media (min-width: 640px) {
+    .win10 footer .footer-content {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .win10 footer .footer-brand,
+    .win10 footer .footer-links,
+    .win10 footer .footer-resources,
+    .win10 footer .footer-contact {
+        flex: 1 1 45%;
+        min-width: 200px;
+        margin-bottom: var(--win10-spacing-lg);
+    }
+}
+
+@media (min-width: 768px) {
+    .win10 footer .footer-content {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+    
+    .win10 footer .footer-brand,
+    .win10 footer .footer-links,
+    .win10 footer .footer-resources,
+    .win10 footer .footer-contact {
+        flex: 1;
+        margin-bottom: 0;
+        padding: 0 var(--win10-spacing-sm);
+    }
+}
+
+@media (min-width: 1024px) {
+    .win10 footer .footer-content {
+        gap: var(--win10-spacing-xxl);
+    }
+    
+    .win10 footer .footer-brand {
+        flex: 2;
+    }
+}
+
+/* 修复页脚底部版权区域的布局 */
+.win10 footer .footer-bottom {
+    width: 100%;
+    text-align: center;
+    padding-top: var(--win10-spacing-lg);
+    margin-top: var(--win10-spacing-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 页脚品牌 */
+.win10 .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-md);
+}
+
+.win10 .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-md);
+}
+
+.win10 .footer-logo i {
+    font-size: 2rem;
+    color: var(--win10-text-white);
+}
+
+.win10 .footer-brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.win10 .footer-brand-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--win10-text-white);
+}
+
+.win10 .footer-brand-desc {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.win10 .footer-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-top: var(--win10-spacing-md);
+}
+
+/* 页脚标题 */
+.win10 .footer-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--win10-text-white);
+    position: relative;
+    padding-bottom: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-lg);
+    border-bottom: 2px solid var(--win10-text-white);
+}
+
+/* 页脚底部 */
+.win10 .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--win10-spacing-xxl);
+    padding-top: var(--win10-spacing-lg);
+    text-align: center;
+}
+
+.win10 .footer-copyright {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* 页脚联系方式 */
+.win10 .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-md);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* 修复联系信息项的对齐 */
+.win10 .footer-contact .contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--win10-spacing-md);
+    padding: var(--win10-spacing-xs) 0;
+}
+
+.win10 .footer-contact i {
+    color: var(--win10-text-white);
+}
+
+.win10 footer h4 {
+    color: var(--win10-text-white);
+    border-bottom: 2px solid var(--win10-text-white);
+    padding-bottom: var(--win10-spacing-sm);
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 footer a {
+    color: var(--win10-text-white);
+    opacity: 0.8;
+    transition: var(--win10-transition);
+}
+
+.win10 footer a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* 页脚链接列表样式优化 */
+.win10 .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-sm);
+}
+
+/* 页脚中的modern-list特殊样式 */
+.win10 footer .modern-list {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.win10 footer .modern-list li {
+    border-bottom: none;
+    padding: var(--win10-spacing-xs) 0;
+    justify-content: flex-start;
+}
+
+.win10 footer .modern-list li:hover {
+    background-color: transparent;
+}
+
+.win10 .footer-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.win10 .footer-links a,
+.win10 .footer-link {
+    display: inline-block;
+    padding: var(--win10-spacing-xs) 0;
+    position: relative;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    font-weight: 500;
+}
+
+.win10 .footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--win10-text-white);
+    transition: width 0.2s ease;
+}
+
+.win10 .footer-links a:hover::after {
+    width: 100%;
+}
+
+.win10 .footer-links a:hover {
+    opacity: 1;
+    text-decoration: none !important;
+}
+
+.win10 .footer-link:hover {
+    opacity: 1;
+    text-decoration: none !important;
+}
+.win10 footer {
+        padding: var(--win10-spacing-lg) var(--win10-spacing-md);
+    }
+
+/* 页脚 */
+.win10 footer {
+    background-color: var(--win10-primary) !important;
+    color: var(--win10-text-white);
+    border-top: none;
+    padding: var(--win10-spacing-xxl) 0;
+}
+
+/* 页脚网格布局 */
+.win10 .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--win10-spacing-xl);
+}
+
+@media (min-width: 768px) {
+    .win10 .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .win10 .footer-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+/* 页脚品牌 */
+.win10 .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-md);
+}
+
+.win10 .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-md);
+}
+
+.win10 .footer-logo i {
+    font-size: 2rem;
+    color: var(--win10-text-white);
+}
+
+.win10 .footer-brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.win10 .footer-brand-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--win10-text-white);
+}
+
+.win10 .footer-brand-desc {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.win10 .footer-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-top: var(--win10-spacing-md);
+}
+
+/* 页脚标题 */
+.win10 .footer-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--win10-text-white);
+    position: relative;
+    padding-bottom: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-lg);
+    border-bottom: 2px solid var(--win10-text-white);
+}
+
+/* 页脚底部 */
+.win10 .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--win10-spacing-xxl);
+    padding-top: var(--win10-spacing-lg);
+    text-align: center;
+}
+
+.win10 .footer-copyright {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* 页脚联系方式 */
+.win10 .footer-contact {
+    display: flex;
+    align-items: center;
+    gap: var(--win10-spacing-md);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.win10 .footer-contact i {
+    color: var(--win10-text-white);
+}
+
+.win10 footer h4 {
+    color: var(--win10-text-white);
+    border-bottom: 2px solid var(--win10-text-white);
+    padding-bottom: var(--win10-spacing-sm);
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 footer a {
+    color: var(--win10-text-white);
+    opacity: 0.8;
+    transition: var(--win10-transition);
+}
+
+.win10 footer a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* 页脚链接列表样式优化 */
+.win10 .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-sm);
+}
+
+/* 页脚中的modern-list特殊样式 */
+.win10 footer .modern-list {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.win10 footer .modern-list li {
+    border-bottom: none;
+    padding: var(--win10-spacing-xs) 0;
+    justify-content: flex-start;
+}
+
+.win10 footer .modern-list li:hover {
+    background-color: transparent;
+}
+
+.win10 .footer-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.win10 .footer-links a {
+    display: inline-block;
+    padding: var(--win10-spacing-xs) 0;
+    position: relative;
+    text-decoration: none !important;
+    color: #ffffff !important;
+}
+
+.win10 .footer-link {
+    display: inline-block;
+    padding: var(--win10-spacing-xs) 0;
+    position: relative;
+    text-decoration: none !important;
+    color: #ffffff !important;
+}
+
+.win10 .footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--win10-text-white);
+    transition: width 0.2s ease;
+}
+
+.win10 .footer-links a:hover::after {
+    width: 100%;
+}
+
+.win10 .footer-links a:hover {
+    opacity: 1;
+    text-decoration: none !important;
+}
+
+.win10 .footer-link:hover {
+    opacity: 1;
+    text-decoration: none !important;
+}
+.win10 footer {
+        padding: var(--win10-spacing-lg) var(--win10-spacing-md);
+    }
+.win10 footer * {
+    color: #ffffff !important;
+}

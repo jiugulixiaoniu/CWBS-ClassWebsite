@@ -3,112 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <title>关于我们 - 九（2）班 班级网站</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-    <!-- marked 核心 -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <!-- AOS动画库 -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <script src="render.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#3B82F6',
-                        secondary: '#10B981',
-                        accent: '#8B5CF6',
-                        dark: '#1F2937',
-                        light: '#F3F4F6',
-                        notice: '#FBBF24'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        display: ['Poppins', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-            .text-gradient { background-clip: text; -webkit-background-clip: text; color: transparent; }
-            .notice-card-hover { transition: all 0.3s ease; }
-            .notice-card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.1); }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- 引入基础样式 -->
+    <link rel="stylesheet" href="../css/base.css">
+    <!-- 引入站点配置 -->
+    <script src="../js/site-config.js"></script>
+    <!-- 引入侧边栏主题加载器 - 负责动态加载win10-sidebar.css或win11-sidebar.css -->
+    <script src="css/theme-loader.js"></script>
+    
+    <!-- 页面JavaScript -->
 </head>
+<body class="main-body custom-scrollbar" style="visibility: hidden;">
+    <!-- 页面加载中占位符 -->
+    <div id="page-loader" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #f3f2f1; display: flex; align-items: center; justify-content: center; z-index: 9999;">
+        <div style="text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;"><i class="fas fa-info-circle"></i></div>
+            <p style="font-size: 1.2rem; color: #6e6e6e;">加载中...</p>
+        </div>
+    </div>
 
-<body class="bg-gradient-to-br from-light to-blue-50 min-h-screen">
-    <!-- 导航栏（与原页面完全相同） -->
-    <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur shadow-sm z-50 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
-                            <i class="fas fa-chart-line text-white text-xl"></i>
+    <!-- 导航栏 - 动态主题类名将在sidebar-theme-loader.js中应用 -->
+    <nav id="navbar" class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <div class="logo-container">
+                        <div class="logo animate-glow">
+                            <i class="fas fa-info-circle"></i>
                         </div>
-                        <div class="ml-3">
-                            <span class="block text-sm font-semibold text-dark">九（2）班</span>
-                            <span class="block text-xs text-gray-500">班级网站</span>
-                        </div>
+                        <div class="logo-status"></div>
+                    </div>
+                    <div class="brand-info">
+                        <span class="site-name">九（2）班</span>
+                        <span class="site-description">关于我们</span>
                     </div>
                 </div>
 
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="../index.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">首页</a>
-                        <a href="../index.html#class-info" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">班级介绍</a>
-                        <a href="../index.html#recent-activities" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">班级动态</a>
-                        <a href="Rules.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">班级规章</a>
-                        <a href="ClassStyle.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">班级风采</a>
-                        <a href="treasurebox.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">百宝箱</a>
-                        <a href="#" class="text-dark hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 border-b-2 border-primary">关于我们</a>
-                    </div>
+                <div class="navbar-menu">
+                    <a href="../index.html" class="win11-navbar-link nav-home">首页</a>
+                    <a href="../index.html#class-info" class="win11-navbar-link">班级介绍</a>
+                    <a href="notice.html" class="win11-navbar-link">班级动态</a>
+                    <a href="rules.html" class="win11-navbar-link">班级规章</a>
+                    <a href="timetable.html" class="win11-navbar-link">课程表</a>
+                    <a href="classstyle.html" class="win11-navbar-link nav-classstyle">班级风采</a>
+                    <a href="treasurebox.html" class="win11-navbar-link nav-treasurebox">百宝箱</a>
+                    <a href="#" class="win11-navbar-link nav-about">关于我们</a>
                 </div>
 
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-500 hover:text-primary focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
+                <div class="navbar-actions">
+                    <button class="win11-btn-text notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <button class="win11-btn-text mobile-menu-btn" id="mobile-menu-button">
+                        <i class="fas fa-bars"></i>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- 移动端菜单 -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg rounded-b-lg absolute w-full">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="../index.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">首页</a>
-                <a href="../index.html#class-info" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级介绍</a>
-                <a href="../index.html#recent-activities" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级动态</a>
-                <a href="Rules.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级规章</a>
-                <a href="ClassStyle.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级风采</a>
-                <a href="treasurebox.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">百宝箱</a>
-                <a href="#" class="text-dark hover:text-primary block px-3 py-2 rounded-md text-base font-medium bg-blue-50">关于我们</a>
+        <div id="mobile-menu" class="mobile-menu win11-card">
+            <div class="mobile-menu-content">
+                <a href="../index.html" class="win11-navbar-link nav-home">首页</a>
+                <a href="../index.html#class-info" class="win11-navbar-link">班级介绍</a>
+                <a href="notice.html" class="win11-navbar-link">班级动态</a>
+                <a href="rules.html" class="win11-navbar-link">班级规章</a>
+                <a href="timetable.html" class="win11-navbar-link">课程表</a>
+                <a href="classstyle.html" class="win11-navbar-link nav-classstyle">班级风采</a>
+                <a href="treasurebox.html" class="win11-navbar-link nav-treasurebox">百宝箱</a>
+                <a href="#" class="win11-navbar-link nav-about">关于我们</a>
             </div>
         </div>
     </nav>
 
     <!-- 英雄区域（只保留标题壳） -->
-    <section class="pt-32 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <section class="pt-56 pb-15 md:pt-72 md:pb-15 px-4 sm:px-4 lg:px-6" style="position: relative; z-index: 1; margin-top: 80px;">
         <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center">
-                <!-- 标题由 JS 动态注入 -->
+            <div class="max-w-4xl mx-auto text-center glass-card p-8 rounded-2xl" data-aos="fade-up">
                 <h1 id="page-title" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent text-gradient">
                     <!-- 占位 -->
                 </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+                    了解我们班级的创建背景、发展历程和团队理念
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <div class="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary">
+                        <i class="fas fa-users mr-2"></i>
+                        <span class="font-medium">团队介绍</span>
+                    </div>
+                    <div class="inline-flex items-center px-4 py-2 bg-secondary/10 rounded-full text-secondary">
+                        <i class="fas fa-heart mr-2"></i>
+                        <span class="font-medium">班级理念</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- 通知正文容器 -->
-    <section class="py-16 bg-light">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-8 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
             <div class="max-w-4xl mx-auto">
-                <div id="content">
+                <div id="content" class="glass-effect rounded-xl p-8" data-aos="fade-up" data-aos-delay="100">
                     <!-- JS 会把整个通知卡片插到这里 -->
                 </div>
             </div>
@@ -116,13 +122,15 @@
     </section>
 
     <!-- 页脚 -->
-    <footer class="bg-dark text-white py-12">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
+    <footer class="bg-dark text-white py-6">
+        <div class="container mx-auto px-4">
+            <!-- 使用flex布局确保横向排版 -->
+            <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+                <!-- 第一列 -->
+                <div style="flex: 1 1 200px; margin-bottom: 20px; padding: 0 10px;">
                     <div class="flex items-center mb-4">
                         <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
-                            <i class="fas fa-chart-line text-white text-xl"></i>
+                            <i class="fas fa-info-circle text-white text-xl"></i>
                         </div>
                         <div class="ml-3">
                             <span class="block text-sm font-semibold text-white">九（2）班</span>
@@ -134,9 +142,10 @@
                     </p>
                 </div>
 
-                <div>
+                <!-- 第二列 -->
+                <div style="flex: 1 1 200px; margin-bottom: 20px; padding: 0 10px;">
                     <h4 class="text-lg font-semibold mb-4">快速链接</h4>
-                    <ul class="space-y-2">
+                    <ul class="space-y-2 modern-list">
                         <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">首页</a></li>
                         <li><a href="../index.html#class-info" class="text-gray-400 hover:text-white transition-colors duration-200">班级介绍</a></li>
                         <li><a href="../index.html#recent-activities" class="text-gray-400 hover:text-white transition-colors duration-200">班级动态</a></li>
@@ -147,9 +156,10 @@
                     </ul>
                 </div>
 
-                <div>
+                <!-- 第三列 -->
+                <div style="flex: 1 1 200px; margin-bottom: 20px; padding: 0 10px;">
                     <h4 class="text-lg font-semibold mb-4">资源中心</h4>
-                    <ul class="space-y-2">
+                    <ul class="space-y-2 modern-list">
                         <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">班级相册</a></li>
                         <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">学习资源</a></li>
                         <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">活动记录</a></li>
@@ -158,9 +168,10 @@
                     </ul>
                 </div>
 
-                <div>
+                <!-- 第四列 -->
+                <div style="flex: 1 1 200px; margin-bottom: 20px; padding: 0 10px;">
                     <h4 class="text-lg font-semibold mb-4">联系信息</h4>
-                    <ul class="space-y-2">
+                    <ul class="space-y-2 modern-list">
                         <li class="flex items-center">
                             <i class="fas fa-envelope text-gray-400 mr-2"></i>
                             <span class="text-gray-400">联系管理员</span>
@@ -169,9 +180,10 @@
                 </div>
             </div>
 
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">
-                    © 2025 JGL STUDIO. 保留所有权利。
+            <!-- 版权信息 -->
+            <div class="border-t border-gray-800 mt-4 pt-4 text-center">
+                <p class="text-gray-400 text-sm footer-copyright">
+                    © 2024 JGL STUDIO. 保留所有权利。
                 </p>
             </div>
         </div>
@@ -182,36 +194,140 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- 导航交互（与原页面相同） -->
     <script>
-        const navbar = document.getElementById('navbar');
-        const backToTop = document.getElementById('back-to-top');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md');
-                navbar.classList.remove('shadow-sm');
-            } else {
-                navbar.classList.remove('shadow-md');
-                navbar.classList.add('shadow-sm');
+        // 页面加载后初始化AOS
+        window.addEventListener('sidebar.theme.render.ready', function() {
+            console.log('主题渲染完成，初始化关于我们页面...');
+            
+            // 隐藏加载中占位符
+            const pageLoader = document.getElementById('page-loader');
+            if (pageLoader) {
+                pageLoader.style.display = 'none';
             }
-
-            if (window.scrollY > 300) {
-                backToTop.classList.remove('opacity-0', 'invisible');
-                backToTop.classList.add('opacity-100', 'visible');
-            } else {
-                backToTop.classList.add('opacity-0', 'invisible');
-                backToTop.classList.remove('opacity-100', 'visible');
+            
+            // 显示页面内容
+            const pageContent = document.querySelector('body');
+            if (pageContent) {
+                pageContent.style.visibility = 'visible';
             }
-        });
-
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
+            
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+            
+            // 设置页面标题
+            document.getElementById('page-title').textContent = '了解我们的班级';
+            
+            // 加载内容
+        loadAboutContent();
+        
+        // 初始化移动端菜单功能
+        initMobileMenu();
+        
+        // 初始化返回顶部按钮
+        initBackToTop();
+        
+        console.log('关于我们页面初始化完成');
+    });
+    
+    // 移动端菜单功能
+    function initMobileMenu() {
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const isOpen = mobileMenu.style.display === 'block';
+                mobileMenu.style.display = isOpen ? 'none' : 'block';
+                
+                // 添加动画效果
+                if (!isOpen) {
+                    mobileMenu.style.opacity = '0';
+                    mobileMenu.style.transform = 'translateY(-10px)';
+                    
+                    setTimeout(() => {
+                        mobileMenu.style.opacity = '1';
+                        mobileMenu.style.transform = 'translateY(0)';
+                    }, 10);
+                }
+            });
+            
+            // 点击菜单外区域关闭菜单
+            document.addEventListener('click', function(event) {
+                if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                    mobileMenu.style.display = 'none';
+                }
+            });
+        }
+    }
+    
+    // 返回顶部按钮功能
+    function initBackToTop() {
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        if (backToTopBtn) {
+            // 监听滚动事件
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'invisible');
+                    backToTopBtn.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopBtn.classList.remove('opacity-100', 'visible');
+                    backToTopBtn.classList.add('opacity-0', 'invisible');
+                }
+            });
+            
+            // 点击返回顶部
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    }
+    
+    function loadAboutContent() {
+            const contentElement = document.getElementById('content');
+            if (contentElement) {
+                // 这里应该有具体的内容加载逻辑
+                contentElement.innerHTML = `
+                    <div class="space-y-8">
+                        <div class="glass-card p-6 rounded-xl">
+                            <h2 class="text-2xl font-bold mb-4">班级简介</h2>
+                            <p class="text-gray-600 leading-relaxed">
+                                九（2）班是一个充满活力与创造力的集体，我们秉承着"团结、进取、创新、超越"的班级理念，
+                                在学习与生活中互相帮助、共同进步。我们的班级由来自不同背景的同学组成，
+                                每个人都有自己的特长和优势，共同构成了这个温馨而多彩的大家庭。
+                            </p>
+                        </div>
+                        
+                        <div class="glass-card p-6 rounded-xl">
+                            <h2 class="text-2xl font-bold mb-4">班级理念</h2>
+                            <ul class="space-y-3 text-gray-600 modern-list">
+                                <li class="flex items-start">
+                                    <i class="fas fa-users text-primary mt-1 mr-3"></i>
+                                    <span><strong>团结：</strong>凝聚力量，共同成长</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-rocket text-primary mt-1 mr-3"></i>
+                                    <span><strong>进取：</strong>积极向上，永不止步</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-lightbulb text-primary mt-1 mr-3"></i>
+                                    <span><strong>创新：</strong>发散思维，勇于尝试</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-trophy text-primary mt-1 mr-3"></i>
+                                    <span><strong>超越：</strong>突破自我，追求卓越</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+        }
     </script>
 </body>
 </html>

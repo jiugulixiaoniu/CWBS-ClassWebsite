@@ -1,0 +1,513 @@
+/* Windows 11 Flutter UI Theme */
+
+/* CSS Variables for Flutter-inspired Theme */
+:root {
+  --flutter-primary: #3B82F6;
+  --flutter-primary-dark: #2563EB;
+  --flutter-primary-light: #93C5FD;
+  --flutter-secondary: #8B5CF6;
+  --flutter-tertiary: #EC4899;
+  --flutter-success: #10B981;
+  --flutter-warning: #F59E0B;
+  --flutter-error: #EF4444;
+  --flutter-info: #3B82F6;
+  
+  --flutter-bg-primary: #F9FAFB;
+  --flutter-bg-secondary: #FFFFFF;
+  --flutter-bg-tertiary: #F3F4F6;
+  
+  --flutter-text-primary: #111827;
+  --flutter-text-secondary: #4B5563;
+  --flutter-text-tertiary: #9CA3AF;
+  --flutter-text-light: #FFFFFF;
+  
+  --flutter-border: #E5E7EB;
+  --flutter-border-light: #F3F4F6;
+  
+  --flutter-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --flutter-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --flutter-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --flutter-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  --flutter-radius-sm: 0.25rem;
+  --flutter-radius-md: 0.375rem;
+  --flutter-radius-lg: 0.5rem;
+  --flutter-radius-xl: 0.75rem;
+  --flutter-radius-2xl: 1rem;
+  --flutter-radius-full: 9999px;
+}
+
+/* Global Flutter UI Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+  background-color: var(--flutter-bg-primary) !important;
+  color: var(--flutter-text-primary) !important;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header/Navigation - Flutter Style */
+#navbar {
+  background-color: var(--flutter-bg-secondary) !important;
+  border-bottom: 1px solid var(--flutter-border) !important;
+  box-shadow: var(--flutter-shadow-sm) !important;
+  padding: 12px 0 !important;
+}
+
+#navbar a {
+  color: var(--flutter-text-primary) !important;
+  font-weight: 500 !important;
+  padding: 8px 16px !important;
+  border-radius: var(--flutter-radius-lg) !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+#navbar a:hover {
+  color: var(--flutter-primary) !important;
+  background-color: rgba(59, 130, 246, 0.08) !important;
+}
+
+#navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--flutter-primary);
+  transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#navbar a:hover::after {
+  width: 70%;
+}
+
+/* Footer - Flutter Style */
+footer {
+  background-color: var(--flutter-text-primary) !important;
+  color: var(--flutter-text-light) !important;
+  padding: 40px 0 !important;
+  border-top: 4px solid var(--flutter-primary) !important;
+}
+
+footer a {
+  color: #D1D5DB !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-bottom: 1px solid transparent !important;
+}
+
+footer a:hover {
+  color: var(--flutter-primary-light) !important;
+  border-bottom: 1px solid var(--flutter-primary-light) !important;
+}
+
+/* Flutter UI Buttons */
+button {
+  border-radius: var(--flutter-radius-lg) !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: var(--flutter-shadow-md) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background-color: var(--flutter-primary) !important;
+  color: var(--flutter-text-light) !important;
+  background: linear-gradient(135deg, var(--flutter-primary), var(--flutter-primary-dark)) !important;
+  border: none !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--flutter-primary-dark) !important;
+  background: linear-gradient(135deg, var(--flutter-primary-dark), #1D4ED8) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: var(--flutter-shadow-lg) !important;
+}
+
+.btn-primary:active {
+  transform: translateY(0) !important;
+}
+
+/* Article Content - Flutter Style */
+#article-content {
+  background-color: var(--flutter-bg-secondary) !important;
+  border: 1px solid var(--flutter-border) !important;
+  border-radius: var(--flutter-radius-xl) !important;
+  padding: 30px !important;
+  box-shadow: var(--flutter-shadow-md) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+#article-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--flutter-primary), var(--flutter-secondary), var(--flutter-tertiary));
+}
+
+/* Flutter UI Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600 !important;
+  color: var(--flutter-text-primary) !important;
+  margin-bottom: 1rem !important;
+  line-height: 1.3;
+}
+
+#article-title {
+  font-size: clamp(2rem, 5vw, 3rem) !important;
+  margin-bottom: 1.5rem !important;
+  background: linear-gradient(135deg, var(--flutter-primary), var(--flutter-secondary)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: 700 !important;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+#article-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--flutter-primary), var(--flutter-secondary), var(--flutter-tertiary));
+  border-radius: var(--flutter-radius-full);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem) !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1.25rem !important;
+  color: var(--flutter-text-primary) !important;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--flutter-primary);
+  border-radius: var(--flutter-radius-full);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem) !important;
+  margin-top: 2rem !important;
+  color: var(--flutter-text-primary) !important;
+}
+
+p {
+  margin-bottom: 1.25rem !important;
+  color: var(--flutter-text-secondary) !important;
+  font-size: 1rem !important;
+  line-height: 1.7;
+}
+
+/* Flutter UI Lists */
+ul, ol {
+  padding-left: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+li {
+  margin-bottom: 0.5rem !important;
+  color: var(--flutter-text-secondary) !important;
+}
+
+ul li {
+  list-style-type: none !important;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--flutter-primary);
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+ol li {
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+/* Flutter UI Links */
+a {
+  color: var(--flutter-primary) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  display: inline-block;
+}
+
+a:hover {
+  color: var(--flutter-primary-dark) !important;
+  transform: translateY(-1px);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--flutter-primary-light);
+  border-radius: var(--flutter-radius-full);
+  transform: scaleX(0);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Flutter UI Tables */
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-bottom: 1.5rem !important;
+  background-color: var(--flutter-bg-secondary) !important;
+  border-radius: var(--flutter-radius-lg) !important;
+  overflow: hidden;
+  box-shadow: var(--flutter-shadow-sm) !important;
+}
+
+th {
+  background-color: var(--flutter-primary) !important;
+  color: var(--flutter-text-light) !important;
+  padding: 12px 16px !important;
+  text-align: left !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.5px;
+}
+
+td {
+  padding: 12px 16px !important;
+  border-bottom: 1px solid var(--flutter-border) !important;
+  color: var(--flutter-text-secondary) !important;
+}
+
+tr:last-child td {
+  border-bottom: none !important;
+}
+
+tr:nth-child(even) {
+  background-color: var(--flutter-bg-tertiary) !important;
+}
+
+tr:hover {
+  background-color: rgba(59, 130, 246, 0.04) !important;
+}
+
+/* Flutter UI Code Blocks */
+pre, code {
+  background-color: var(--flutter-bg-tertiary) !important;
+  border-radius: var(--flutter-radius-md) !important;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace !important;
+}
+
+pre {
+  padding: 1.5rem !important;
+  border: 1px solid var(--flutter-border) !important;
+  overflow-x: auto !important;
+  box-shadow: var(--flutter-shadow-sm) !important;
+  margin-bottom: 1.5rem !important;
+}
+
+code {
+  padding: 0.2rem 0.4rem !important;
+  font-size: 0.875rem !important;
+}
+
+/* Flutter UI Notice Levels */
+.notice-level {
+  padding: 6px 12px !important;
+  border-radius: var(--flutter-radius-full) !important;
+  font-weight: 600 !important;
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  display: inline-block;
+  margin-bottom: 0.5rem !important;
+}
+
+.notice-level.primary {
+  background-color: rgba(59, 130, 246, 0.1) !important;
+  color: var(--flutter-primary) !important;
+}
+
+.notice-level.secondary {
+  background-color: rgba(156, 163, 175, 0.1) !important;
+  color: var(--flutter-text-secondary) !important;
+}
+
+.notice-level.success {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  color: var(--flutter-success) !important;
+}
+
+.notice-level.warning {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+  color: var(--flutter-warning) !important;
+}
+
+.notice-level.danger {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  color: var(--flutter-error) !important;
+}
+
+/* 返回顶部按钮 - Flutter Style */
+#back-to-top {
+  background-color: var(--flutter-primary) !important;
+  color: var(--flutter-text-light) !important;
+  border-radius: var(--flutter-radius-full) !important;
+  width: 48px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: var(--flutter-shadow-lg) !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: none !important;
+}
+
+#back-to-top:hover {
+  background-color: var(--flutter-primary-dark) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: var(--flutter-shadow-xl) !important;
+}
+
+#back-to-top:active {
+  transform: translateY(0) !important;
+}
+
+/* 移动端菜单 - Flutter Style */
+#mobile-menu {
+  background-color: var(--flutter-bg-secondary) !important;
+  border: 1px solid var(--flutter-border) !important;
+  border-radius: var(--flutter-radius-xl) !important;
+  margin: 12px !important;
+  box-shadow: var(--flutter-shadow-lg) !important;
+  overflow: hidden;
+}
+
+#mobile-menu a {
+  color: var(--flutter-text-primary) !important;
+  font-weight: 500 !important;
+  padding: 16px 20px !important;
+  display: block !important;
+  border-bottom: 1px solid var(--flutter-border-light) !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+#mobile-menu a:last-child {
+  border-bottom: none !important;
+}
+
+#mobile-menu a:hover {
+  background-color: var(--flutter-bg-tertiary) !important;
+  color: var(--flutter-primary) !important;
+  padding-left: 24px !important;
+}
+
+/* Flutter UI滚动条 */
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--flutter-bg-tertiary) !important;
+  border-radius: var(--flutter-radius-full) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--flutter-text-tertiary) !important;
+  border-radius: var(--flutter-radius-full) !important;
+  border: 2px solid var(--flutter-bg-tertiary) !important;
+  transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--flutter-text-secondary) !important;
+}
+
+/* 通用动画效果 */
+* {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* 卡片悬停效果 */
+.glass-card {
+  background: var(--flutter-bg-secondary) !important;
+  border: 1px solid var(--flutter-border) !important;
+  border-radius: var(--flutter-radius-xl) !important;
+  box-shadow: var(--flutter-shadow-md) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: var(--flutter-shadow-xl) !important;
+  border-color: var(--flutter-primary-light) !important;
+}
+
+/* 圆角优化 */
+.rounded-lg {
+  border-radius: var(--flutter-radius-lg) !important;
+}
+
+.rounded-xl {
+  border-radius: var(--flutter-radius-xl) !important;
+}
+
+.rounded-2xl {
+  border-radius: var(--flutter-radius-2xl) !important;
+}
+
+.rounded-full {
+  border-radius: var(--flutter-radius-full) !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  #article-content {
+    padding: 24px 16px !important;
+  }
+  
+  #article-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+  }
+  
+  h2 {
+    font-size: clamp(1.25rem, 3vw, 1.75rem) !important;
+  }
+  
+  p, li {
+    font-size: 0.9375rem !important;
+  }
+}

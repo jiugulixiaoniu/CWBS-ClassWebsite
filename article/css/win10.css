@@ -1,0 +1,324 @@
+/* Windows 10 Metro UI Theme */
+
+/* CSS Variables for Win10 Metro Theme */
+:root {
+  --metro-bg-primary: #0078D4;
+  --metro-bg-secondary: #f2f2f2;
+  --metro-bg-dark: #000000;
+  --metro-bg-light: #ffffff;
+  --metro-text-primary: #000000;
+  --metro-text-secondary: #666666;
+  --metro-text-light: #ffffff;
+  --metro-accent-blue: #0078D4;
+  --metro-accent-green: #107C10;
+  --metro-accent-red: #E81123;
+  --metro-accent-yellow: #FFB900;
+  --metro-accent-purple: #5C2D91;
+  --metro-accent-orange: #FF8C00;
+  --metro-border: #cccccc;
+  --metro-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Global Metro UI Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  background-color: var(--metro-bg-secondary) !important;
+  color: var(--metro-text-primary) !important;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* Header/Navigation - Metro Style */
+#navbar {
+  background-color: var(--metro-bg-primary) !important;
+  color: var(--metro-text-light) !important;
+  padding: 12px 0 !important;
+  box-shadow: none !important;
+  position: relative !important;
+  border-bottom: none !important;
+}
+
+#navbar::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, var(--metro-accent-blue) 0%, var(--metro-accent-green) 100%) !important;
+}
+
+#navbar a {
+  color: var(--metro-text-light) !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  padding: 8px 16px !important;
+  border-radius: 0 !important;
+  transition: all 0.2s ease !important;
+}
+
+#navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--metro-text-light) !important;
+}
+
+/* Footer - Metro Style */
+footer {
+  background-color: var(--metro-bg-dark) !important;
+  color: var(--metro-text-light) !important;
+  padding: 30px 0 !important;
+  border-top: 4px solid var(--metro-accent-blue) !important;
+}
+
+footer a {
+  color: #cccccc !important;
+  border-bottom: 1px solid transparent !important;
+  transition: all 0.2s ease !important;
+}
+
+footer a:hover {
+  color: var(--metro-text-light) !important;
+  border-bottom: 1px solid var(--metro-text-light) !important;
+}
+
+/* Metro UI Buttons - Square with hover effect */
+button {
+  border-radius: 0 !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.2s ease !important;
+  box-shadow: var(--metro-shadow) !important;
+}
+
+.btn-primary {
+  background-color: var(--metro-accent-blue) !important;
+  color: var(--metro-text-light) !important;
+  background: var(--metro-accent-blue) !important;
+  border: none !important;
+}
+
+.btn-primary:hover {
+  background-color: #005a9e !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) !important;
+  background: #005a9e !important;
+}
+
+/* Article Content - Metro Style */
+#article-content {
+  background-color: var(--metro-bg-light) !important;
+  border: 1px solid var(--metro-border) !important;
+  padding: 30px !important;
+  box-shadow: var(--metro-shadow) !important;
+  border-left: 4px solid var(--metro-accent-blue) !important;
+  border-radius: 0 !important;
+}
+
+/* Metro UI Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600 !important;
+  color: var(--metro-text-primary) !important;
+  margin-bottom: 16px !important;
+}
+
+#article-title {
+  font-size: 2.5rem !important;
+  border-bottom: 3px solid var(--metro-accent-blue) !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 25px !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: var(--metro-text-primary) !important;
+  width: 100% !important;
+}
+
+h2 {
+  font-size: 1.875rem !important;
+  border-bottom: 2px solid var(--metro-accent-blue) !important;
+  padding-bottom: 8px !important;
+  width: 100% !important;
+}
+
+p {
+  margin-bottom: 16px !important;
+  color: var(--metro-text-primary) !important;
+}
+
+/* Metro UI Lists */
+ul, ol {
+  padding-left: 24px !important;
+  margin-bottom: 16px !important;
+}
+
+li {
+  margin-bottom: 8px !important;
+}
+
+ul li {
+  list-style-type: square !important;
+  color: var(--metro-accent-blue) !important;
+}
+
+/* Metro UI Links */
+a {
+  color: var(--metro-accent-blue) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  border-bottom: 2px solid transparent !important;
+  transition: all 0.2s ease !important;
+}
+
+a:hover {
+  color: #005a9e !important;
+  border-bottom: 2px solid #005a9e !important;
+}
+
+/* Metro UI Tables */
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-bottom: 20px !important;
+}
+
+th {
+  background-color: var(--metro-accent-blue) !important;
+  color: var(--metro-text-light) !important;
+  padding: 12px !important;
+  text-align: left !important;
+  font-weight: 600 !important;
+}
+
+td {
+  padding: 12px !important;
+  border-bottom: 1px solid var(--metro-border) !important;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9 !important;
+}
+
+/* Metro UI Code Blocks */
+pre, code {
+  background-color: #f5f5f5 !important;
+  border-radius: 0 !important;
+  font-family: 'Consolas', 'Monaco', monospace !important;
+}
+
+pre {
+  padding: 16px !important;
+  border-left: 4px solid var(--metro-accent-purple) !important;
+  overflow-x: auto !important;
+}
+
+/* Metro UI Notice Levels */
+.notice-level {
+  padding: 6px 12px !important;
+  border-radius: 0 !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  font-size: 0.875rem !important;
+}
+
+.notice-level.primary {
+  background-color: var(--metro-accent-blue) !important;
+  color: var(--metro-text-light) !important;
+}
+
+.notice-level.secondary {
+  background-color: var(--metro-text-secondary) !important;
+  color: var(--metro-text-light) !important;
+}
+
+.notice-level.success {
+  background-color: var(--metro-accent-green) !important;
+  color: var(--metro-text-light) !important;
+}
+
+.notice-level.warning {
+  background-color: var(--metro-accent-yellow) !important;
+  color: var(--metro-text-primary) !important;
+}
+
+.notice-level.danger {
+  background-color: var(--metro-accent-red) !important;
+  color: var(--metro-text-light) !important;
+}
+
+/* 返回顶部按钮 - Metro Style */
+#back-to-top {
+  background-color: var(--metro-accent-blue) !important;
+  color: var(--metro-text-light) !important;
+  border-radius: 0 !important;
+  box-shadow: var(--metro-shadow) !important;
+  transition: all 0.2s ease !important;
+}
+
+#back-to-top:hover {
+  background-color: #005a9e !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 移动端菜单 - Metro Style */
+#mobile-menu {
+  background-color: var(--metro-bg-light) !important;
+  border: 1px solid var(--metro-border) !important;
+  border-radius: 0 !important;
+  box-shadow: var(--metro-shadow) !important;
+}
+
+#mobile-menu a {
+  color: var(--metro-text-primary) !important;
+  text-transform: uppercase !important;
+  font-weight: 500 !important;
+  padding: 12px 16px !important;
+  border-bottom: 1px solid var(--metro-border) !important;
+}
+
+#mobile-menu a:last-child {
+  border-bottom: none !important;
+}
+
+#mobile-menu a:hover {
+  background-color: var(--metro-bg-secondary) !important;
+  color: var(--metro-accent-blue) !important;
+}
+
+/* Metro UI滚动条 */
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--metro-bg-primary) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1 !important;
+  border-radius: 0 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8 !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #article-content {
+    padding: 20px !important;
+  }
+  
+  #article-title {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+}

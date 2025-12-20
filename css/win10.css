@@ -1,0 +1,1087 @@
+
+:root {
+    --win10-notice-level-primary: var(--win10-primary);
+    --win10-notice-level-success: var(--win10-success);
+    --win10-notice-level-purple: var(--win10-tile-purple);
+    
+
+    --win10-primary: #0078d7; /* 经典Windows蓝 */
+    --win10-primary-hover: #106ebe;
+    --win10-primary-active: #005a9e;
+    --win10-secondary: #ffb900; /* 更鲜艳的黄色 */
+    --win10-text-primary: #000000; /* 纯黑文字 */
+    --win10-text-secondary: #666666;
+    --win10-text-white: #ffffff;
+    --win10-background-primary: #ffffff; /* 纯白背景 */
+    --win10-background-secondary: #f2f2f2;
+    --win10-background-tertiary: #e5e5e5;
+    --win10-border-color: #cccccc;
+    --win10-surface: #ffffff;
+    --win10-success: #267f00; /* 鲜明的绿色 */
+    --win10-warning: #ff8c00; /* 橙色 */
+    --win10-error: #d13438; /* 鲜明的红色 */
+    --win10-info: #0078d4;
+    
+
+    --win10-border-radius: 0px; /* 完全方角，无圆角 */
+    --win10-border-radius-sm: 2px; /* 微小圆角仅用于少数元素 */
+    
+
+    --win10-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
+    --win10-shadow-md: 0 2px 6px rgba(0, 0, 0, 0.1); /* 中等阴影 */
+    --win10-shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.15); /* 用于突出元素 */
+    
+
+    --win10-transition: all 0.2s ease;
+    
+
+    --win10-header-bg: #0078d7;
+    
+
+    --win10-tile-blue: #0078d7;
+    --win10-tile-green: #267f00;
+    --win10-tile-purple: #7c3aed;
+    --win10-tile-red: #d13438;
+    --win10-tile-orange: #ff8c00;
+    --win10-tile-yellow: #ffb900;
+    
+
+    --win10-spacing-xs: 4px;
+    --win10-spacing-sm: 8px;
+    --win10-spacing-md: 16px;
+    --win10-spacing-lg: 24px;
+    --win10-spacing-xl: 32px;
+    --win10-spacing-xxl: 48px;
+    --win10-spacing-xxxl: 64px; /* 增加超大间距变量 */
+}
+
+
+.notice-level-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--win10-border-radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.notice-level-badge:hover {
+    opacity: 0.95;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.notice-level-primary {
+    background-color: var(--win10-notice-level-primary);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.notice-level-success {
+    background-color: var(--win10-notice-level-success);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.notice-level-purple {
+    background-color: var(--win10-notice-level-purple);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+body.win10 {
+    --primary-color: var(--win10-primary);
+    --primary-hover: var(--win10-primary-hover);
+    --text-primary: var(--win10-text-primary);
+    --text-secondary: var(--win10-text-secondary);
+    --background-primary: var(--win10-background-primary);
+    --background-secondary: var(--win10-background-secondary);
+    --border-color: var(--win10-border-color);
+    --border-radius: var(--win10-border-radius);
+    --shadow-md: var(--win10-shadow-md);
+    --transition: var(--win10-transition);
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+}
+
+
+.navbar.win10, .win10-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--win10-primary);
+    padding: 0 var(--win10-spacing-lg);
+    box-shadow: var(--win10-shadow-md); /* 添加轻微阴影改善层次感 */
+    height: 64px; /* 固定高度避免穿模 */
+}
+
+.win10-navbar.scrolled {
+    padding: 0 var(--win10-spacing-lg);
+    height: 64px; /* 保持一致的高度 */
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--win10-spacing-sm) 0;
+    height: 100%; /* 确保内容垂直居中 */
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-container {
+    position: relative;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0078d4;
+    font-size: 1.5rem;
+    border: none;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-status {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    background-color: var(--win10-success);
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.brand-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.site-name {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: white;
+}
+
+.site-description {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+    align-items: center; /* 确保菜单项垂直居中 */
+}
+
+.navbar-menu a {
+    color: white;
+    font-weight: 600;
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+.btn-primary.win10, .win10-btn-primary {
+    background-color: var(--win10-primary); /* 纯色背景 */
+    color: white;
+    padding: var(--win10-spacing-sm) var(--win10-spacing-lg);
+    border-radius: var(--win10-border-radius); /* 完全方角 */
+    font-weight: 600;
+    font-size: 15px;
+    border: none; /* 无边框，纯平设计 */
+    box-shadow: none; /* 无阴影 */
+    transition: var(--win10-transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--win10-spacing-sm);
+    min-width: 80px;
+    height: 36px;
+    text-transform: uppercase; /* Metro UI 文字大写 */
+    letter-spacing: 0.5px;
+}
+
+.win10-btn-primary:hover {
+    background-color: var(--win10-primary-hover);
+    transform: none; /* 无位移效果 */
+}
+
+.win10-btn-primary:active {
+    background-color: var(--win10-primary-active);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3); /* 按下效果 */
+}
+
+.win10-btn-secondary {
+    background-color: var(--win10-background-tertiary); /* 浅灰背景 */
+    color: var(--win10-text-primary);
+    padding: var(--win10-spacing-sm) var(--win10-spacing-lg);
+    border-radius: var(--win10-border-radius); /* 完全方角 */
+    font-weight: 600;
+    font-size: 15px;
+    border: 1px solid var(--win10-border-color); /* 细线边框 */
+    box-shadow: none; /* 无阴影 */
+    transition: var(--win10-transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--win10-spacing-sm);
+    min-width: 80px;
+    height: 36px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.win10-btn-secondary:hover {
+    background-color: var(--win10-background-secondary);
+    border-color: var(--win10-primary);
+    transform: none;
+}
+
+.win10-btn-secondary:active {
+    background-color: var(--win10-background-primary);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* 按下效果 */
+}
+
+.win10-btn-text {
+    background-color: transparent;
+    color: white;
+    padding: var(--win10-spacing-sm);
+    border: 1px solid transparent;
+    border-radius: var(--win10-border-radius); /* 完全方角 */
+    transition: var(--win10-transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+}
+
+.win10-btn-text:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.win10-btn-large {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+}
+
+
+.win10-navbar-link {
+    background-color: transparent;
+    color: white;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0;
+    transition: var(--win10-transition);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.win10-navbar-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: none;
+    box-shadow: none;
+}
+
+.win10-navbar-link.active {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    border: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.card.win10, .win10-card {
+    background-color: var(--win10-surface); /* 纯白色背景 */
+    border-radius: var(--win10-border-radius); /* 完全方角 */
+    box-shadow: none;
+    padding: var(--win10-spacing-lg);
+    transition: var(--win10-transition);
+    border: 1px solid var(--win10-border-color); /* 清晰边框 */
+}
+
+.card.win10:hover, .win10-card:hover {
+    background-color: var(--win10-background-secondary);
+    border-color: var(--win10-primary); /* 边框变主色 */
+    box-shadow: none; /* 依然无阴影 */
+    transform: none; /* 无位移效果 */
+}
+
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    z-index: 1001;
+    background-color: var(--win10-background-primary);
+    border-left: 1px solid var(--win10-border-color);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: var(--win10-transition);
+    padding: 2rem 1.5rem;
+    overflow-y: auto;
+}
+
+.mobile-menu.open {
+    right: 0;
+}
+
+.mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+
+.hero-section {
+    background: linear-gradient(90deg, #0078d4 0%, #0063b1 100%);
+    padding: 9rem var(--win10-spacing-lg) 4rem;
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    z-index: 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--win10-spacing-xl);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    color: white;
+    text-shadow: none;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 2rem;
+    max-width: 450px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.hero-card-container {
+    position: relative;
+}
+
+.hero-card-wrapper {
+    position: relative;
+}
+
+.hero-card {
+    background-color: var(--win10-background-primary);
+    border-radius: var(--win10-border-radius);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-lg);
+    padding: 2rem;
+}
+
+.hero-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--win10-border-color);
+}
+
+.hero-card-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--win10-primary);
+}
+
+.grade-badge {
+    background-color: var(--win10-primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 1px solid #005a9e;
+}
+
+.hero-card-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--win10-border-color);
+}
+
+.hero-card-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.hero-card-icon {
+    width: 48px;
+    height: 48px;
+    background-color: var(--win10-background-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--win10-primary);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    border: 1px solid var(--win10-border-color);
+}
+
+.hero-card-item h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.hero-card-item p {
+    color: var(--win10-text-secondary);
+    margin-bottom: 0;
+}
+
+
+.class-info-section {
+    padding: var(--win10-spacing-xxl) var(--win10-spacing-lg);
+    background-color: white;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--win10-border-color);
+}
+
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--win10-primary);
+}
+
+.section-description {
+    color: var(--win10-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.125rem;
+}
+
+
+.class-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--win10-spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.class-feature-card {
+    background: var(--win10-background-primary);
+    color: var(--win10-text-primary);
+    border-radius: 0;
+    padding: var(--win10-spacing-lg);
+    box-shadow: var(--win10-shadow-md);
+    border: 1px solid var(--win10-border-color);
+    transition: var(--win10-transition);
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.class-feature-card:nth-child(1) {
+    border-left: 4px solid var(--win10-tile-blue);
+}
+
+.class-feature-card:nth-child(2) {
+    border-left: 4px solid var(--win10-tile-green);
+}
+
+.class-feature-card:nth-child(3) {
+    border-left: 4px solid var(--win10-tile-orange);
+}
+
+.class-feature-card:hover {
+    background-color: var(--win10-background-secondary);
+    box-shadow: var(--win10-shadow-lg);
+    transform: translateY(-2px);
+}
+
+
+.feature-icon {
+    width: 64px;
+    height: 64px;
+    background-color: var(--win10-background-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--win10-primary);
+    font-size: 1.5rem;
+    margin-bottom: var(--win10-spacing-lg);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-sm);
+}
+
+.class-feature-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--win10-text-primary);
+}
+
+.class-feature-card p {
+    color: var(--win10-text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.feature-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: var(--win10-primary);
+    text-decoration: underline;
+}
+
+.feature-link:hover {
+    color: var(--win10-primary-hover);
+}
+
+
+.recent-activities-section {
+    padding: var(--win10-spacing-xxl) var(--win10-spacing-lg);
+    background-color: var(--win10-background-secondary);
+}
+
+.activities-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--win10-spacing-xl);
+    padding-bottom: var(--win10-spacing-md);
+    border-bottom: 1px solid var(--win10-border-color);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.notifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--win10-spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.notification-card {
+    background-color: var(--win10-background-primary);
+    border-radius: 0;
+    padding: var(--win10-spacing-lg);
+    box-shadow: var(--win10-shadow-md);
+    border-left: 4px solid var(--win10-primary);
+    border-top: 1px solid var(--win10-border-color);
+    border-right: 1px solid var(--win10-border-color);
+    border-bottom: 1px solid var(--win10-border-color);
+    transition: var(--win10-transition);
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+}
+
+.notification-card:hover {
+    background-color: var(--win10-background-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--win10-shadow-lg);
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.notification-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--win10-spacing-sm);
+    color: var(--win10-text-primary);
+    flex: 1;
+}
+
+.notification-date {
+    font-size: 0.875rem;
+    color: var(--win10-text-secondary);
+    margin-bottom: var(--win10-spacing-md);
+    display: block;
+    border-bottom: 1px solid var(--win10-border-color);
+    padding-bottom: var(--win10-spacing-xs);
+}
+
+.notification-content {
+    color: var(--win10-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--win10-spacing-md);
+    flex: 1;
+}
+
+.notification-link {
+    color: var(--win10-primary);
+    font-weight: 500;
+    transition: var(--win10-transition);
+    text-decoration: none;
+    padding: var(--win10-spacing-xs) var(--win10-spacing-md);
+    border: 1px solid var(--win10-primary);
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+.notification-link:hover {
+    background-color: var(--win10-primary);
+    color: white;
+}
+
+
+.contact-section {
+    padding: var(--win10-spacing-xxxl) var(--win10-spacing-lg);
+    background-color: white;
+    color: var(--win10-text);
+}
+
+.contact-section .win10-btn-primary {
+    min-width: 140px;
+}
+
+.contact-card {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    box-shadow: var(--win10-shadow-lg);
+    padding: 3rem;
+}
+
+.contact-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--win10-primary);
+}
+
+.contact-description {
+    color: var(--win10-text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+}
+
+.contact-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--win10-border-radius);
+    font-weight: 500;
+    transition: var(--win10-transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-btn-primary {
+    background-color: var(--win10-primary);
+    color: white;
+    border: 1px solid #005a9e;
+    box-shadow: var(--win10-shadow-sm);
+}
+
+.contact-btn-primary:hover {
+    background-color: var(--win10-primary-hover);
+}
+
+.contact-btn-primary:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.contact-btn-secondary {
+    background-color: var(--win10-background-tertiary);
+    color: var(--win10-text-primary);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-sm);
+}
+
+.contact-btn-secondary:hover {
+    background-color: var(--win10-background-secondary);
+}
+
+.contact-btn-secondary:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+
+.footer-section {
+    background-color: #0f172a;
+    color: white;
+    padding: var(--win10-spacing-xl) var(--win10-spacing-lg);
+    border-top: none;
+}
+
+.footer-section a {
+    color: rgba(255,255,255,0.8);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: color 0.15s ease;
+}
+
+.footer-section a:hover {
+    color: var(--win10-primary);
+    text-decoration: none;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--win10-border-color);
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.footer-logo-icon {
+    width: 48px;
+    height: 48px;
+    background-color: var(--win10-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.75rem;
+    font-weight: 700;
+    border: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+.footer-brand-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-site-name {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: white;
+}
+
+.footer-site-description {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.footer-description {
+    color: var(--win10-text-secondary);
+    line-height: 1.6;
+}
+
+.footer-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: white;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-link {
+    color: var(--win10-text-secondary);
+    transition: var(--win10-transition);
+    text-decoration: underline;
+}
+
+.footer-link:hover {
+    color: var(--win10-primary);
+}
+
+.social-links {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.social-link {
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.7);
+    transition: var(--win10-transition);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.social-link:hover {
+    background-color: var(--win10-primary);
+    color: white;
+    border-color: var(--win10-primary);
+}
+
+.footer-newsletter {
+    color: var(--win10-text-secondary);
+    font-size: 0.875rem;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-copyright {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.875rem;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-bottom-link {
+    color: var(--win10-text-secondary);
+    font-size: 0.875rem;
+    transition: var(--win10-transition);
+    text-decoration: underline;
+}
+
+.footer-bottom-link:hover {
+    color: var(--win10-primary);
+}
+
+
+body.win10::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+body.win10::-webkit-scrollbar-track {
+    background: var(--win10-background-secondary);
+    border: 1px solid var(--win10-border-color);
+}
+
+body.win10::-webkit-scrollbar-thumb {
+    background: var(--win10-border-color);
+    border: 2px solid var(--win10-background-secondary);
+    border-radius: 6px;
+}
+
+body.win10::-webkit-scrollbar-thumb:hover {
+    background: var(--win10-text-secondary);
+}
+
+
+.win10-shadow-sm {
+  box-shadow: var(--win10-shadow-sm);
+}
+
+.win10-shadow-md {
+  box-shadow: var(--win10-shadow-md);
+}
+
+.win10-shadow-lg {
+  box-shadow: var(--win10-shadow-lg);
+}
+
+
+@media (max-width: 1024px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--win10-spacing-lg);
+    }
+    
+    .hero-title {
+        font-size: 2.75rem;
+    }
+    
+    .hero-subtitle {
+        max-width: none;
+    }
+    
+    .hero-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: var(--win10-spacing-md);
+    }
+    
+    .class-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--win10-spacing-md);
+    }
+    
+    .activities-header {
+        flex-direction: column;
+        gap: var(--win10-spacing-lg);
+        text-align: center;
+    }
+    
+    .notifications-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: var(--win10-spacing-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-content {
+        padding: 0 var(--win10-spacing-md);
+    }
+    
+    .navbar-menu {
+        display: none;
+    }
+    
+    .hero-section {
+        padding: 7rem var(--win10-spacing-md) 3rem;
+        min-height: 400px;
+    }
+    
+    .hero-title {
+        font-size: 2.25rem;
+    }
+    
+    .hero-card {
+        padding: var(--win10-spacing-lg);
+    }
+    
+    .class-features-grid {
+        grid-template-columns: 1fr;
+        gap: var(--win10-spacing-lg);
+    }
+    
+    .class-feature-card {
+        min-height: auto;
+    }
+    
+    .notifications-grid {
+        grid-template-columns: 1fr;
+        gap: var(--win10-spacing-lg);
+    }
+    
+    .notification-card {
+        min-height: auto;
+        padding: var(--win10-spacing-md);
+    }
+    
+    .contact-card {
+        padding: 2rem var(--win10-spacing-md);
+    }
+    
+    .contact-actions {
+        flex-direction: column;
+        gap: var(--win10-spacing-md);
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--win10-spacing-md);
+    }
+    
+    .footer-bottom-links {
+        justify-content: center;
+        gap: var(--win10-spacing-md);
+    }
+}

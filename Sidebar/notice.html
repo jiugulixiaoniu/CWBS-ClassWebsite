@@ -3,134 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <title>通知公告 - 九（2）班 班级网站</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#3B82F6',
-                        secondary: '#10B981',
-                        accent: '#8B5CF6',
-                        dark: '#1F2937',
-                        light: '#F3F4F6',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        display: ['Poppins', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
-            .text-gradient {
-                background-clip: text;
-                -webkit-background-clip: text;
-                color: transparent;
-            }
-            .card-hover {
-                transition: all 0.3s ease;
-            }
-            .card-hover:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            }
-            .bg-blur {
-                backdrop-filter: blur(8px);
-            }
-        }
-    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- 引入站点配置 -->
+    <script src="../js/site-config.js"></script>
+    <!-- 引入侧边栏主题加载器 - 负责动态加载win10-sidebar.css或win11-sidebar.css -->
+    <script src="css/theme-loader.js"></script>
+    
+    <!-- 引入Markdown渲染相关库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.2/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    
+    <!-- 引入通知公告页面特定JavaScript -->
+    <script src="js/notice.js"></script>
 </head>
-<body class="bg-gradient-to-br from-light to-blue-50 min-h-screen">
-    <!-- 导航栏 -->
-    <nav class="fixed top-0 left-0 right-0 bg-white/80 bg-blur shadow-sm z-50 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
-                            <i class="fas fa-chart-line text-white text-xl"></i>
+<body class="main-body custom-scrollbar">
+    <!-- 页面加载中占位符 -->
+    <div id="page-loader" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #f3f2f1; display: flex; align-items: center; justify-content: center; z-index: 9999;">
+        <div style="text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;"><i class="fas fa-bullhorn"></i></div>
+            <p style="font-size: 1.2rem; color: #6e6e6e;">加载中...</p>
+        </div>
+    </div>
+
+    <!-- 导航栏 - 动态主题类名将在sidebar-theme-loader.js中应用 -->
+    <nav id="navbar" class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <div class="logo-container">
+                        <div class="logo animate-glow">
+                            <i class="fas fa-bullhorn"></i>
                         </div>
-                        <div class="ml-3">
-                            <span class="block text-sm font-semibold text-dark">九（2）班</span>
-                            <span class="block text-xs text-gray-500">语文积分表系统</span>
-                        </div>
+                        <div class="logo-status"></div>
+                    </div>
+                    <div class="brand-info">
+                        <span class="site-name">九（2）班</span>
+                        <span class="site-description">通知公告</span>
                     </div>
                 </div>
 
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="../index.html" class="text-dark hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">首页</a>
-                        <a href="#" class="text-dark hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 border-b-2 border-primary">通知公告</a>
-                        <a href="../Sidebar/Rules.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">数据管理规则</a>
-                        <a href="../Sidebar/about.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">关于我们</a>
-                    </div>
+                <div class="navbar-menu">
+                    <a href="../index.html" class="win11-navbar-link nav-home">首页</a>
+                    <a href="#" class="win11-navbar-link">通知公告</a>
+                    <a href="Rules.html" class="win11-navbar-link">数据管理规则</a>
+                    <a href="about.html" class="win11-navbar-link nav-about">关于我们</a>
                 </div>
 
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-500 hover:text-primary focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
+                <div class="navbar-actions">
+                    <button class="win11-btn-text notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <button class="win11-btn-text mobile-menu-btn" id="mobile-menu-button">
+                        <i class="fas fa-bars"></i>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- 移动端菜单 -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg rounded-b-lg absolute w-full">
-            <a href="../index.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">首页</a>
-            <a href="#" class="text-dark hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 border-b-2 border-primary">通知公告</a>
-            <a href="/Sidebar/Rules.html" class="text-dark hover:text-primary block px-3 py-2 rounded-md text-base font-medium">数据管理规则</a>
-            <a href="/Sidebar/about.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">关于我们</a>
+        <div id="mobile-menu" class="mobile-menu win11-card">
+            <div class="mobile-menu-content">
+                <a href="../index.html" class="win11-navbar-link nav-home">首页</a>
+                <a href="#" class="win11-navbar-link">通知公告</a>
+                <a href="Rules.html" class="win11-navbar-link">数据管理规则</a>
+                <a href="about.html" class="win11-navbar-link nav-about">关于我们</a>
+            </div>
         </div>
     </nav>
 
     <!-- 英雄区域 -->
-    <section class="pt-20 pb-15 md:pt-40 md:pb-15 px-4 sm:px-4 lg:px-6">
-        <div class="container mx-auto text-center">
-            <div class="max-w-4xl mx-auto">
+    <section class="hero-section pt-20 pb-15 md:pt-40 md:pb-15 px-4 sm:px-4 lg:px-6">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center glass-card p-8 rounded-2xl" data-aos="fade-up">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent text-gradient">
-                    班级动态
+                    班级通知公告
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
                     了解我们班级的最新活动和重要通知
                 </p>
+                <div class="hero-tags">
+                    <div class="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary">
+                        <i class="fas fa-bell"></i>
+                        <span>最新通知</span>
+                    </div>
+                    <div class="inline-flex items-center px-4 py-2 bg-secondary/10 rounded-full text-secondary">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>定期更新</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 最近比赛报表区域 -->
-    <!-- 最近通报区域（非卡片式，一行一个，响应式） -->
-        <section id="match-reports" class="py-12 bg-white rounded-xl shadow-md mb-16">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-
-                <!-- 通知容器，由JS动态填充 -->
-                <div class="max-w-4xl mx-auto space-y-4" id="notifications-container"></div>
+    <!-- 通知筛选区域 -->
+    <section class="py-8 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto notice-filters" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button class="filter-btn px-4 py-2 rounded-full active" data-filter="all">
+                            全部通知
+                        </button>
+                        <button class="filter-btn px-4 py-2 rounded-full" data-filter="1">
+                            <i class="fas fa-file-text mr-1"></i>
+                            普通
+                        </button>
+                        <button class="filter-btn px-4 py-2 rounded-full" data-filter="2">
+                            <i class="fas fa-file-alt mr-1"></i>
+                            报告/公示
+                        </button>
+                        <button class="filter-btn px-4 py-2 rounded-full" data-filter="3">
+                            <i class="fas fa-star mr-1"></i>
+                            活动/表彰
+                        </button>
+                    </div>
+                    <div class="notification-count-container">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="text-sm">共 <span id="notification-count">2</span> 条通知</span>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <!-- 通知列表区域 -->
+    <section class="py-8 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto space-y-6" id="notifications-container">
+                <!-- 通知项将由JavaScript动态生成 -->
+            </div>
+        </div>
+    </section>
+
     <!-- 页脚 -->
-    <footer class="bg-dark text-white py-12">
+    <footer class="bg-dark text-white py-12 mt-16">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
+                <div data-aos="fade-up">
                     <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
-                            <i class="fas fa-chart-line text-white text-xl"></i>
-                        </div>
+
                         <div class="ml-3">
                             <span class="block text-sm font-semibold text-white">九（2）班</span>
                             <span class="block text-xs text-gray-400">班级网站</span>
@@ -141,9 +161,9 @@
                     </p>
                 </div>
 
-                <div>
+                <div data-aos="fade-up" data-aos-delay="100">
                     <h4 class="text-lg font-semibold mb-4">快速链接</h4>
-                    <ul class="space-y-2">
+                    <ul class="space-y-2 modern-list">
                         <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">首页</a></li>
                         <li><a href="../index.html#class-info" class="text-gray-400 hover:text-white transition-colors duration-200">班级介绍</a></li>
                         <li><a href="../index.html#recent-activities" class="text-gray-400 hover:text-white transition-colors duration-200">班级动态</a></li>
@@ -152,9 +172,9 @@
                     </ul>
                 </div>
 
-                <div>
+                <div data-aos="fade-up" data-aos-delay="200">
                     <h4 class="text-lg font-semibold mb-4">资源中心</h4>
-                    <ul class="space-y-2">
+                    <ul class="space-y-2 modern-list">
                         <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">班级相册</a></li>
                         <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">学习资源</a></li>
                         <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">活动记录</a></li>
@@ -163,9 +183,9 @@
                     </ul>
                 </div>
 
-                <div>
+                <div data-aos="fade-up" data-aos-delay="300">
                     <h4 class="text-lg font-semibold mb-4">联系信息</h4>
-                    <ul class="space-y-2">
+                    <ul class="space-y-2 modern-list">
                         <li class="flex items-center">
                             <i class="fas fa-envelope text-gray-400 mr-2"></i>
                             <span class="text-gray-400">联系管理员</span>
@@ -175,7 +195,7 @@
             </div>
 
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0 footer-copyright">
                     © 2024 JGL STUDIO. 保留所有权利。
                 </p>
             </div>
@@ -183,207 +203,122 @@
     </footer>
 
     <!-- 返回顶部按钮 -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary hover:bg-primary/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
-        <i class="fas fa-arrow-up"></i>
+    <button id="back-to-top" style="position: fixed; bottom: 32px; right: 32px; left: auto; width: 48px; height: 48px; border-radius: 50%; background: #0078d4; color: white; display: none; border: none; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 9999; opacity: 1; visibility: visible;">
+        <span style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; font-size: 18px;">
+            <i class="fas fa-arrow-up" style="margin: 0; padding: 0;"></i>
+        </span>
     </button>
 
-    <style>
-        /* 按钮样式 */
-        .btn-primary {
-            @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+    <script>
+        // 返回顶部按钮功能
+        function initBackToTop() {
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            if (backToTopButton) {
+                // 初始隐藏按钮，但覆盖base.css中的样式
+                backToTopButton.style.display = 'none';
+                backToTopButton.style.opacity = '1';
+                backToTopButton.style.visibility = 'visible';
+                
+                // 滚动时显示/隐藏按钮
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.style.display = 'block';
+                        backToTopButton.style.opacity = '1';
+                        backToTopButton.style.visibility = 'visible';
+                    } else {
+                        backToTopButton.style.display = 'none';
+                        backToTopButton.style.opacity = '0';
+                        backToTopButton.style.visibility = 'hidden';
+                    }
+                });
+                
+                // 点击按钮平滑滚动到顶部
+                backToTopButton.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
         }
-
-        .btn-secondary {
-            @apply inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-dark bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+        
+        // 移动端菜单功能
+        function initMobileMenu() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                // 点击菜单按钮切换菜单显示
+                mobileMenuButton.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('active');
+                    
+                    // 添加动画效果
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.style.display = 'block';
+                        setTimeout(() => {
+                            mobileMenu.style.opacity = '1';
+                            mobileMenu.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        mobileMenu.style.opacity = '0';
+                        mobileMenu.style.transform = 'translateY(-10px)';
+                        setTimeout(() => {
+                            mobileMenu.style.display = 'none';
+                        }, 300);
+                    }
+                });
+                
+                // 点击页面其他区域关闭菜单
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                        mobileMenu.classList.remove('active');
+                        mobileMenu.style.opacity = '0';
+                        mobileMenu.style.transform = 'translateY(-10px)';
+                        setTimeout(() => {
+                            mobileMenu.style.display = 'none';
+                        }, 300);
+                    }
+                });
+                
+                // 阻止菜单内部点击事件冒泡
+                mobileMenu.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            }
         }
-
-        .btn-accent {
-            @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-accent hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
-        }
-
-        /* 功能卡片样式 */
-        .feature-card {
-            @apply bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 card-hover;
-        }
-
-        .feature-icon {
-            @apply w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-xl;
-        }
-
-        /* 统计数字样式 */
-        .stat-card {
-            @apply p-6 rounded-xl bg-gradient-to-br from-white to-gray-50 shadow-md hover:shadow-lg transition-all duration-300;
-        }
-
-        .stat-number {
-            @apply text-3xl md:text-4xl font-bold text-primary mb-2;
-        }
-
-        .stat-label {
-            @apply text-gray-600 font-medium;
-        }
-
-        /* 联系图标样式 */
-        .contact-icon {
-            @apply w-14 h-14 rounded-full bg-light flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-md hover:shadow-lg;
-        }
-    </style>
-
-    <!-- ===== 直接整段替换原来的 <script> 标签即可 ===== -->
-<script>
-/* =========================
-   0. 数据区（带 level & path）
-========================= */
-const notifications = [
-    {
-        title: '关于2025-2026学年秋季运动会的通知',
-        date: '2025-10-06',
-        level: 3,   // 通报
-        path: '../article/202510061035.html'
-    },
-    {
-        title: '关于“北大队”2025年9月语文学分表的报告',
-        date: '2025-10-07',
-        level: 2,   // 报告
-        path: '../article/202510081710.html'
-    },
-    {
-        title: '关于“清华队”2025年9月语文学分表的报告',
-        date: '2025-10-05',
-        level: 2,   // 报告
-        path: '../article/202510050807.html'
-    },
-    {
-        title: '25-26 学年九上第一次质量检测（语文）统分通知',
-        date: '2025-10-12',
-        level: 3,   // 报告
-        path: '../article/202510122130.html'
-    },
-    {
-        title: '25-26 学年九上第一次质量检测（语文）成绩发布',
-        date: '2025-10-13',
-        level: 3,   // 报告
-        path: '../article/202510122239.html'
-    },
-    
-];
-
-/* =========================
-   1. 工具：时间排序（倒序）
-========================= */
-function sortByDateDesc(arr) {
-    return arr.sort((a, b) => new Date(b.date) - new Date(a.date));
-}
-
-/* =========================
-   2. 工具：根据等级返回图标类名 & 颜色
-========================= */
-function getLevelMeta(level) {
-    switch (level) {
-        case 3: return { icon: 'fa-star', color: 'text-yellow-500 bg-yellow-100' }; // 活动/表彰
-        case 2: return { icon: 'fa-file-alt', color: 'text-blue-500 bg-blue-100' }; // 报告/公示
-        default: return { icon: 'fa-info-circle', color: 'text-gray-500 bg-gray-100' }; // 普通
-    }
-}
-
-/* =========================
-   3. 通知渲染函数
-========================= */
-function renderNotifications() {
-    const container = document.getElementById('notifications-container');
-    if (!container) return;
-
-    container.innerHTML = '';
-    const sorted = sortByDateDesc([...notifications]); // 拷贝后排序
-
-    sorted.forEach(item => {
-        const meta = getLevelMeta(item.level);
-        const div = document.createElement('div');
-        div.className = 'flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition';
-        div.innerHTML = `
-            <div class="flex items-start">
-                <!-- 左侧图标 -->
-                <div class="flex-shrink-0 w-10 h-10 rounded-full ${meta.color} flex items-center justify-center mr-4">
-                    <i class="fas ${meta.icon}"></i>
-                </div>
-                <!-- 右侧文字 -->
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-900">${item.title}</h3>
-                    <p class="text-sm text-gray-500 mt-1">${item.date}</p>
-                </div>
-            </div>
-            <a href="${item.path}" class="mt-3 sm:mt-0 inline-flex items-center text-primary hover:text-accent font-medium">
-                查看详情 <i class="fas fa-arrow-right ml-2"></i>
-            </a>`;
-        container.appendChild(div);
-    });
-}
-
-/* =========================
-   4. 统计数字动画（可选，保护不变）
-========================= */
-function animateNumbers() {
-    document.querySelectorAll('.stat-number').forEach(el => {
-        const target = +el.dataset.target;
-        if (!target) return;
-        const duration = 2000, stepTime = 20;
-        const totalSteps = duration / stepTime;
-        const stepSize = target / totalSteps;
-        let cur = 0;
-        const timer = setInterval(() => {
-            cur += stepSize;
-            if (cur >= target) { cur = target; clearInterval(timer); }
-            el.textContent = target > 1000 ? Math.floor(cur).toLocaleString() : Math.floor(cur);
-        }, stepTime);
-    });
-}
-
-/* =========================
-   5. 导航栏滚动 + 返回顶部（原逻辑不变）
-========================= */
-const navbar = document.getElementById('navbar');
-const backToTop = document.getElementById('back-to-top');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('shadow-md');
-        navbar.classList.remove('shadow-sm');
-    } else {
-        navbar.classList.remove('shadow-md');
-        navbar.classList.add('shadow-sm');
-    }
-    if (window.scrollY > 300) {
-        backToTop.classList.remove('opacity-0', 'invisible');
-        backToTop.classList.add('opacity-100', 'visible');
-    } else {
-        backToTop.classList.add('opacity-0', 'invisible');
-        backToTop.classList.remove('opacity-100', 'visible');
-    }
-});
-
-backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-/* =========================
-   6. 移动端菜单（原逻辑不变）
-========================= */
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-
-/* =========================
-   7. 页面初始化
-========================= */
-document.addEventListener('DOMContentLoaded', () => {
-    renderNotifications();                       // 1. 通知渲染（已排序+图标）
-    const statCard = document.querySelector('.stat-card');
-    if (statCard) {                              // 2. 统计动画（可选）
-        const statsSection = statCard.parentElement.parentElement;
-        const observer = new IntersectionObserver(
-            entries => entries.forEach(en => { if (en.isIntersecting) { animateNumbers(); observer.unobserve(en.target); } }),
-            { threshold: 0.5 }
-        );
-        observer.observe(statsSection);
-    }
-});
-</script>
+        
+        // 页面加载后初始化
+        window.addEventListener('sidebar.theme.render.ready', function() {
+            // 1. 隐藏加载中占位符
+            const pageLoader = document.getElementById('page-loader');
+            if (pageLoader) {
+                pageLoader.style.display = 'none';
+            }
+            
+            // 2. 显示页面内容
+            document.body.style.visibility = 'visible';
+            
+            // 3. 初始化AOS动画
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+            
+            // 4. 初始化移动端菜单
+            initMobileMenu();
+            
+            // 5. 初始化返回顶部按钮
+            initBackToTop();
+            
+            // 6. 初始化通知页面功能
+            if (typeof initNoticePage === 'function') {
+                initNoticePage();
+            }
+            
+            // 7. 刷新AOS动画
+            AOS.refresh();
+        });
+    </script>
 </body></html>

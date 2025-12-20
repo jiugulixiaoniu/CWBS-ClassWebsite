@@ -1,0 +1,2573 @@
+/*Fluent UI*/
+
+:root {
+    --win11-primary: #0078d4;
+    --win11-primary-hover: #106ebe;
+    --win11-primary-active: #005a9e;
+    --win11-secondary: #6264a7;
+    --win11-accent: #0078d4;
+    --win11-text-primary: #1a1a1a;
+    --win11-text-secondary: #605e5c;
+    --win11-text-tertiary: #8a8886;
+    --win11-text-white: #ffffff;
+    --win11-background-primary: #ffffff;
+    --win11-background-secondary: #f3f2f1;
+    --win11-background-tertiary: #e6e5e5;
+    --win11-border-color: #d0d0ce;
+    --win11-surface: #ffffff;
+    --win11-surface-hover: #f8f8f8;
+    --win11-success: #107c10;
+    --win11-warning: #ffb900;
+    --win11-error: #d13438;
+    --win11-info: #0078d4;
+    --win11-border-radius: 8px;
+    --win11-border-radius-large: 16px;
+    --win11-border-radius-xl: 24px;
+    --win11-border-radius-full: 9999px;
+    --win11-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --win11-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.06);
+    --win11-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+    --win11-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --win11-blur: blur(16px);
+    --win11-glass-bg: rgba(255, 255, 255, 0.8);
+    --win11-glass-bg-dark: rgba(32, 31, 30, 0.8);
+    --win11-glass-border: 1px solid rgba(255, 255, 255, 0.3);
+    --win11-glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --win11-spacing-xs: 4px;
+    --win11-spacing-sm: 8px;
+    --win11-spacing-md: 16px;
+    --win11-spacing-lg: 24px;
+    --win11-spacing-xl: 32px;
+    --win11-spacing-xxl: 48px;
+    --win11-font-family: 'Segoe UI Variable', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* 全局样式 */
+body.win11 {
+    font-family: var(--win11-font-family);
+    color: var(--win11-text-primary);
+    background-color: var(--win11-background-primary);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.win11 .navbar {
+    background: var(--win11-glass-bg) !important;
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border-bottom: var(--win11-glass-border);
+    box-shadow: var(--win11-glass-shadow);
+    color: var(--win11-text-primary);
+}
+
+.win11 .navbar .navbar-brand .site-name {
+    color: var(--win11-text-primary);
+    font-weight: 600;
+}
+
+.win11 .navbar .navbar-brand .site-description {
+    color: var(--win11-text-secondary);
+}
+
+.win11 .navbar .navbar-menu a {
+    color: var(--win11-text-primary);
+    background-color: transparent;
+    border: none;
+    margin: 0 var(--win11-spacing-xs);
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    border-radius: var(--win11-border-radius);
+    transition: var(--win11-transition);
+    font-weight: 500;
+    position: relative;
+}
+
+.win11 .navbar .navbar-menu a:hover {
+    background-color: var(--win11-surface-hover);
+}
+
+.win11 .calculator-container {
+    background-color: var(--win11-background-primary);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius-large);
+    box-shadow: var(--win11-shadow-md);
+    font-family: var(--win11-font-family);
+    overflow: hidden;
+}
+
+/* 计算器显示区域 */
+.win11 .calculator-display-container {
+    background: linear-gradient(135deg, #1e1e1e, #2d2d30);
+    border-radius: var(--win11-border-radius) var(--win11-border-radius) 0 0;
+    color: var(--win11-text-white);
+    border: none;
+}
+
+.win11 .calculator-history {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    min-height: 24px;
+    font-family: 'Courier New', monospace;
+}
+
+.win11 .calculator-display {
+    font-size: 36px;
+    font-weight: 600;
+    text-align: right;
+    font-family: 'Courier New', monospace;
+    color: var(--win11-text-white);
+    letter-spacing: 0.5px;
+}
+
+.win11 .calculator-mode {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.win11 .calculator-mode button {
+    background-color: var(--win11-primary);
+    color: var(--win11-text-white);
+    border-radius: var(--win11-border-radius-full);
+    font-size: 12px;
+    padding: 4px 12px;
+    transition: var(--win11-transition);
+    border: none;
+}
+
+.win11 .calculator-mode button:hover {
+    background-color: var(--win11-primary-hover);
+    transform: translateY(-1px);
+}
+
+/* 计算器按钮通用样式 */
+.win11 .calc-btn {
+    border: none;
+    border-radius: var(--win11-border-radius);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 8px;
+    transition: var(--win11-transition);
+    text-align: center;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.win11 .calc-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.win11 .calc-btn:active::after {
+    opacity: 1;
+}
+
+/* 数字按钮 */
+.win11 .calc-btn-number {
+    background-color: var(--win11-background-secondary);
+    color: var(--win11-text-primary);
+}
+
+.win11 .calc-btn-number:hover {
+    background-color: var(--win11-background-tertiary);
+    transform: translateY(-1px);
+}
+
+.win11 button {
+    background-color: var(--win11-primary);
+    color: var(--win11-text-white);
+    border: none;
+    padding: var(--win11-spacing-sm) var(--win11-spacing-lg);
+    border-radius: var(--win11-border-radius);
+    font-weight: 600;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--win11-shadow-sm);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    position: relative;
+    overflow: hidden;
+}
+
+.win11 button:hover {
+    background-color: var(--win11-primary-hover);
+    box-shadow: var(--win11-shadow-md);
+    transform: translateY(-1px);
+}
+
+.win11 button:active {
+    background-color: var(--win11-primary-active);
+    transform: translateY(0);
+    box-shadow: var(--win11-shadow-sm);
+}
+
+/* 次要按钮样式 */
+.win11 button.secondary {
+    background-color: transparent;
+    color: var(--win11-primary);
+    border: 1px solid var(--win11-border-color);
+}
+
+.win11 button.secondary:hover {
+    background-color: rgba(0, 120, 212, 0.05);
+    border-color: var(--win11-primary);
+}
+
+/* 成功按钮样式 */
+.win11 button.success {
+    background-color: var(--win11-success);
+}
+
+.win11 button.success:hover {
+    background-color: #0d6e0d;
+}
+
+/* 警告按钮样式 */
+.win11 button.warning {
+    background-color: var(--win11-warning);
+}
+
+.win11 button.warning:hover {
+    background-color: #e6a200;
+}
+
+/* 危险按钮样式 */
+.win11 button.danger {
+    background-color: var(--win11-error);
+}
+
+.win11 button.danger:hover {
+    background-color: #b3262a;
+}
+
+.win11 ul, .win11 ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.win11 .modern-list {
+    background-color: var(--win11-surface);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    overflow: hidden;
+    box-shadow: var(--win11-shadow-sm);
+}
+
+.win11 .modern-list li {
+    padding: var(--win11-spacing-md);
+    border-bottom: 1px solid var(--win11-border-color);
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.win11 .modern-list li:last-child {
+    border-bottom: none;
+}
+
+.win11 .modern-list li:hover {
+    background-color: var(--win11-background-secondary);
+}
+
+.win11 .modern-list li .list-icon {
+    margin-right: var(--win11-spacing-md);
+    color: var(--win11-primary);
+    font-size: 1.2rem;
+}
+
+.win11 .modern-list li .list-content {
+    flex: 1;
+}
+
+.win11 .modern-list li .list-actions {
+    display: flex;
+    gap: var(--win11-spacing-sm);
+}
+
+/* 页脚链接列表样式优化 */
+.win11 .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win11-spacing-sm);
+}
+
+.win11 footer .modern-list {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.win11 footer .modern-list li {
+    border-bottom: none;
+    padding: var(--win11-spacing-xs) 0;
+    justify-content: flex-start;
+}
+
+.win11 footer .modern-list li:hover {
+    background-color: transparent;
+}
+
+.win11 .footer-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.win11 .footer-links a {
+    display: inline-block;
+    padding: var(--win11-spacing-xs) 0;
+    position: relative;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    transition: color 0.2s ease;
+}
+
+.win11 .footer-link {
+    display: inline-block;
+    padding: var(--win11-spacing-xs) 0;
+    position: relative;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    transition: color 0.2s ease;
+}
+
+.win11 .footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--win11-primary);
+    transition: width 0.2s ease;
+}
+
+.win11 .footer-links a:hover {
+    color: var(--win11-primary) !important;
+}
+
+.win11 .footer-link:hover {
+    color: var(--win11-primary) !important;
+}
+
+.win11 .footer-links a:hover::after {
+    width: 100%;
+}
+
+/* 运算符按钮 */
+.win11 .calc-btn-operator {
+    background-color: var(--win11-accent);
+    color: var(--win11-text-white);
+    font-weight: 600;
+}
+
+.win11 .calc-btn-operator:hover {
+    background-color: var(--win11-primary-hover);
+    transform: translateY(-1px);
+}
+
+/* 等号按钮 */
+.win11 .calc-btn-equals {
+    background-color: var(--win11-primary);
+    color: var(--win11-text-white);
+    font-weight: 600;
+}
+
+.win11 .calc-btn-equals:hover {
+    background-color: var(--win11-primary-hover);
+    transform: translateY(-1px);
+}
+
+/* 清除按钮 */
+.win11 .calc-btn-clear {
+    background-color: var(--win11-error);
+    color: var(--win11-text-white);
+}
+
+.win11 .calc-btn-clear:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* 科学计算按钮 */
+.win11 .calc-btn-scientific {
+    background-color: var(--win11-background-secondary);
+    color: var(--win11-text-primary);
+    font-size: 14px;
+}
+
+.win11 .calc-btn-scientific:hover {
+    background-color: var(--win11-background-tertiary);
+    transform: translateY(-1px);
+}
+
+/* 记忆功能按钮 */
+.win11 .calc-btn-memory {
+    background-color: var(--win11-secondary);
+    color: var(--win11-text-white);
+    font-size: 12px;
+}
+
+.win11 .calc-btn-memory:hover {
+    background-color: var(--win11-secondary);
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* 计算器容器 */
+.win11 .calculator-container {
+    background: var(--win11-background-glass);
+    border: 1px solid var(--win11-border-light);
+}
+
+/* 计算器显示区域 */
+.win11 .calculator-display-container {
+    background: var(--win11-background-secondary);
+    border: 1px solid var(--win11-border);
+    backdrop-filter: blur(var(--win11-blur));
+}
+
+/* 按钮容器网格布局 */
+.win11 .calculator-memory > div,
+.win11 .calculator-scientific > div {
+    display: grid;
+    gap: var(--win11-spacing-sm);
+    width: 100%;
+}
+
+.win11 .calculator-memory > div {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.win11 .calculator-scientific > div {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+/* 主计算区域网格布局 */
+.win11 #calculator-main-grid .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--win11-spacing-sm);
+    width: 100%;
+}
+
+/* 按钮样式 - 统一设置 */
+.win11 .calc-btn {
+    width: 100%;
+    box-sizing: border-box;
+    transition: all var(--win11-transition-fast);
+    border: 1px solid var(--win11-border-light);
+}
+
+/* 确保按钮内边距一致 */
+.win11 .calc-btn {
+    padding: var(--win11-spacing-sm);
+}
+
+/* 等号按钮全宽 */
+.win11 .calc-btn-equals {
+    width: 100%;
+}
+    color: var(--win11-primary);
+}
+
+.win11 .navbar .navbar-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--win11-primary);
+    transition: var(--win11-transition);
+    transform: translateX(-50%);
+}
+
+.win11 .navbar .navbar-menu a:hover::after {
+    width: 80%;
+}
+
+.win11 .navbar .navbar-actions button {
+    background-color: transparent;
+    color: var(--win11-text-primary);
+    border: none;
+    margin: 0 var(--win11-spacing-xs);
+    padding: var(--win11-spacing-sm);
+    border-radius: var(--win11-border-radius);
+    transition: var(--win11-transition);
+}
+
+.win11 .navbar .navbar-actions button:hover {
+    background-color: var(--win11-surface-hover);
+    color: var(--win11-primary);
+}
+
+/* 移动端菜单 */
+.win11 .mobile-menu {
+    background: var(--win11-glass-bg) !important;
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-glass-shadow);
+    border-radius: var(--win11-border-radius-large);
+    color: var(--win11-text-primary);
+}
+
+.win11 .mobile-menu .mobile-menu-content a {
+    color: var(--win11-text-primary);
+    border: none;
+    margin: var(--win11-spacing-xs);
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    border-radius: var(--win11-border-radius);
+    transition: var(--win11-transition);
+}
+
+.win11 .mobile-menu .mobile-menu-content a:hover {
+    background-color: var(--win11-surface-hover);
+    color: var(--win11-primary);
+}
+
+/* 英雄区域 */
+.win11 .glass-card {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-glass-shadow);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-xl);
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .text-gradient {
+    background: linear-gradient(135deg, var(--win11-primary) 0%, var(--win11-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.win11 .bg-primary\/10 {
+    background-color: rgba(0, 120, 212, 0.1);
+    border-radius: var(--win11-border-radius-full);
+}
+
+.win11 .bg-secondary\/10 {
+    background-color: rgba(98, 100, 167, 0.1);
+    border-radius: var(--win11-border-radius-full);
+}
+
+.win11 .text-primary {
+    color: var(--win11-primary);
+}
+
+.win11 .text-secondary {
+    color: var(--win11-secondary);
+}
+
+/* 内容区域 */
+.win11 .glass-effect {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-md);
+    border-radius: var(--win11-border-radius-large);
+}
+
+/* 页脚 */
+.win11 footer {
+    background: linear-gradient(135deg, var(--win11-text-primary) 0%, #2d2d2d 100%) !important;
+    color: var(--win11-text-white);
+    border-top: none;
+    padding: var(--win11-spacing-xxl) 0;
+}
+
+/* 页脚网格布局 */
+.win11 .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--win11-spacing-xl);
+}
+
+@media (min-width: 768px) {
+    .win11 .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .win11 .footer-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+/* 页脚品牌 */
+.win11 .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win11-spacing-md);
+}
+
+.win11 .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-md);
+}
+
+.win11 .footer-logo i {
+    font-size: 2rem;
+    color: var(--win11-primary);
+}
+
+.win11 .footer-brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.win11 .footer-brand-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--win11-text-white);
+}
+
+.win11 .footer-brand-desc {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.win11 .footer-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-top: var(--win11-spacing-md);
+}
+
+/* 页脚标题 */
+.win11 .footer-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--win11-text-white);
+    position: relative;
+    padding-bottom: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .footer-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(to right, var(--win11-primary), var(--win11-secondary));
+    border-radius: var(--win11-border-radius-full);
+}
+
+/* 页脚底部 */
+.win11 .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--win11-spacing-xxl);
+    padding-top: var(--win11-spacing-lg);
+    text-align: center;
+}
+
+.win11 .footer-copyright {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* 页脚联系方式 */
+.win11 .footer-contact {
+    display: flex;
+    align-items: center;
+    gap: var(--win11-spacing-md);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.win11 .footer-contact i {
+    color: var(--win11-primary);
+}
+
+.win11 footer h4 {
+    color: var(--win11-text-white);
+    position: relative;
+    padding-bottom: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 footer h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(to right, var(--win11-primary), var(--win11-secondary));
+    border-radius: var(--win11-border-radius-full);
+}
+
+.win11 footer a {
+    color: var(--win11-text-white);
+    opacity: 0.8;
+    transition: var(--win11-transition);
+    position: relative;
+}
+
+.win11 footer a:hover {
+    opacity: 1;
+}
+
+.win11 footer a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--win11-primary);
+    transition: var(--win11-transition);
+}
+
+.win11 footer a:hover::after {
+    width: 100%;
+}
+
+/* 返回顶部按钮 */
+.win11 #back-to-top {
+    background: var(--win11-glass-bg) !important;
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    color: var(--win11-primary);
+    border-radius: var(--win11-border-radius-full);
+    box-shadow: var(--win11-glass-shadow);
+}
+
+.win11 #back-to-top:hover {
+    background-color: var(--win11-primary) !important;
+    color: var(--win11-text-white);
+    transform: translateY(-3px);
+}
+
+/* 按钮样式 */
+.win11 button {
+    background-color: var(--win11-primary);
+    color: var(--win11-text-white);
+    border: none;
+    padding: var(--win11-spacing-sm) var(--win11-spacing-lg);
+    border-radius: var(--win11-border-radius);
+    font-weight: 600;
+    transition: var(--win11-transition);
+    box-shadow: var(--win11-shadow-sm);
+}
+
+.win11 button:hover {
+    background-color: var(--win11-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--win11-shadow-md);
+}
+
+.win11 button:active {
+    background-color: var(--win11-primary-active);
+    transform: translateY(0);
+}
+
+/* 卡片样式 */
+.win11 .card {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-sm);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-md);
+    transition: var(--win11-transition);
+}
+
+.win11 .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--win11-shadow-md);
+}
+
+/* 表单样式 */
+.win11 input, 
+.win11 textarea, 
+.win11 select {
+    background-color: var(--win11-background-primary);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    color: var(--win11-text-primary);
+    font-family: inherit;
+    transition: var(--win11-transition);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.win11 input:focus, 
+.win11 textarea:focus, 
+.win11 select:focus {
+    outline: none;
+    border-color: var(--win11-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+.win11 select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23605e5c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--win11-spacing-sm) center;
+    background-size: 16px;
+}
+
+/* 下拉菜单选项样式 */
+.win11 select option {
+    background-color: var(--win11-background-primary);
+    color: var(--win11-text-primary);
+    padding: var(--win11-spacing-sm);
+    border-radius: var(--win11-border-radius);
+}
+
+.win11 select option:hover {
+    background-color: var(--win11-background-secondary);
+}
+
+.win11 select option:checked {
+    background-color: var(--win11-primary);
+    color: var(--win11-text-white);
+}
+
+/* 宝箱页面特定样式 */
+.win11 .tools-container {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-md);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-lg);
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .tools-container h2 {
+    color: var(--win11-primary);
+    border-bottom: 2px solid var(--win11-primary);
+    padding-bottom: var(--win11-spacing-sm);
+    margin-top: 0;
+    position: relative;
+}
+
+.win11 .tools-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, var(--win11-primary), var(--win11-secondary));
+    border-radius: var(--win11-border-radius-full);
+}
+
+.win11 .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .tool-card {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-sm);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-md);
+    text-align: center;
+    transition: var(--win11-transition);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.win11 .tool-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.win11 .tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--win11-shadow-lg);
+}
+
+.win11 .tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--win11-primary), var(--win11-secondary));
+    border-radius: var(--win11-border-radius-large) var(--win11-border-radius-large) 0 0;
+}
+
+.win11 .tool-card:hover::before {
+    height: 8px;
+}
+
+.win11 .tool-card .tool-icon {
+    font-size: 2.5rem;
+    color: var(--win11-primary);
+    margin-bottom: var(--win11-spacing-sm);
+    transition: var(--win11-transition);
+}
+
+.win11 .tool-card:hover .tool-icon {
+    transform: scale(1.1);
+    color: var(--win11-secondary);
+}
+
+.win11 .tool-card .tool-title {
+    color: var(--win11-text-primary);
+    font-weight: 600;
+    margin-bottom: var(--win11-spacing-xs);
+    transition: var(--win11-transition);
+}
+
+.win11 .tool-card:hover .tool-title {
+    color: var(--win11-primary);
+}
+
+.win11 .tool-card .tool-description {
+    color: var(--win11-text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--win11-spacing-md);
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* 工具按钮样式 */
+.win11 .tool-button {
+    background-color: var(--win11-primary);
+    color: var(--win11-text-white);
+    border: none;
+    border-radius: var(--win11-border-radius);
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--win11-transition);
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    box-shadow: var(--win11-shadow-sm);
+}
+
+.win11 .tool-button:hover {
+    background-color: var(--win11-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--win11-shadow-md);
+}
+
+.win11 .tool-button i {
+    margin-left: var(--win11-spacing-xs);
+}
+
+/* 工具分类 */
+.win11 .tool-category {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-sm);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-md);
+}
+
+.win11 .tool-category h3 {
+    color: var(--win11-primary);
+    margin-top: 0;
+    margin-bottom: var(--win11-spacing-sm);
+    border-bottom: 1px solid var(--win11-border-color);
+    padding-bottom: var(--win11-spacing-sm);
+    position: relative;
+}
+
+.win11 .tool-category h3::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(to right, var(--win11-primary), var(--win11-secondary));
+    border-radius: var(--win11-border-radius-full);
+}
+
+/* 工具详情模态框 */
+.win11 .tool-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: var(--win11-spacing-lg);
+}
+
+.win11 .tool-modal.hidden {
+    display: none;
+}
+
+.win11 .tool-modal-content {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-lg);
+    border-radius: var(--win11-border-radius-large);
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.win11 .tool-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--win11-spacing-md) var(--win11-spacing-lg);
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius-large) var(--win11-border-radius-large) 0 0;
+}
+
+.win11 .tool-modal-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--win11-text-primary);
+}
+
+.win11 .tool-modal-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--win11-text-secondary);
+    padding: var(--win11-spacing-xs);
+    border-radius: var(--win11-border-radius);
+    transition: var(--win11-transition);
+}
+
+.win11 .tool-modal-close:hover {
+    background-color: var(--win11-surface-hover);
+    color: var(--win11-text-primary);
+}
+
+.win11 .tool-modal-body {
+    padding: var(--win11-spacing-lg);
+    color: var(--win11-text-primary);
+}
+
+.win11 .tool-modal-body h3 {
+    color: var(--win11-primary);
+    margin-top: 0;
+    border-bottom: 2px solid var(--win11-primary);
+    padding-bottom: var(--win11-spacing-sm);
+    margin-bottom: var(--win11-spacing-md);
+    position: relative;
+}
+
+.win11 .tool-modal-body h3::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, var(--win11-primary), var(--win11-secondary));
+    border-radius: var(--win11-border-radius-full);
+}
+
+/* 工具使用区域 */
+.win11 .tool-usage {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-sm);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-md);
+}
+
+.win11 .tool-usage h4 {
+    color: var(--win11-primary);
+    margin-top: 0;
+    margin-bottom: var(--win11-spacing-sm);
+}
+
+.win11 .tool-usage textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* 按钮组样式 - 确保按钮之间有足够间距 */
+.win11 .button-group {
+    display: flex;
+    gap: var(--win11-spacing-md);
+    flex-wrap: wrap;
+    margin-top: var(--win11-spacing-md);
+}
+
+.win11 .tool-usage button,
+.win11 .tool-modal-body button {
+    margin-top: var(--win11-spacing-sm);
+    margin-right: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-sm);
+}
+
+/* 工具结果区域 */
+.win11 .tool-result {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-sm);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-md);
+    margin-top: var(--win11-spacing-md);
+}
+
+.win11 .tool-result h4 {
+    color: var(--win11-primary);
+    margin-top: 0;
+    margin-bottom: var(--win11-spacing-sm);
+}
+
+.win11 .tool-result pre {
+    background: var(--win11-background-primary);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    padding: var(--win11-spacing-md);
+    overflow-x: auto;
+    margin: 0;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9rem;
+    color: var(--win11-text-primary);
+}
+
+/* 工具标签 */
+.win11 .tool-tag {
+    display: inline-block;
+    background-color: var(--win11-primary);
+    color: var(--win11-text-white);
+    padding: 4px var(--win11-spacing-sm);
+    margin-right: var(--win11-spacing-sm);
+    margin-bottom: var(--win11-spacing-xs);
+    border-radius: var(--win11-border-radius-full);
+    font-size: 0.8em;
+    font-weight: 500;
+    box-shadow: var(--win11-shadow-sm);
+    transition: var(--win11-transition);
+}
+
+.win11 .tool-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--win11-shadow-md);
+}
+
+.win11 .tool-tag.utility {
+    background-color: var(--win11-secondary);
+}
+
+.win11 .tool-tag.development {
+    background-color: var(--win11-accent);
+}
+
+.win11 .tool-tag.converter {
+    background-color: var(--win11-warning);
+}
+
+.win11 .tool-tag.generator {
+    background-color: var(--win11-success);
+}
+
+/* 工具搜索 */
+.win11 .tools-search {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-sm);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .tools-search input {
+    width: 100%;
+    border: 1px solid var(--win11-border-color);
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    border-radius: var(--win11-border-radius);
+}
+
+.win11 .tools-search input:focus {
+    border-color: var(--win11-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+.win11 .tools-search button {
+    margin-top: var(--win11-spacing-sm);
+    width: 100%;
+}
+
+/* 工具筛选器 */
+.win11 .tools-filter {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-sm);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .tools-filter h3 {
+    color: var(--win11-primary);
+    margin-top: 0;
+    margin-bottom: var(--win11-spacing-sm);
+    border-bottom: 1px solid var(--win11-border-color);
+    padding-bottom: var(--win11-spacing-sm);
+    position: relative;
+}
+
+.win11 .tools-filter h3::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(to right, var(--win11-primary), var(--win11-secondary));
+    border-radius: var(--win11-border-radius-full);
+}
+
+.win11 .tools-filter label {
+    display: block;
+    margin-bottom: var(--win11-spacing-sm);
+    color: var(--win11-text-primary);
+}
+
+.win11 .tools-filter input[type="checkbox"] {
+    margin-right: var(--win11-spacing-sm);
+}
+
+.win11 .tools-filter button {
+    margin-top: var(--win11-spacing-sm);
+    width: 100%;
+}
+
+/* 动画效果 */
+.win11 [data-aos] {
+    transition-property: transform, opacity, filter;
+}
+
+.win11 .aos-animate {
+    transform: translateZ(0);
+    filter: blur(0);
+}
+
+/* 随机数生成器样式 */
+.win11 .win11-random-generator-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win11-spacing-lg);
+}
+
+.win11 .pomodoro-timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--win11-spacing-xl);
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    border-radius: var(--win11-border-radius-large);
+    margin-bottom: var(--win11-spacing-lg);
+    box-shadow: var(--win11-shadow-md);
+}
+
+.win11 .pomodoro-status {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: var(--win11-spacing-lg);
+    padding: var(--win11-spacing-sm) var(--win11-spacing-xl);
+    border-radius: var(--win11-border-radius-full);
+    transition: var(--win11-transition);
+}
+
+.win11 .pomodoro-status.working {
+    background-color: var(--win11-error);
+    color: var(--win11-text-white);
+}
+
+.win11 .pomodoro-status.short-break {
+    background-color: var(--win11-success);
+    color: var(--win11-text-white);
+}
+
+.win11 .pomodoro-status.long-break {
+    background-color: var(--win11-info);
+    color: var(--win11-text-white);
+}
+
+.win11 .pomodoro-progress-ring {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .pomodoro-progress-ring-circle {
+    fill: transparent;
+    stroke-width: 8;
+    transition: stroke-dashoffset 0.35s ease;
+}
+
+.win11 .pomodoro-progress-ring-bg {
+    stroke: var(--win11-background-tertiary);
+}
+
+.win11 .pomodoro-progress-ring-progress {
+    stroke: var(--win11-error);
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+.win11 .pomodoro-progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    color: var(--win11-text-primary);
+}
+
+.win11 .pomodoro-dots {
+    display: flex;
+    gap: var(--win11-spacing-sm);
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .pomodoro-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--win11-background-tertiary);
+    transition: var(--win11-transition);
+}
+
+.win11 .pomodoro-dot.active {
+    background-color: var(--win11-error);
+    transform: scale(1.2);
+}
+
+.win11 .pomodoro-controls {
+    display: flex;
+    gap: var(--win11-spacing-md);
+    justify-content: center;
+    margin-bottom: var(--win11-spacing-lg);
+    flex-wrap: wrap;
+}
+
+.win11 .pomodoro-control-btn {
+    padding: var(--win11-spacing-sm) var(--win11-spacing-lg);
+    border: none;
+    border-radius: var(--win11-border-radius-full);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--win11-transition);
+    font-size: 1rem;
+}
+
+.win11 .pomodoro-presets {
+    display: flex;
+    gap: var(--win11-spacing-sm);
+    justify-content: center;
+    margin-bottom: var(--win11-spacing-lg);
+    flex-wrap: wrap;
+}
+
+.win11 .pomodoro-preset-btn {
+    padding: var(--win11-spacing-xs) var(--win11-spacing-md);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius-full);
+    background-color: var(--win11-background-primary);
+    color: var(--win11-text-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--win11-transition);
+}
+
+.win11 .pomodoro-preset-btn:hover {
+    background-color: var(--win11-surface-hover);
+    border-color: var(--win11-primary);
+}
+
+.win11 .pomodoro-preset-btn.active {
+    background-color: var(--win11-primary);
+    color: var(--win11-text-white);
+    border-color: var(--win11-primary);
+}
+
+.win11 .pomodoro-settings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--win11-spacing-md);
+    padding: var(--win11-spacing-md);
+    background-color: var(--win11-background-secondary);
+    border-radius: var(--win11-border-radius);
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .pomodoro-setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win11-spacing-xs);
+}
+
+.win11 .pomodoro-setting-label {
+    font-weight: 500;
+    color: var(--win11-text-primary);
+    font-size: 0.9rem;
+}
+
+.win11 .pomodoro-setting-input {
+    padding: var(--win11-spacing-xs) var(--win11-spacing-sm);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    font-size: 1rem;
+    transition: var(--win11-transition);
+}
+
+.win11 .pomodoro-setting-input:focus {
+    outline: none;
+    border-color: var(--win11-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+.win11 .pomodoro-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: var(--win11-spacing-md);
+    background-color: var(--win11-background-secondary);
+    border-radius: var(--win11-border-radius);
+    font-size: 0.9rem;
+    color: var(--win11-text-secondary);
+    text-align: center;
+}
+
+.win11 .grade-calculator-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win11-spacing-lg);
+}
+
+.win11 .grade-presets {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-md);
+    box-shadow: var(--win11-shadow-sm);
+}
+
+.win11 .grade-presets h3 {
+    margin-top: 0;
+    margin-bottom: var(--win11-spacing-md);
+    color: var(--win11-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.win11 .preset-buttons {
+    display: flex;
+    gap: var(--win11-spacing-md);
+    flex-wrap: wrap;
+}
+
+.win11 .preset-btn {
+    padding: var(--win11-spacing-xs) var(--win11-spacing-md);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius-full);
+    background-color: var(--win11-background-primary);
+    color: var(--win11-text-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--win11-transition);
+}
+
+.win11 .preset-btn:hover {
+    background-color: var(--win11-surface-hover);
+    border-color: var(--win11-primary);
+}
+
+.win11 .preset-btn.active {
+    background-color: var(--win11-primary);
+    color: var(--win11-text-white);
+    border-color: var(--win11-primary);
+}
+
+.win11 .grade-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win11-spacing-md);
+}
+
+.win11 .grade-input-group {
+    display: flex;
+    align-items: center;
+    gap: var(--win11-spacing-md);
+    padding: var(--win11-spacing-md);
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius-lg);
+    box-shadow: var(--win11-shadow-sm);
+}
+
+.win11 .grade-input-group label {
+    font-weight: 500;
+    color: var(--win11-text-primary);
+    min-width: 60px;
+}
+
+.win11 .grade-input {
+    flex: 1;
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    font-size: 0.9rem;
+    transition: var(--win11-transition);
+}
+
+.win11 .grade-input:focus {
+    outline: none;
+    border-color: var(--win11-primary);
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.2);
+}
+
+.win11 .grade-percentage-container {
+    display: flex;
+    align-items: center;
+    gap: var(--win11-spacing-xs);
+}
+
+.win11 .grade-percentage {
+    width: 80px;
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    text-align: center;
+}
+
+.win11 .btn-remove {
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    border: none;
+    border-radius: var(--win11-border-radius);
+    background-color: var(--win11-error);
+    color: var(--win11-text-white);
+    cursor: pointer;
+    transition: var(--win11-transition);
+}
+    
+.win11 .btn-remove:hover {
+    background-color: var(--win11-error-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--win11-shadow-md);
+}
+}
+
+.win11 .grade-input-group label {
+    font-weight: 500;
+    min-width: 60px;
+    color: var(--win11-text-primary);
+}
+
+.win11 .grade-input-group input[type="text"],
+.win11 .grade-input-group input[type="number"] {
+    flex: 1;
+    padding: var(--win11-spacing-sm);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    font-size: 0.9rem;
+    transition: var(--win11-transition);
+}
+
+.win11 .grade-input-group input:focus {
+    outline: none;
+    border-color: var(--win11-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+.win11 .grade-input-group button {
+    padding: var(--win11-spacing-xs) var(--win11-spacing-sm);
+    border: none;
+    border-radius: var(--win11-border-radius);
+    background-color: var(--win11-error);
+    color: var(--win11-text-white);
+    cursor: pointer;
+    transition: var(--win11-transition);
+    font-size: 0.8rem;
+}
+
+.win11 .grade-input-group button:hover {
+    background-color: #b32429;
+}
+
+.win11 .grade-actions {
+    display: flex;
+    gap: var(--win11-spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .grade-results {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-lg);
+    box-shadow: var(--win11-shadow-md);
+}
+
+.win11 .grade-results h3 {
+    margin-top: 0;
+    margin-bottom: var(--win11-spacing-lg);
+    color: var(--win11-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--win11-border-color);
+    padding-bottom: var(--win11-spacing-sm);
+}
+
+.win11 .result-section {
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .result-section h4 {
+    margin-top: 0;
+    margin-bottom: var(--win11-spacing-md);
+    color: var(--win11-text-primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.win11 .result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--win11-spacing-sm) 0;
+    border-bottom: 1px solid var(--win11-border-color);
+}
+
+.win11 .result-item:last-child {
+    border-bottom: none;
+}
+
+.win11 .result-value {
+    font-weight: 600;
+    color: var(--win11-primary);
+    font-family: 'Courier New', monospace;
+}
+
+.win11 .grade-chart {
+    margin-top: var(--win11-spacing-lg);
+}
+
+.win11 .grade-chart h4 {
+    margin-top: 0;
+    margin-bottom: var(--win11-spacing-md);
+    color: var(--win11-text-primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.win11 .grade-bars {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win11-spacing-sm);
+}
+
+.win11 .grade-bar-item {
+    display: flex;
+    align-items: center;
+    gap: var(--win11-spacing-md);
+}
+
+.win11 .grade-bar-label {
+    min-width: 80px;
+    font-size: 0.9rem;
+    color: var(--win11-text-secondary);
+}
+
+.win11 .grade-bar-container {
+    flex: 1;
+    height: 20px;
+    background-color: var(--win11-background-tertiary);
+    border-radius: var(--win11-border-radius-full);
+    overflow: hidden;
+    position: relative;
+}
+
+.win11 .grade-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--win11-primary), var(--win11-secondary));
+    transition: width 0.5s ease;
+    border-radius: var(--win11-border-radius-full);
+}
+
+.win11 .grade-bar-value {
+    position: absolute;
+    right: var(--win11-spacing-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--win11-text-white);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.win11 .win11-random-control-card,
+.win11 .win11-random-result-card {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-lg);
+    box-shadow: var(--win11-shadow-md);
+}
+
+.win11 .win11-random-card-title {
+    display: flex;
+    align-items: center;
+    gap: var(--win11-spacing-sm);
+    margin-bottom: var(--win11-spacing-lg);
+    font-weight: 600;
+    color: var(--win11-primary);
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--win11-primary-light);
+    padding-bottom: var(--win11-spacing-sm);
+}
+
+.win11 .win11-random-card-icon {
+    color: var(--win11-primary);
+    font-size: 1.3rem;
+}
+
+.win11 .win11-random-input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-md);
+}
+
+.win11 .win11-random-input-item {
+    flex: 1;
+    min-width: 200px;
+}
+
+.win11 .win11-random-label {
+    display: block;
+    margin-bottom: var(--win11-spacing-xs);
+    font-weight: 500;
+    color: var(--win11-text-primary);
+    font-size: 0.95rem;
+}
+
+.win11 .win11-random-input,
+.win11 .win11-random-select {
+    width: 100%;
+    padding: var(--win11-spacing-md);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    background-color: var(--win11-background-primary);
+    color: var(--win11-text-primary);
+    font-size: 1rem;
+    transition: var(--win11-transition);
+}
+
+.win11 .win11-random-input:focus,
+.win11 .win11-random-select:focus {
+    outline: none;
+    border-color: var(--win11-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+/* 快捷预设 */
+.win11 .win11-random-presets {
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .win11-random-presets-title {
+    margin-bottom: var(--win11-spacing-sm);
+    font-weight: 600;
+    color: var(--win11-text-primary);
+    font-size: 1rem;
+}
+
+.win11 .win11-random-presets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--win11-spacing-sm);
+}
+
+.win11 .win11-random-preset-btn {
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    background-color: var(--win11-background-secondary);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    color: var(--win11-text-primary);
+    cursor: pointer;
+    transition: var(--win11-transition);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.win11 .win11-random-preset-btn:hover {
+    background-color: var(--win11-primary);
+    color: var(--win11-text-white);
+    border-color: var(--win11-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--win11-shadow-md);
+}
+
+/* 生成按钮 */
+.win11 .win11-random-generate-btn {
+    width: 100%;
+    padding: var(--win11-spacing-md);
+    background: linear-gradient(135deg, var(--win11-primary), var(--win11-secondary));
+    color: var(--win11-text-white);
+    border: none;
+    border-radius: var(--win11-border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--win11-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--win11-spacing-sm);
+}
+
+.win11 .win11-random-generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--win11-shadow-lg);
+}
+
+.win11 .win11-random-generate-btn:active {
+    transform: translateY(0);
+}
+
+/* 结果显示 */
+.win11 .win11-random-result-display {
+    background: linear-gradient(135deg, var(--win11-background-primary), var(--win11-background-secondary));
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-xl);
+    transition: var(--win11-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.win11 .win11-random-result-placeholder {
+    color: var(--win11-text-tertiary);
+    font-size: 1.1rem;
+}
+
+.win11 .win11-random-error {
+    color: var(--win11-error);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.win11 .win11-random-result-content {
+    width: 100%;
+}
+
+.win11 .win11-random-result-numbers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--win11-spacing-md);
+}
+
+.win11 .win11-random-result-number {
+    background: linear-gradient(135deg, var(--win11-primary), var(--win11-primary-active));
+    color: var(--win11-text-white);
+    padding: var(--win11-spacing-xl) calc(var(--win11-spacing-xl) * 1.8);
+    border-radius: var(--win11-border-radius-full);
+    font-size: 2rem; /* H2字号大小 */
+    font-weight: 900;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 0 0 4px rgba(0, 120, 212, 0.2);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.3);
+    min-width: 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 3px solid var(--win11-text-white);
+    animation: win11GlowPulse 2s infinite alternate;
+    white-space: nowrap;
+    display: inline-block;
+    word-break: keep-all;
+}
+
+@keyframes win11GlowPulse {
+    0% {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 0 0 4px rgba(0, 120, 212, 0.2);
+        transform: translateY(0);
+    }
+    100% {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 20px 8px rgba(0, 120, 212, 0.4);
+        transform: translateY(-2px);
+    }
+}
+
+.win11 .win11-random-result-number:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, var(--win11-primary-hover), var(--win11-secondary));
+}
+
+.win11 .win11-random-result-number::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
+    transform: rotate(30deg);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(30deg); }
+    100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* 统计信息 */
+.win11 .win11-random-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--win11-spacing-md);
+    margin-top: var(--win11-spacing-lg);
+    padding-top: var(--win11-spacing-md);
+    border-top: 1px solid var(--win11-border-color);
+}
+
+.win11 .win11-random-stat-item {
+    flex: 1;
+    min-width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--win11-spacing-sm);
+    background-color: var(--win11-background-secondary);
+    border-radius: var(--win11-border-radius);
+}
+
+.win11 .win11-random-stat-value {
+    font-weight: 600;
+    color: var(--win11-primary);
+    font-size: 1.1rem;
+}
+
+/* 动画效果 */
+.win11 .win11-random-result-pulse {
+    animation: win11RandomPulse 0.5s ease-in-out;
+}
+
+@keyframes win11RandomPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 120, 212, 0.7);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 10px rgba(0, 120, 212, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 120, 212, 0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .win11 .win11-random-input-group {
+        flex-direction: column;
+    }
+    
+    .win11 .win11-random-input-item {
+        width: 100%;
+    }
+    
+    .win11 .win11-random-presets-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .win11 .win11-random-result-number {
+        font-size: 2rem;
+        padding: var(--win11-spacing-md) var(--win11-spacing-lg);
+    }
+    
+    .win11 .win11-random-stats {
+        flex-direction: column;
+    }
+}
+
+/* 单位转换器样式 */
+.win11 .converter-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win11-spacing-md);
+}
+
+.win11 .converter-card {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-md);
+    box-shadow: var(--win11-shadow-md);
+}
+
+.win11 .converter-card-title {
+    display: flex;
+    align-items: center;
+    gap: var(--win11-spacing-sm);
+    margin-bottom: var(--win11-spacing-md);
+    font-weight: 600;
+    color: var(--win11-text-primary);
+    font-size: 1.1rem;
+}
+
+.win11 .converter-card-icon {
+    font-size: 1.2rem;
+}
+
+.win11 .converter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--win11-spacing-sm);
+    margin-bottom: var(--win11-spacing-sm);
+}
+
+.win11 .converter-tab {
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius-full);
+    background-color: var(--win11-background-secondary);
+    color: var(--win11-text-secondary);
+    cursor: pointer;
+    transition: var(--win11-transition);
+    font-size: 0.9rem;
+}
+
+.win11 .converter-tab:hover {
+    background-color: var(--win11-surface-hover);
+    border-color: var(--win11-primary);
+}
+
+.win11 .converter-tab.active {
+    background-color: var(--win11-primary);
+    color: var(--win11-text-white);
+    border-color: var(--win11-primary);
+}
+
+.win11 .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win11-spacing-md);
+}
+
+.win11 .converter-input {
+    width: 100%;
+    padding: var(--win11-spacing-md);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    font-size: 1rem;
+    background-color: var(--win11-background-primary);
+    color: var(--win11-text-primary);
+    transition: var(--win11-transition);
+}
+
+.win11 .converter-input:focus {
+    outline: none;
+    border-color: var(--win11-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+.win11 .converter-select {
+    width: 100%;
+    padding: var(--win11-spacing-md);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    font-size: 1rem;
+    background-color: var(--win11-background-primary);
+    color: var(--win11-text-primary);
+    cursor: pointer;
+    transition: var(--win11-transition);
+}
+
+.win11 .converter-select:focus {
+    outline: none;
+    border-color: var(--win11-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+.win11 .converter-btn {
+    width: 100%;
+    padding: var(--win11-spacing-md);
+    background-color: var(--win11-primary);
+    color: var(--win11-text-white);
+    border: none;
+    border-radius: var(--win11-border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--win11-transition);
+}
+
+.win11 .converter-btn:hover {
+    background-color: var(--win11-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--win11-shadow-md);
+}
+
+.win11 .converter-btn:active {
+    transform: translateY(0);
+}
+
+.win11 .result-display {
+    padding: var(--win11-spacing-md);
+    background-color: var(--win11-background-secondary);
+    border-radius: var(--win11-border-radius);
+    min-height: 100px;
+}
+
+.win11 .result-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--win11-primary);
+    margin-bottom: var(--win11-spacing-sm);
+}
+
+.win11 .result-formula {
+    font-size: 0.9rem;
+    color: var(--win11-text-secondary);
+    margin-bottom: var(--win11-spacing-xs);
+}
+
+.win11 .result-ratio {
+    font-size: 0.8rem;
+    color: var(--win11-text-tertiary);
+}
+
+.win11 .quick-convert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--win11-spacing-sm);
+}
+
+.win11 .quick-convert-btn {
+    padding: var(--win11-spacing-sm);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    background-color: var(--win11-background-secondary);
+    color: var(--win11-text-primary);
+    cursor: pointer;
+    transition: var(--win11-transition);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.win11 .quick-convert-btn:hover {
+    background-color: var(--win11-surface-hover);
+    border-color: var(--win11-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--win11-shadow-sm);
+}
+
+.win11 .converter-history {
+    max-height: 150px;
+    overflow-y: auto;
+    padding: var(--win11-spacing-sm);
+    background-color: var(--win11-background-secondary);
+    border-radius: var(--win11-border-radius);
+}
+
+.win11 .converter-history-item {
+    padding: var(--win11-spacing-sm);
+    border-bottom: 1px solid var(--win11-border-color);
+    font-size: 0.9rem;
+}
+
+.win11 .converter-history-item:last-child {
+    border-bottom: none;
+}
+
+@media (min-width: 768px) {
+    .win11 .input-group {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .win11 .converter-input,
+    .win11 .converter-select {
+        width: calc(50% - var(--win11-spacing-md));
+    }
+    
+    .win11 .converter-btn {
+        width: auto;
+        align-self: stretch;
+        padding: var(--win11-spacing-md) var(--win11-spacing-lg);
+    }
+}
+
+/* 学习网站样式 */
+.win11 .websites-section {
+    padding: var(--win11-spacing-xl) 0;
+    background: linear-gradient(135deg, var(--win11-background-secondary) 0%, var(--win11-background-primary) 100%);
+}
+
+.win11 .websites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--win11-spacing-xl);
+    margin-top: var(--win11-spacing-xl);
+}
+
+.win11 .website-card {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    border-radius: var(--win11-border-radius-lg);
+    padding: var(--win11-spacing-lg);
+    transition: var(--win11-transition);
+    box-shadow: var(--win11-shadow-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.win11 .website-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--win11-shadow-xl);
+}
+
+.win11 .website-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--win11-primary);
+    color: var(--win11-text-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--win11-spacing-md);
+    font-size: 2rem;
+}
+
+.win11 .website-icon.website-icon-secondary {
+    background: var(--win11-secondary);
+}
+
+.win11 .website-icon.website-icon-accent {
+    background: var(--win11-accent);
+}
+
+.win11 .website-icon.website-icon-warning {
+    background: var(--win11-warning);
+}
+
+.win11 .website-icon.website-icon-danger {
+    background: var(--win11-error);
+}
+
+.win11 .website-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--win11-text-primary);
+    margin-bottom: var(--win11-spacing-sm);
+}
+
+.win11 .website-description {
+    color: var(--win11-text-secondary);
+    margin-bottom: var(--win11-spacing-md);
+    flex-grow: 1;
+}
+
+.win11 .website-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--win11-primary);
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--win11-transition);
+}
+
+.win11 .website-link:hover {
+    color: var(--win11-primary-hover);
+    transform: translateX(4px);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .win11 .navbar-menu {
+        display: none;
+    }
+    
+    .win11 .mobile-menu-btn {
+        display: block;
+    }
+    
+    .win11 .glass-card {
+        padding: var(--win11-spacing-md);
+        border-radius: var(--win11-border-radius);
+    }
+    
+    .win11 footer {
+        padding: var(--win11-spacing-lg) var(--win11-spacing-md);
+    }
+    
+    .win11 .tools-container {
+        padding: var(--win11-spacing-md);
+    }
+    
+    .win11 .tools-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: var(--win11-spacing-sm);
+    }
+    
+    .win11 .tool-modal {
+        padding: var(--win11-spacing-md);
+    }
+    
+    .win11 .tool-modal-content {
+        background: var(--win11-glass-bg);
+        backdrop-filter: var(--win11-blur);
+        -webkit-backdrop-filter: var(--win11-blur);
+        border: var(--win11-glass-border);
+        box-shadow: var(--win11-shadow-lg);
+        border-radius: var(--win11-border-radius-large);
+    }
+    
+    .win11 .tool-modal-header {
+        background: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid var(--win11-border-color);
+    }
+    
+    .win11 .tool-modal-title {
+        color: var(--win11-text-primary);
+    }
+    
+    .win11 .tool-modal-close {
+        color: var(--win11-text-secondary);
+    }
+    
+    .win11 .tool-modal-close:hover {
+        color: var(--win11-text-primary);
+        background-color: var(--win11-surface-hover);
+    }
+    
+    .win11 .tool-modal-body {
+        color: var(--win11-text-primary);
+    }
+}
+
+/* 回声墙样式 */
+.win11 .echo-section {
+    padding: var(--win11-spacing-xl) 0;
+    background: linear-gradient(135deg, var(--win11-background-secondary) 0%, var(--win11-background-primary) 100%);
+}
+
+.win11 .echo-container {
+    margin-top: var(--win11-spacing-xl);
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    border-radius: var(--win11-border-radius-lg);
+    padding: var(--win11-spacing-xl);
+    box-shadow: var(--win11-shadow-md);
+}
+
+.win11 .echo-description {
+    margin-bottom: var(--win11-spacing-lg);
+    text-align: center;
+    color: var(--win11-text-secondary);
+}
+
+.win11 .echo-input-container {
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .echo-input-wrapper {
+    display: flex;
+    gap: var(--win11-spacing-md);
+}
+
+.win11 .echo-input {
+    flex: 1;
+    padding: var(--win11-spacing-md);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    background: var(--win11-background-primary);
+    color: var(--win11-text-primary);
+    font-size: 1rem;
+    transition: var(--win11-transition);
+}
+
+.win11 .echo-input:focus {
+    outline: none;
+    border-color: var(--win11-accent);
+    box-shadow: 0 0 0 2px rgba(0, 183, 195, 0.2);
+}
+
+.win11 .echo-button {
+    padding: var(--win11-spacing-md) var(--win11-spacing-lg);
+    background: var(--win11-accent);
+    color: var(--win11-text-white);
+    border: none;
+    border-radius: var(--win11-border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--win11-transition);
+}
+
+.win11 .echo-button:hover {
+    background: var(--win11-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--win11-shadow-md);
+}
+
+.win11 .echo-display {
+    min-height: 120px;
+    padding: var(--win11-spacing-lg);
+    background: var(--win11-background-secondary);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    font-size: 1.1rem;
+    color: var(--win11-text-primary);
+    line-height: 1.6;
+    position: relative;
+    overflow: hidden;
+}
+
+.win11 .echo-placeholder {
+    color: var(--win11-text-secondary);
+    font-style: italic;
+    text-align: center;
+}
+
+.win11 .echo-text {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 回声消息样式 */
+.win11 .echo-message {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    border-radius: var(--win11-border-radius);
+    padding: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-md);
+    box-shadow: var(--win11-shadow-sm);
+    animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 打字效果样式 */
+.win11 .typing-text {
+    position: relative;
+    display: inline;
+}
+
+.win11 .typing-text.typing-cursor::after {
+    content: '|';
+    position: absolute;
+    right: -10px;
+    color: var(--win11-primary);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+```

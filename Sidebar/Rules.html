@@ -3,263 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <title>班级规章 - 九（2）班 班级网站</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#3B82F6',
-                        secondary: '#10B981',
-                        accent: '#8B5CF6',
-                        dark: '#1F2937',
-                        light: '#F3F4F6',
-                        warning: '#F59E0B',
-                        danger: '#EF4444'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        display: ['Poppins', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
-            .text-gradient {
-                background-clip: text;
-                -webkit-background-clip: text;
-                color: transparent;
-            }
-            .card-hover {
-                transition: all 0.3s ease;
-            }
-            .card-hover:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.15);
-            }
-            .rule-list-item {
-                position: relative;
-                padding-left: 1.875rem;
-            }
-            .rule-list-item::before {
-                content: "";
-                position: absolute;
-                left: 0;
-                top: 0.5rem;
-                width: 0.75rem;
-                height: 0.75rem;
-                border-radius: 50%;
-                background-color: #3B82F6;
-            }
-        }
-    </style>
-
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    
+    <!-- 引入外部库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- 引入站点配置 -->
+    <script src="../js/site-config.js"></script>
+    <script src="css/theme-loader.js"></script>
+
+    <!-- 页面JavaScript -->
+    <script src="js/rules.js"></script>
 </head>
-<body class="bg-gradient-to-br from-light to-blue-50 min-h-screen">
-    <!-- 导航栏 -->
-    <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur shadow-sm z-50 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
-                            <i class="fas fa-chart-line text-white text-xl"></i>
+
+<body class="main-body custom-scrollbar">
+    <!-- 页面加载中占位符 -->
+    <div id="page-loader" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #f3f2f1; display: flex; align-items: center; justify-content: center; z-index: 9999;">
+        <div style="text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;"><i class="fas fa-graduation-cap"></i></div>
+            <p style="font-size: 1.2rem; color: #6e6e6e;">加载中...</p>
+        </div>
+    </div>
+
+    <nav id="navbar" class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <div class="logo-container">
+                        <div class="logo">
+                            <i class="fas fa-gavel"></i>
                         </div>
-                        <div class="ml-3">
-                            <span class="block text-sm font-semibold text-dark">九（2）班</span>
-                            <span class="block text-xs text-gray-500">班级网站</span>
-                        </div>
+                        <div class="logo-status"></div>
+                    </div>
+                    <div class="brand-info">
+                        <span class="site-name">九（2）班</span>
+                        <span class="site-description">班级规章</span>
                     </div>
                 </div>
 
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="../index.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">首页</a>
-                        <a href="../index.html#class-info" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">班级介绍</a>
-                        <a href="../index.html#recent-activities" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">班级动态</a>
-                        <a href="#" class="text-dark hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 border-b-2 border-primary">班级规章</a>
-                        <a href="ClassStyle.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">班级风采</a>
-                        <a href="treasurebox.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">百宝箱</a>
-                        <a href="about.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">关于我们</a>
-                    </div>
+                <div class="navbar-menu">
+                    <a href="../index.html" class="navbar-link nav-home">首页</a>
+                    <a href="../index.html#class-info" class="navbar-link">班级介绍</a>
+                    <a href="notice.html" class="navbar-link">班级动态</a>
+                    <a href="#" class="navbar-link nav-rules">班级规章</a>
+                    <a href="timetable.html" class="navbar-link">课程表</a>
+                    <a href="ClassStyle.html" class="navbar-link nav-classstyle">班级风采</a>
+                    <a href="treasurebox.html" class="navbar-link nav-treasurebox">百宝箱</a>
+                    <a href="about.html" class="navbar-link nav-about">关于我们</a>
                 </div>
 
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-500 hover:text-primary focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
+                <div class="navbar-actions">
+                    <button class="navbar-btn notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <button class="navbar-btn mobile-menu-btn" id="mobile-menu-button">
+                        <i class="fas fa-bars"></i>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- 移动端菜单 -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg rounded-b-lg absolute w-full">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="../index.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">首页</a>
-                <a href="../index.html#class-info" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级介绍</a>
-                <a href="../index.html#recent-activities" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级动态</a>
-                <a href="#" class="text-dark hover:text-primary block px-3 py-2 rounded-md text-base font-medium bg-blue-50">班级规章</a>
-                <a href="ClassStyle.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">班级风采</a>
-                <a href="treasurebox.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">百宝箱</a>
-                <a href="about.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">关于我们</a>
+        <div id="mobile-menu" class="mobile-menu">
+            <div class="mobile-menu-content">
+                <a href="../index.html" class="navbar-link nav-home">首页</a>
+                <a href="../index.html#class-info" class="navbar-link">班级介绍</a>
+                <a href="notice.html" class="navbar-link">班级动态</a>
+                <a href="#" class="navbar-link nav-rules">班级规章</a>
+                <a href="timetable.html" class="navbar-link">课程表</a>
+                <a href="ClassStyle.html" class="navbar-link nav-classstyle">班级风采</a>
+                <a href="treasurebox.html" class="navbar-link nav-treasurebox">百宝箱</a>
+                <a href="about.html" class="navbar-link nav-about">关于我们</a>
             </div>
         </div>
     </nav>
 
     <!-- 英雄区域 -->
-    <section class="pt-32 pb-16 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-8 bg-white">
-        <div class="container mx-auto">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent text-gradient">
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content glass-card" data-aos="fade-up">
+                <h1 class="hero-title text-gradient">
                     班级规章
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+                <p class="hero-subtitle">
                     构建和谐、有序、积极向上的班级环境，促进同学全面发展与班级团结
                 </p>
-                <div class="inline-block bg-blue-50 text-primary px-4 py-2 rounded-full text-sm font-medium">
-                    <i class="fas fa-users mr-2"></i>依据《中学生守则》《校规校纪》及班级实际情况制定
+                <div class="hero-buttons">
+                    <div class="hero-button primary-button">
+                        <i class="fas fa-users mr-2"></i>
+                        <span>班级管理</span>
+                    </div>
+                    <div class="hero-button secondary-button">
+                        <i class="fas fa-balance-scale mr-2"></i>
+                        <span>规章制度</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <--- >我相信你会自己写的< ---/>
-    <!-- 页脚 -->
-    <footer class="bg-dark text-white py-12">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
-                            <i class="fas fa-chart-line text-white text-xl"></i>
+
+    <!-- 规章内容区域 -->
+    <section class="rules-section">
+        <div class="container">
+            <div class="rules-container">
+                <!-- 规则目录 -->
+                <div class="rules-toc" data-aos="fade-up">
+                    <h3>班级规则目录</h3>
+                    <ul class="modern-list">
+                        <li><a href="#study-rules">学习纪律</a></li>
+                        <li><a href="#activity-rules">班级活动</a></li>
+                        <li><a href="#safety-rules">安全规定</a></li>
+                        <li><a href="#reward-punish-rules">奖惩制度</a></li>
+                        <li><a href="#class-agreement">班级公约</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 规则概述 -->
+                <div class="rules-overview" data-aos="fade-up" data-aos-delay="100">
+                    <h2>班级规章制度</h2>
+                    <p>
+                        为维护班级正常秩序，营造良好学习氛围，促进班级团结，特制定本规章制度。全体同学应自觉遵守，共同维护班级荣誉。
+                    </p>
+                </div>
+                
+                <!-- 规则内容卡片 -->
+                <div class="rules-grid">
+                    <div class="rule-item" id="study-rules" data-aos="fade-up" data-aos-delay="200">
+                        <h3><i class="fas fa-user-graduate mr-2"></i> 学习纪律</h3>
+                        <ul class="modern-list">
+                            <li>按时完成作业，不抄袭他人作业</li>
+                            <li>上课认真听讲，不随意说话或走动</li>
+                            <li>积极参与课堂讨论，尊重老师和同学</li>
+                            <li>保持学习环境整洁，不乱扔垃圾</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rule-item" id="activity-rules" data-aos="fade-up" data-aos-delay="300">
+                        <h3><i class="fas fa-users mr-2"></i> 班级活动</h3>
+                        <ul class="modern-list">
+                            <li>积极参加班级组织的各项活动</li>
+                            <li>遵守活动纪律，服从组织安排</li>
+                            <li>维护班级形象，展现良好风貌</li>
+                            <li>团结协作，互帮互助共同进步</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rule-item" id="safety-rules" data-aos="fade-up" data-aos-delay="400">
+                        <h3><i class="fas fa-shield-alt mr-2"></i> 安全规定</h3>
+                        <ul class="modern-list">
+                            <li>不在教室内追逐打闹，注意安全</li>
+                            <li>爱护公共财物，不损坏班级设施</li>
+                            <li>注意用电安全，不私拉乱接电线</li>
+                            <li>发现安全隐患及时报告老师</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rule-item" id="reward-punish-rules" data-aos="fade-up" data-aos-delay="500">
+                        <h3><i class="fas fa-star mr-2"></i> 奖惩制度</h3>
+                        <ul class="modern-list">
+                            <li>遵守规章制度的同学将获得表扬</li>
+                            <li>表现突出者可参与班级评优</li>
+                            <li>违反规定者将视情节给予批评教育</li>
+                            <li>严重违规者将上报学校处理</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 班级公约 -->
+                <div class="rule-item important" id="class-agreement" data-aos="fade-up" data-aos-delay="600">
+                    <h3><i class="fas fa-lightbulb mr-2"></i> 班级公约</h3>
+                    <p>
+                        为了营造和谐、积极、向上的班级氛围，我们共同约定：
+                    </p>
+                    <div class="agreement-grid">
+                        <div class="agreement-item">
+                            <div class="agreement-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <p>互相尊重，友好相处，不欺凌同学</p>
                         </div>
-                        <div class="ml-3">
-                            <span class="block text-sm font-semibold text-white">九（2）班</span>
-                            <span class="block text-xs text-gray-400">语文积分表系统</span>
+                        <div class="agreement-item">
+                            <div class="agreement-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <p>文明用语，不说脏话，不大声喧哗</p>
+                        </div>
+                        <div class="agreement-item">
+                            <div class="agreement-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <p>乐于助人，关心集体，积极参与班级事务</p>
+                        </div>
+                        <div class="agreement-item">
+                            <div class="agreement-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <p>珍惜荣誉，为班级争光，共同进步</p>
                         </div>
                     </div>
-                    <p class="text-gray-400 text-sm">
-                        专业的语文积分管理与评估系统，助力学习成长与团队协作。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand" data-aos="fade-up">
+                    <div class="brand-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <div class="logo-info">
+                            <span class="brand-name">九（2）班</span>
+                            <span class="brand-description">班级规章</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        专业的班级管理与交流平台，助力班级建设与同学成长。
                     </p>
                 </div>
 
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
-                    <ul class="space-y-2">
-                        <li><a href="/" class="text-gray-400 hover:text-white transition-colors duration-200">首页</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">积分查询</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">数据分析</a></li>
-                        <li><a href="#match-reports" class="text-gray-400 hover:text-white transition-colors duration-200">比赛报表</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">数据管理规则</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">关于我们</a></li>
+                <div class="footer-links" data-aos="fade-up" data-aos-delay="100">
+                    <h4>快速链接</h4>
+                    <ul class="modern-list">
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="../index.html#class-info">班级介绍</a></li>
+                        <li><a href="../index.html#recent-activities">班级动态</a></li>
+                        <li><a href="#">班级规章</a></li>
+                        <li><a href="ClassStyle.html">班级风采</a></li>
+                        <li><a href="treasurebox.html">百宝箱</a></li>
+                        <li><a href="about.html">关于我们</a></li>
                     </ul>
                 </div>
 
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">资源中心</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">使用指南</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">常见问题</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">学习资料</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">更新日志</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">规则附件下载</a></li>
+                <div class="footer-resources" data-aos="fade-up" data-aos-delay="200">
+                    <h4>资源中心</h4>
+                    <ul class="modern-list">
+                        <li><a href="../index.html">班级相册</a></li>
+                        <li><a href="../index.html">学习资源</a></li>
+                        <li><a href="../index.html">活动记录</a></li>
+                        <li><a href="../index.html">荣誉展示</a></li>
+                        <li><a href="notice.html">通知公告</a></li>
                     </ul>
                 </div>
 
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">联系信息</h4>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope text-gray-400 mr-2"></i>
-                            <span class="text-gray-400">联系管理员</span>
+                <div class="footer-contact" data-aos="fade-up" data-aos-delay="300">
+                    <h4>联系信息</h4>
+                    <ul class="modern-list">
+                        <li class="contact-item">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>联系管理员</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">
-                    © 2025 九（2）班. 保留所有权利。
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2024 JGL STUDIO. 保留所有权利。
                 </p>
             </div>
         </div>
     </footer>
-<script>
-    document.getElementById('dl').onclick = () => {
-          // 使用本地文件路径
-          const url = '../document/9/北大队积分表.pdf';
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = '北大队积分表模板.pdf';   // 指定保存名
-          a.click();
-        };
-    document.getElementById('dl1').onclick = () => {
-          // 使用本地文件路径
-          const url = '../document/9/清华队积分表.pdf';
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = '清华队积分表模板.pdf';   // 指定保存名
-          a.click();
-        };
-    document.getElementById('dl2').onclick = () => {
-          // 使用本地文件路径
-          const url = '../document/9/复核更正受理书.docx';
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = '复核更正受理书.docx';   // 指定保存名
-          a.click();
-        };
 
-    document.getElementById('dl3').onclick = () => {
-          // 使用本地文件路径
-          const url = '../document/9/驳回复核书.docx';
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = '驳回复核书.docx';   // 指定保存名
-          a.click();
-        };
-    document.getElementById('dl4').onclick = () => {
-          // 使用本地文件路径
-          const url = '../document/9/月度两队总结统计书.docx';
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = '月度两队总结统计书.docx';   // 指定保存名
-          a.click();
-        };
-    document.getElementById('dl5').onclick = () => {
-          // 使用本地文件路径
-          const url = '../document/9/统计员数据审核报告.docx';
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = '统计员数据审核报告.docx';   // 指定保存名
-          a.click();
-        };
-    document.getElementById('dl6').onclick = () => {
-          // 使用本地文件路径
-          const url = '../document/9/更正声明复核通知书.docx';
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = '更正声明复核通知书.docx';   // 指定保存名
-          a.click();
-        };
-    document.getElementById('dl7').onclick = () => {
-          // 使用本地文件路径
-          const url = '../document/9/复核更正申请书.docx';
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = '复核更正申请书.docx';   // 指定保存名
-          a.click();
-        };
-</script>
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 页面加载后初始化AOS
+        window.addEventListener('sidebar.theme.render.ready', function() {
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+            
+            // 隐藏加载中占位符
+            const pageLoader = document.getElementById('page-loader');
+            if (pageLoader) {
+                pageLoader.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

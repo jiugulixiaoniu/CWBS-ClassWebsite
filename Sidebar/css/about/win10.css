@@ -1,0 +1,536 @@
+/* Metro UI */
+
+:root {
+    --win10-primary: #0078d7;
+    --win10-primary-hover: #106ebe;
+    --win10-primary-active: #005a9e;
+    --win10-secondary: #ffb900;
+    --win10-text-primary: #000000;
+    --win10-text-secondary: #666666;
+    --win10-text-white: #ffffff;
+    --win10-background-primary: #ffffff;
+    --win10-background-secondary: #f2f2f2;
+    --win10-background-tertiary: #e5e5e5;
+    --win10-border-color: #cccccc;
+    --win10-surface: #ffffff;
+    --win10-success: #267f00;
+    --win10-warning: #ff8c00;
+    --win10-error: #d13438;
+    --win10-info: #0078d4;
+    --win10-border-radius: 0px;
+    --win10-border-radius-sm: 2px;
+    --win10-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --win10-shadow-md: 0 2px 6px rgba(0, 0, 0, 0.1);
+    --win10-shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --win10-transition: all 0.2s ease;
+    --win10-spacing-xs: 0.25rem;
+    --win10-spacing-sm: 0.5rem;
+    --win10-spacing-md: 1rem;
+    --win10-spacing-lg: 1.5rem;
+    --win10-spacing-xl: 2rem;
+    --win10-spacing-xxl: 3rem;
+}
+
+/* 全局样式 */
+body.win10 {
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--win10-text-primary);
+    background-color: var(--win10-background-primary);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/* 导航栏样式 */
+.win10 .navbar {
+    background-color: var(--win10-primary) !important;
+    color: var(--win10-text-white);
+    border: none;
+    box-shadow: var(--win10-shadow-md);
+}
+
+.win10 .navbar .navbar-brand .site-name,
+.win10 .navbar .navbar-brand .site-description {
+    color: var(--win10-text-white);
+}
+
+.win10 .navbar .navbar-menu a {
+    color: var(--win10-text-white);
+    background-color: transparent;
+    border: none;
+    margin: 0 var(--win10-spacing-xs);
+    padding: var(--win10-spacing-sm) var(--win10-spacing-md);
+    border-radius: var(--win10-border-radius);
+    transition: var(--win10-transition);
+    font-weight: 500;
+}
+
+.win10 .navbar .navbar-menu a:hover {
+    background-color: var(--win10-primary-hover);
+    transform: none;
+}
+
+.win10 .navbar .navbar-menu a:active {
+    background-color: var(--win10-primary-active);
+}
+
+.win10 .navbar .navbar-actions button {
+    background-color: transparent;
+    color: var(--win10-text-white);
+    border: none;
+    margin: 0 var(--win10-spacing-xs);
+    padding: var(--win10-spacing-sm);
+    border-radius: var(--win10-border-radius);
+    transition: var(--win10-transition);
+}
+
+.win10 .navbar .navbar-actions button:hover {
+    background-color: var(--win10-primary-hover);
+}
+
+/* 移动端菜单 */
+.win10 .mobile-menu {
+    background-color: var(--win10-primary) !important;
+    color: var(--win10-text-white);
+    border: none;
+    border-radius: var(--win10-border-radius);
+}
+
+.win10 .mobile-menu .mobile-menu-content a {
+    color: var(--win10-text-white);
+    border: none;
+    margin: var(--win10-spacing-xs);
+    padding: var(--win10-spacing-sm) var(--win10-spacing-md);
+    border-radius: var(--win10-border-radius);
+    transition: var(--win10-transition);
+}
+
+.win10 .mobile-menu .mobile-menu-content a:hover {
+    background-color: var(--win10-primary-hover);
+}
+
+.win10 .pt-32 {
+    padding-top: 8rem !important;
+}
+
+.win10 .md\:pt-52 {
+    padding-top: 13rem !important;
+}
+
+/* 确保内容区域也有足够的上边距 */
+.win10 .py-8 {
+    padding-top: 4rem !important; /* 64px */
+    padding-bottom: 2rem !important;
+}
+
+/* 英雄区域 */
+.win10 .glass-card {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-md);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-xl);
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 .text-gradient {
+    background: linear-gradient(to right, var(--win10-primary), var(--win10-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.win10 .bg-primary\/10 {
+    background-color: rgba(0, 120, 215, 0.1);
+}
+
+.win10 .bg-secondary\/10 {
+    background-color: rgba(255, 185, 0, 0.1);
+}
+
+.win10 .text-primary {
+    color: var(--win10-primary);
+}
+
+.win10 .text-secondary {
+    color: var(--win10-secondary);
+}
+
+/* 内容区域 */
+.win10 .glass-effect {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-sm);
+    border-radius: var(--win10-border-radius);
+}
+
+/* 内容横向布局 */
+.win10 #content .space-y-8 {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.win10 #content .glass-card {
+    flex: 1;
+    min-width: 300px;
+    margin-bottom: 0;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .win10 #content .space-y-8 {
+        flex-direction: column;
+    }
+    
+    .win10 #content .glass-card {
+        min-width: auto;
+        width: 100%;
+    }
+}
+
+/* 页脚 */
+.win10 footer {
+    background-color: var(--win10-text-primary) !important;
+    color: var(--win10-text-white);
+    border-top: 4px solid var(--win10-primary);
+}
+
+.win10 footer h4 {
+    color: var(--win10-text-white);
+    border-bottom: 2px solid var(--win10-primary);
+    padding-bottom: var(--win10-spacing-sm);
+    margin-bottom: var(--win10-spacing-md);
+}
+
+.win10 footer a {
+    color: var(--win10-text-white);
+    opacity: 0.8;
+    transition: var(--win10-transition);
+}
+
+.win10 footer a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* 返回顶部按钮 */
+.win10 #back-to-top {
+    background-color: var(--win10-primary) !important;
+    color: var(--win10-text-white);
+    border: none;
+    border-radius: var(--win10-border-radius);
+    box-shadow: var(--win10-shadow-md);
+}
+
+.win10 #back-to-top:hover {
+    background-color: var(--win10-primary-hover) !important;
+}
+
+/* 按钮样式 */
+.win10 button {
+    background-color: var(--win10-primary);
+    color: var(--win10-text-white);
+    border: none;
+    padding: var(--win10-spacing-sm) var(--win10-spacing-lg);
+    border-radius: var(--win10-border-radius);
+    font-weight: 600;
+    transition: var(--win10-transition);
+}
+
+.win10 button:hover {
+    background-color: var(--win10-primary-hover);
+}
+
+.win10 button:active {
+    background-color: var(--win10-primary-active);
+}
+
+/* 卡片样式 */
+.win10 .card {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-sm);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-md);
+}
+
+/* 表单样式 */
+.win10 input, 
+.win10 textarea, 
+.win10 select {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-sm);
+    color: var(--win10-text-primary);
+    font-family: inherit;
+}
+
+.win10 input:focus, 
+.win10 textarea:focus, 
+.win10 select:focus {
+    outline: none;
+    border-color: var(--win10-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 215, 0.2);
+}
+
+/* 动画效果 */
+.win10 [data-aos] {
+    transition-property: transform, opacity;
+}
+
+.win10 .aos-animate {
+    transform: translateZ(0);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .win10 .navbar-menu {
+        display: none;
+    }
+    
+    .win10 .mobile-menu-btn {
+        display: block;
+    }
+    
+    .win10 .glass-card {
+        padding: var(--win10-spacing-md);
+    }
+    
+    .win10 footer {
+        padding: var(--win10-spacing-lg) var(--win10-spacing-md);
+    }
+}
+/* 页脚 */
+.win10 footer {
+    background-color: var(--win10-primary) !important;
+    color: var(--win10-text-white);
+    border-top: none;
+    padding: var(--win10-spacing-xxl) 0;
+}
+
+/* 页脚网格布局 - 直接作用于页脚中的grid容器 */
+.win10 footer .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--win10-spacing-xl);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 确保在中等屏幕及以上正确横向排版 */
+@media (min-width: 640px) {
+    .win10 footer .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 768px) {
+    .win10 footer .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .win10 footer .grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--win10-spacing-xxl);
+    }
+}
+
+/* 确保页脚容器有正确的宽度和内边距 */
+.win10 footer .container {
+    width: 100%;
+    padding-left: var(--win10-spacing-lg);
+    padding-right: var(--win10-spacing-lg);
+    max-width: 100%;
+}
+
+/* 修复页脚底部版权区域的布局 */
+.win10 footer .border-t {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 页脚品牌 */
+.win10 .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-md);
+}
+
+.win10 .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-md);
+}
+
+.win10 .footer-logo i {
+    font-size: 2rem;
+    color: var(--win10-text-white);
+}
+
+.win10 .footer-brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.win10 .footer-brand-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--win10-text-white);
+}
+
+.win10 .footer-brand-desc {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.win10 .footer-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-top: var(--win10-spacing-md);
+}
+
+/* 页脚标题 */
+.win10 .footer-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--win10-text-white);
+    position: relative;
+    padding-bottom: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-lg);
+    border-bottom: 2px solid var(--win10-text-white);
+}
+
+/* 页脚底部 */
+.win10 .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--win10-spacing-xxl);
+    padding-top: var(--win10-spacing-lg);
+    text-align: center;
+}
+
+.win10 .footer-copyright {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* 页脚联系方式 */
+.win10 .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-md);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* 修复联系信息项的对齐 */
+.win10 .footer-contact .contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--win10-spacing-md);
+    padding: var(--win10-spacing-xs) 0;
+}
+
+.win10 .footer-contact i {
+    color: var(--win10-text-white);
+}
+
+.win10 footer h4 {
+    color: var(--win10-text-white);
+    border-bottom: 2px solid var(--win10-text-white);
+    padding-bottom: var(--win10-spacing-sm);
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 footer a {
+    color: var(--win10-text-white);
+    opacity: 0.8;
+    transition: var(--win10-transition);
+}
+
+.win10 footer a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* 页脚链接列表样式优化 */
+.win10 .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-sm);
+}
+
+/* 页脚中的modern-list特殊样式 */
+.win10 footer .modern-list {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.win10 footer .modern-list li {
+    border-bottom: none;
+    padding: var(--win10-spacing-xs) 0;
+    justify-content: flex-start;
+}
+
+.win10 footer .modern-list li:hover {
+    background-color: transparent;
+}
+
+.win10 .footer-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.win10 .footer-links a {
+    display: inline-block;
+    padding: var(--win10-spacing-xs) 0;
+    position: relative;
+    text-decoration: none !important;
+    color: #ffffff !important;
+}
+
+.win10 .footer-link {
+    display: inline-block;
+    padding: var(--win10-spacing-xs) 0;
+    position: relative;
+    text-decoration: none !important;
+    color: #ffffff !important;
+}
+
+.win10 .footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--win10-text-white);
+    transition: width 0.2s ease;
+}
+
+.win10 .footer-links a:hover::after {
+    width: 100%;
+}
+
+.win10 .footer-links a:hover {
+    opacity: 1;
+    text-decoration: none !important;
+}
+
+.win10 .footer-link:hover {
+    opacity: 1;
+    text-decoration: none !important;
+}
+.win10 footer {
+        padding: var(--win10-spacing-lg) var(--win10-spacing-md);
+    }
