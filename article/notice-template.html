@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通知公告 - 九（2）班 班级网站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <!-- marked 核心库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.2/marked.min.js"></script>
+    
+    <!-- 代码高亮库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="../article/js/notice-template.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 全局配置和主题加载器 -->
+    <script src="../js/site-config.js"></script>
+    <script src="../js/theme-loader.js"></script>
+    
+    <!-- 自定义样式 -->
+</head>
+<body class="text-gray-900 overflow-x-hidden custom-scrollbar" style="background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%); min-height: 100vh;">
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 glass-nav z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                            <i class="fas fa-bullhorn text-white text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-sm font-semibold text-dark site-name">九（2）班</span>
+                            <span class="block text-xs text-gray-500">通知公告</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="../index.html" class="text-dark hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 relative group">
+                            首页
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                        </a>
+                        <a href="../Sidebar/notice.html" class="text-primary px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 relative group">
+                            通知公告
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
+                        </a>
+                        <a href="../Sidebar/Rules.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 relative group">
+                            数据管理规则
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                        </a>
+                        <a href="../Sidebar/about.html" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 relative group">
+                            关于我们
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex items-center md:hidden">
+                    <button id="theme-toggle" class="mr-3 text-gray-500 hover:text-primary focus:outline-none">
+                        <i class="fas fa-palette text-lg"></i>
+                    </button>
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- 桌面端主题切换 -->
+            </div>
+        </div>
+
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card rounded-b-lg absolute w-full">
+            <a href="../index.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">首页</a>
+            <a href="../Sidebar/notice.html" class="text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">通知公告</a>
+            <a href="../Sidebar/Rules.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">数据管理规则</a>
+            <a href="../Sidebar/about.html" class="text-gray-500 hover:text-primary block px-3 py-2 rounded-md text-base font-medium">关于我们</a>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="pt-20 pb-15 md:pt-40 md:pb-15 px-4 sm:px-4 lg:px-6">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center glass-card p-8 rounded-2xl" data-aos="fade-up">
+                <h1 id="article-title" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent text-gradient">
+                    正在加载...
+                </h1>
+                <div id="article-meta" class="flex justify-center items-center space-x-6 text-gray-600">
+                    <div class="flex items-center">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        <span id="notice-date">加载中...</span>
+                    </div>
+                    <div id="article-level-container" class="flex items-center">
+                        <i id="article-level-icon" class="fas fa-file-text mr-2"></i>
+                        <span id="notice-level">加载中...</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-user mr-2"></i>
+                        <span id="notice-author">加载中...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文章内容区域 -->
+    <section class="py-8 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
+            <div class="max-w-6xl mx-auto glass-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                <div id="article-content" class="prose prose-lg max-w-none text-gray-800 leading-relaxed">
+                    <!-- 文章内容将通过JavaScript动态加载 -->
+                    <div class="text-center py-12">
+                        <i class="fas fa-spinner fa-spin text-4xl text-primary mb-4"></i>
+                        <p class="text-lg text-gray-700">正在加载文章内容...</p>
+                    </div>
+                </div>
+                
+                <!-- 返回按钮 -->
+                <div class="mt-8 flex justify-center">
+                    <a href="../Sidebar/notice.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-accent text-white font-medium rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        返回通知列表
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div data-aos="fade-up">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                            <i class="fas fa-bullhorn text-white text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <span class="block text-sm font-semibold text-white">九（2）班</span>
+                            <span class="block text-xs text-gray-400">班级网站</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        专业的班级管理与交流平台，助力班级建设与同学成长。
+                    </p>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">首页</a></li>
+                        <li><a href="../index.html#class-info" class="text-gray-400 hover:text-white transition-colors duration-200">班级介绍</a></li>
+                        <li><a href="../index.html#recent-activities" class="text-gray-400 hover:text-white transition-colors duration-200">班级动态</a></li>
+                        <li><a href="../Sidebar/Rules.html" class="text-gray-400 hover:text-white transition-colors duration-200">班级规章</a></li>
+                        <li><a href="../Sidebar/about.html" class="text-gray-400 hover:text-white transition-colors duration-200">关于我们</a></li>
+                    </ul>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-lg font-semibold mb-4">资源中心</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">班级相册</a></li>
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">学习资源</a></li>
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">活动记录</a></li>
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">荣誉展示</a></li>
+                        <li><a href="../Sidebar/notice.html" class="text-gray-400 hover:text-white transition-colors duration-200">通知公告</a></li>
+                    </ul>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-lg font-semibold mb-4">联系信息</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-2"></i>
+                            <span class="text-gray-400">联系管理员</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0 footer-copyright">
+                    © 2024 JGL STUDIO. 保留所有权利。
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary hover:bg-primary/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 页面特定JavaScript -->
+    <script>
+        // 等待主题加载完成后再初始化页面内容
+        window.addEventListener('theme.render.ready', () => {
+            // 动态加载notice-template.js
+            const script = document.createElement('script');
+            script.src = 'js/notice-template.js';
+            script.onload = () => {
+                console.log('notice-template.js 加载完成');
+            };
+            document.body.appendChild(script);
+        });
+        
+        // 如果主题加载器已经加载完成，直接触发初始化
+        if (window.themeLoader && window.themeLoader.loadingComplete) {
+            window.dispatchEvent(new CustomEvent('theme.render.ready'));
+        }
+    </script>
+
+
+</body>
+</html>

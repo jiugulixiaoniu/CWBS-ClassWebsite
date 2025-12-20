@@ -1,0 +1,633 @@
+/* 音乐播放器样式 - 适配Windows 10和Windows 11主题 */
+
+/* 基础播放器样式 */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 900;
+    transition: all 0.3s ease;
+}
+
+.music-player.minimized {
+    transform: translateY(calc(100% - 45px));
+}
+
+/* Windows 11 播放器样式 */
+body.win11 .music-player-container {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border-radius: var(--win11-border-radius-xl);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-glass-shadow);
+    padding: 1rem;
+    width: 340px;
+    transition: var(--win11-transition);
+}
+
+body.win11 .music-player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+body.win11 .music-player-title {
+    font-weight: 600;
+    color: var(--win11-text-primary);
+    font-size: 0.875rem;
+}
+
+body.win11 .music-player-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+body.win11 .music-player-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--win11-text-primary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: var(--win11-transition);
+}
+
+body.win11 .music-player-btn:hover {
+    background-color: var(--win11-surface-hover);
+}
+
+body.win11 .music-player-btn.active {
+    color: var(--win11-primary);
+}
+
+body.win11 .music-player-content {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+body.win11 .music-player-cover {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--win11-border-radius);
+    background: linear-gradient(135deg, var(--win11-primary), var(--win11-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    box-shadow: var(--win11-shadow-md);
+}
+
+body.win11 .music-player-info {
+    flex: 1;
+    min-width: 0;
+}
+
+body.win11 .music-player-song-title {
+    font-weight: 600;
+    color: var(--win11-text-primary);
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.win11 .music-player-song-artist {
+    font-size: 0.875rem;
+    color: var(--win11-text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.win11 .music-player-progress {
+    margin-top: 0.75rem;
+    position: relative;
+}
+
+body.win11 .music-player-progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: var(--win11-border-color);
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+body.win11 .music-player-progress-fill {
+    height: 100%;
+    background-color: var(--win11-primary);
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+body.win11 .music-player-time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--win11-text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* Windows 10 播放器样式 */
+body.win10 .music-player-container {
+    background-color: var(--win10-background-primary);
+    border-radius: var(--win10-border-radius);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-lg);
+    padding: 1rem;
+    width: 340px;
+    transition: var(--win10-transition);
+}
+
+body.win10 .music-player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--win10-border-color);
+}
+
+body.win10 .music-player-title {
+    font-weight: 600;
+    color: var(--win10-text-primary);
+    font-size: 0.875rem;
+}
+
+body.win10 .music-player-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+body.win10 .music-player-btn {
+    width: 32px;
+    height: 32px;
+    background-color: var(--win10-background-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--win10-text-primary);
+    border: 1px solid var(--win10-border-color);
+    cursor: pointer;
+    transition: var(--win10-transition);
+}
+
+body.win10 .music-player-btn:hover {
+    background-color: var(--win10-background-tertiary);
+}
+
+body.win10 .music-player-btn.active {
+    background-color: var(--win10-primary);
+    color: white;
+    border-color: #005a9e;
+}
+
+body.win10 .music-player-content {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+body.win10 .music-player-cover {
+    width: 60px;
+    height: 60px;
+    background-color: var(--win10-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    border: 1px solid #005a9e;
+    box-shadow: var(--win10-shadow-sm);
+}
+
+body.win10 .music-player-info {
+    flex: 1;
+    min-width: 0;
+}
+
+body.win10 .music-player-song-title {
+    font-weight: 600;
+    color: var(--win10-text-primary);
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.win10 .music-player-song-artist {
+    font-size: 0.875rem;
+    color: var(--win10-text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.win10 .music-player-progress {
+    margin-top: 0.75rem;
+    position: relative;
+}
+
+body.win10 .music-player-progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: var(--win10-border-color);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+body.win10 .music-player-progress-fill {
+    height: 100%;
+    background-color: var(--win10-primary);
+    transition: width 0.1s linear;
+}
+
+body.win10 .music-player-time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--win10-text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* 播放列表样式 */
+.music-playlist {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.music-playlist.expanded {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 1rem;
+}
+
+body.win11 .music-playlist::-webkit-scrollbar {
+    width: 6px;
+}
+
+body.win11 .music-playlist::-webkit-scrollbar-track {
+    background: var(--win11-background-secondary);
+    border-radius: 3px;
+}
+
+body.win11 .music-playlist::-webkit-scrollbar-thumb {
+    background: var(--win11-border-color);
+    border-radius: 3px;
+}
+
+body.win11 .music-playlist::-webkit-scrollbar-thumb:hover {
+    background: var(--win11-text-secondary);
+}
+
+body.win10 .music-playlist::-webkit-scrollbar {
+    width: 8px;
+}
+
+body.win10 .music-playlist::-webkit-scrollbar-track {
+    background: var(--win10-background-secondary);
+    border: 1px solid var(--win10-border-color);
+}
+
+body.win10 .music-playlist::-webkit-scrollbar-thumb {
+    background: var(--win10-border-color);
+    border: 2px solid var(--win10-background-secondary);
+    border-radius: 4px;
+}
+
+body.win10 .music-playlist::-webkit-scrollbar-thumb:hover {
+    background: var(--win10-text-secondary);
+}
+
+body.win11 .music-playlist-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    border-radius: var(--win11-border-radius);
+    cursor: pointer;
+    transition: var(--win11-transition);
+    margin-bottom: 0.25rem;
+}
+
+body.win11 .music-playlist-item:hover {
+    background-color: var(--win11-surface-hover);
+}
+
+body.win11 .music-playlist-item.active {
+    background-color: var(--win11-primary);
+    color: white;
+}
+
+body.win10 .music-playlist-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: var(--win10-transition);
+    margin-bottom: 0.25rem;
+}
+
+body.win10 .music-playlist-item:hover {
+    background-color: var(--win10-background-secondary);
+}
+
+body.win10 .music-playlist-item.active {
+    background-color: var(--win10-primary);
+    color: white;
+    border-color: #005a9e;
+}
+
+.music-playlist-item-number {
+    width: 20px;
+    font-size: 0.875rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.music-playlist-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.music-playlist-item-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.music-playlist-item-artist {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.music-playlist-item-duration {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    flex-shrink: 0;
+}
+
+/* 迷你模式样式 */
+body.win11 .music-player-mini {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border-radius: var(--win11-border-radius-large);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-glass-shadow);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: var(--win11-transition);
+}
+
+body.win10 .music-player-mini {
+    background-color: var(--win10-background-primary);
+    border-radius: var(--win10-border-radius);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-md);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: var(--win10-transition);
+}
+
+.music-player-mini-cover {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+body.win11 .music-player-mini-cover {
+    border-radius: var(--win11-border-radius);
+    background: linear-gradient(135deg, var(--win11-primary), var(--win11-secondary));
+}
+
+body.win10 .music-player-mini-cover {
+    background-color: var(--win10-primary);
+    border: 1px solid #005a9e;
+}
+
+.music-player-mini-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.music-player-mini-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.win11 .music-player-mini-title {
+    color: var(--win11-text-primary);
+}
+
+body.win10 .music-player-mini-title {
+    color: var(--win10-text-primary);
+}
+
+.music-player-mini-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+body.win11 .music-player-mini-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--win11-text-primary);
+    cursor: pointer;
+    transition: var(--win11-transition);
+}
+
+body.win11 .music-player-mini-btn:hover {
+    background-color: var(--win11-surface-hover);
+}
+
+body.win10 .music-player-mini-btn {
+    width: 28px;
+    height: 28px;
+    background-color: var(--win10-background-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--win10-text-primary);
+    border: 1px solid var(--win10-border-color);
+    cursor: pointer;
+    transition: var(--win10-transition);
+}
+
+body.win10 .music-player-mini-btn:hover {
+    background-color: var(--win10-background-tertiary);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .music-player {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+    }
+    
+    body.win11 .music-player-container,
+    body.win10 .music-player-container {
+        width: 100%;
+    }
+    
+    body.win11 .music-player-mini,
+    body.win10 .music-player-mini {
+        justify-content: space-between;
+    }
+    
+    .music-player-mini-info {
+        max-width: 150px;
+    }
+}
+
+/* 动画效果 */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.music-player-cover.playing,
+.music-player-mini-cover.playing {
+    animation: pulse 2s infinite;
+}
+
+/* 音量控制样式 */
+body.win11 .music-volume-control {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+body.win10 .music-volume-control {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.music-volume-slider {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 10px;
+    transform: rotate(-90deg) translateX(50%);
+    transform-origin: bottom right;
+    width: 100px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+}
+
+body.win11 .music-volume-slider {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border-radius: var(--win11-border-radius);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-glass-shadow);
+    padding: 0.75rem;
+}
+
+body.win10 .music-volume-slider {
+    background-color: var(--win10-background-primary);
+    border-radius: var(--win10-border-radius);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-lg);
+    padding: 0.75rem;
+}
+
+.music-volume-control:hover .music-volume-slider {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.win11 input[type="range"] {
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--win11-border-color);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+body.win11 input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--win11-primary);
+    cursor: pointer;
+    transition: var(--win11-transition);
+}
+
+body.win11 input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0, 120, 212, 0.3);
+}
+
+body.win10 input[type="range"] {
+    width: 100%;
+    height: 4px;
+    background: var(--win10-border-color);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+body.win10 input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--win10-primary);
+    border: 1px solid #005a9e;
+    cursor: pointer;
+    transition: var(--win10-transition);
+}
+
+body.win10 input[type="range"]::-webkit-slider-thumb:hover {
+    background: var(--win10-primary-hover);
+}

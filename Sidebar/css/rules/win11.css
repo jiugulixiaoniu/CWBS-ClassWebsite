@@ -1,0 +1,934 @@
+/* Windows 11 Fluent UI 风格 - 规则页面 */
+
+:root {
+    /* Windows 11 Fluent UI 颜色变量 */
+    --win11-primary: #0078d4;
+    --win11-primary-hover: #106ebe;
+    --win11-primary-active: #005a9e;
+    --win11-secondary: #6264a7;
+    --win11-text-primary: #1a1a1a;
+    --win11-text-secondary: #605e5c;
+    --win11-text-tertiary: #8a8886;
+    --win11-text-white: #ffffff;
+    --win11-background-primary: #ffffff;
+    --win11-background-secondary: #f3f2f1;
+    --win11-background-tertiary: #e6e5e5;
+    --win11-border-color: #d0d0ce;
+    --win11-surface: #ffffff;
+    --win11-surface-hover: #f8f8f8;
+    --win11-success: #107c10;
+    --win11-warning: #ffb900;
+    --win11-error: #d13438;
+    --win11-info: #0078d4;
+    --win11-accent: #0078d4;
+    
+    /* Fluent UI 特有变量 - 更大的圆角 */
+    --win11-border-radius: 8px;
+    --win11-border-radius-large: 16px;
+    --win11-border-radius-xl: 24px;
+    --win11-border-radius-full: 9999px;
+    
+    /* Fluent UI 阴影效果 */
+    --win11-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --win11-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.06);
+    --win11-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+    
+    /* Fluent UI 过渡动画 */
+    --win11-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Fluent UI 毛玻璃效果 */
+    --win11-blur: blur(16px);
+    --win11-glass-bg: rgba(255, 255, 255, 0.8);
+    --win11-glass-bg-dark: rgba(32, 31, 30, 0.8);
+    --win11-glass-border: 1px solid rgba(255, 255, 255, 0.3);
+    --win11-glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    
+    /* Fluent UI 间距系统 */
+    --win11-spacing-xs: 4px;
+    --win11-spacing-sm: 8px;
+    --win11-spacing-md: 16px;
+    --win11-spacing-lg: 24px;
+    --win11-spacing-xl: 32px;
+    --win11-spacing-xxl: 48px;
+}
+
+/* 全局样式 */
+body.win11 {
+    font-family: 'Segoe UI Variable', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--win11-text-primary);
+    background-color: var(--win11-background-primary);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* 导航栏样式 - 毛玻璃效果 */
+.win11 .navbar {
+    background: var(--win11-glass-bg) !important;
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border-bottom: var(--win11-glass-border);
+    box-shadow: var(--win11-glass-shadow);
+    color: var(--win11-text-primary);
+}
+
+.win11 .navbar .navbar-brand .site-name {
+    color: var(--win11-text-primary);
+    font-weight: 600;
+}
+
+.win11 .navbar .navbar-brand .site-description {
+    color: var(--win11-text-secondary);
+}
+
+.win11 .navbar .navbar-menu a {
+    color: var(--win11-text-primary);
+    background-color: transparent;
+    border: none;
+    margin: 0 var(--win11-spacing-xs);
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    border-radius: var(--win11-border-radius);
+    transition: var(--win11-transition);
+    font-weight: 500;
+    position: relative;
+}
+
+.win11 .navbar .navbar-menu a:hover {
+    background-color: var(--win11-surface-hover);
+    color: var(--win11-primary);
+}
+
+.win11 .navbar .navbar-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--win11-primary);
+    transition: var(--win11-transition);
+    transform: translateX(-50%);
+}
+
+.win11 .navbar .navbar-menu a:hover::after {
+    width: 80%;
+}
+
+.win11 .navbar .navbar-actions button {
+    background-color: transparent;
+    color: var(--win11-text-primary);
+    border: none;
+    margin: 0 var(--win11-spacing-xs);
+    padding: var(--win11-spacing-sm);
+    border-radius: var(--win11-border-radius);
+    transition: var(--win11-transition);
+}
+
+.win11 .navbar .navbar-actions button:hover {
+    background-color: var(--win11-surface-hover);
+    color: var(--win11-primary);
+}
+
+/* 移动端菜单 */
+.win11 .mobile-menu {
+    background: var(--win11-glass-bg) !important;
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-glass-shadow);
+    border-radius: var(--win11-border-radius-large);
+    color: var(--win11-text-primary);
+}
+
+.win11 .mobile-menu .mobile-menu-content a {
+    color: var(--win11-text-primary);
+    border: none;
+    margin: var(--win11-spacing-xs);
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    border-radius: var(--win11-border-radius);
+    transition: var(--win11-transition);
+}
+
+.win11 .mobile-menu .mobile-menu-content a:hover {
+    background-color: var(--win11-surface-hover);
+    color: var(--win11-primary);
+}
+
+/* 英雄区域 */
+.win11 .glass-card {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-glass-shadow);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-xl);
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .text-gradient {
+    background: linear-gradient(135deg, var(--win11-primary) 0%, var(--win11-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.win11 .bg-primary\/10 {
+    background-color: rgba(0, 120, 212, 0.1);
+    border-radius: var(--win11-border-radius-full);
+}
+
+.win11 .bg-secondary\/10 {
+    background-color: rgba(98, 100, 167, 0.1);
+    border-radius: var(--win11-border-radius-full);
+}
+
+.win11 .text-primary {
+    color: var(--win11-primary);
+}
+
+.win11 .text-secondary {
+    color: var(--win11-secondary);
+}
+
+/* 内容区域 */
+.win11 .glass-effect {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-md);
+}
+
+/* 返回顶部按钮 */
+.win11 .back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: var(--win11-primary) !important;
+    color: var(--win11-text-white);
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: var(--win11-border-radius-full);
+    box-shadow: var(--win11-shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--win11-transition);
+    z-index: 1000;
+}
+
+.win11 .back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.win11 .back-to-top:hover {
+    background-color: var(--win11-primary-hover) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--win11-shadow-lg);
+}
+
+/* 规则页面特定样式 */
+.win11 .rules-container {
+    background-color: var(--win11-background-primary);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    padding: var(--win11-spacing-lg);
+    margin-bottom: var(--win11-spacing-lg);
+    box-shadow: var(--win11-shadow-sm);
+}
+
+.win11 .rules-container h2 {
+    color: var(--win11-primary);
+    border-bottom: 2px solid var(--win11-primary);
+    padding-bottom: var(--win11-spacing-sm);
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.win11 .rule-item {
+    background-color: var(--win11-background-secondary);
+    border-left: 4px solid var(--win11-primary);
+    padding: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-md);
+    border-radius: var(--win11-border-radius);
+    transition: var(--win11-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.win11 .rule-item.highlight {
+    background-color: var(--win11-background-tertiary);
+    transform: translateX(4px);
+    box-shadow: var(--win11-shadow-sm);
+}
+
+.win11 .rule-item h3 {
+    color: var(--win11-primary);
+    margin-top: 0;
+    margin-bottom: var(--win11-spacing-sm);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.win11 .rule-item p {
+    color: var(--win11-text-primary);
+    margin-bottom: 0;
+}
+
+/* 规则列表样式 */
+.win11 .rule-item ul {
+    padding-left: var(--win11-spacing-sm);
+    margin: 0;
+    list-style-type: none;
+}
+
+.win11 .rule-item ul li {
+    color: var(--win11-text-primary);
+    padding: var(--win11-spacing-xs) 0;
+    line-height: 1.5;
+}
+
+/* 规则目录样式 */
+.win11 .rules-toc {
+    background-color: var(--win11-background-secondary);
+    padding: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-lg);
+    border-radius: var(--win11-border-radius);
+    border-left: 4px solid var(--win11-primary);
+    box-shadow: var(--win11-shadow-sm);
+}
+
+.win11 .rules-toc h3 {
+    color: var(--win11-primary);
+    margin-top: 0;
+    margin-bottom: var(--win11-spacing-md);
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.win11 .rules-toc ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.win11 .rules-toc li {
+    margin-bottom: var(--win11-spacing-sm);
+    padding: 0;
+}
+
+.win11 .rules-toc a {
+    color: var(--win11-text-primary);
+    text-decoration: none;
+    padding: var(--win11-spacing-xs) var(--win11-spacing-sm);
+    display: block;
+    border-radius: var(--win11-border-radius);
+    transition: var(--win11-transition);
+}
+
+.win11 .rules-toc a:hover {
+    background-color: var(--win11-background-tertiary);
+    color: var(--win11-primary);
+    transform: translateX(4px);
+    text-decoration: none;
+}
+
+/* 规则概述样式 */
+.win11 .rules-overview {
+    background-color: var(--win11-background-secondary);
+    padding: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-lg);
+    border-radius: var(--win11-border-radius);
+    border-left: 4px solid var(--win11-secondary);
+    box-shadow: var(--win11-shadow-sm);
+}
+
+.win11 .rules-overview p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* 页脚 */
+.win11 footer {
+    background: linear-gradient(135deg, var(--win11-text-primary) 0%, #2d2d2d 100%) !important;
+    color: var(--win11-text-white);
+    border-top: none;
+}
+
+.win11 footer h4 {
+    color: var(--win11-text-white);
+    position: relative;
+    padding-bottom: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 footer h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(to right, var(--win11-primary), var(--win11-secondary));
+    border-radius: var(--win11-border-radius-full);
+}
+
+.win11 footer a {
+    color: var(--win11-text-white);
+    opacity: 0.8;
+    transition: var(--win11-transition);
+    position: relative;
+}
+
+.win11 footer a:hover {
+    opacity: 1;
+}
+
+.win11 footer a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--win11-primary);
+    transition: var(--win11-transition);
+}
+
+.win11 footer a:hover::after {
+    width: 100%;
+}
+
+/* 返回顶部按钮 */
+.win11 #back-to-top {
+    background: var(--win11-glass-bg) !important;
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    color: var(--win11-primary);
+    border-radius: var(--win11-border-radius-full);
+    box-shadow: var(--win11-glass-shadow);
+}
+
+.win11 #back-to-top:hover {
+    background-color: var(--win11-primary) !important;
+    color: var(--win11-text-white);
+    transform: translateY(-3px);
+}
+
+/* 按钮样式 */
+.win11 button {
+    background-color: var(--win11-primary);
+    color: var(--win11-text-white);
+    border: none;
+    padding: var(--win11-spacing-sm) var(--win11-spacing-lg);
+    border-radius: var(--win11-border-radius);
+    font-weight: 600;
+    transition: var(--win11-transition);
+    box-shadow: var(--win11-shadow-sm);
+}
+
+.win11 button:hover {
+    background-color: var(--win11-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--win11-shadow-md);
+}
+
+.win11 button:active {
+    background-color: var(--win11-primary-active);
+    transform: translateY(0);
+}
+
+/* 卡片样式 */
+.win11 .card {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-sm);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-md);
+    transition: var(--win11-transition);
+}
+
+.win11 .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--win11-shadow-md);
+}
+
+/* 表单样式 */
+.win11 input, 
+.win11 textarea, 
+.win11 select {
+    background-color: var(--win11-background-primary);
+    border: 1px solid var(--win11-border-color);
+    border-radius: var(--win11-border-radius);
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    color: var(--win11-text-primary);
+    font-family: inherit;
+    transition: var(--win11-transition);
+}
+
+.win11 input:focus, 
+.win11 textarea:focus, 
+.win11 select:focus {
+    outline: none;
+    border-color: var(--win11-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+/* 规则页面特定样式 */
+.win11 .rules-container {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-md);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-lg);
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .rules-container h2 {
+    color: var(--win11-primary);
+    border-bottom: 2px solid var(--win11-primary);
+    padding-bottom: var(--win11-spacing-sm);
+    margin-top: 0;
+    position: relative;
+}
+
+.win11 .rules-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, var(--win11-primary), var(--win11-secondary));
+    border-radius: var(--win11-border-radius-full);
+}
+
+.win11 .rule-item {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-sm);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-md);
+    transition: var(--win11-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.win11 .rule-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--win11-primary);
+    border-radius: var(--win11-border-radius-large) 0 0 var(--win11-border-radius-large);
+}
+
+.win11 .rule-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--win11-shadow-md);
+}
+
+.win11 .rule-item h3 {
+    color: var(--win11-primary);
+    margin-top: 0;
+}
+
+.win11 .rule-item p {
+    color: var(--win11-text-primary);
+    margin-bottom: 0;
+}
+
+.win11 .rule-item.important::before {
+    background-color: var(--win11-error);
+}
+
+.win11 .rule-item.important {
+    background: linear-gradient(135deg, rgba(209, 52, 56, 0.05) 0%, rgba(255, 255, 255, 0.8) 100%);
+}
+
+.win11 .rule-item.important h3 {
+    color: var(--win11-error);
+}
+
+.win11 .rule-item.warning::before {
+    background-color: var(--win11-warning);
+}
+
+.win11 .rule-item.warning {
+    background: linear-gradient(135deg, rgba(255, 185, 0, 0.05) 0%, rgba(255, 255, 255, 0.8) 100%);
+}
+
+.win11 .rule-item.warning h3 {
+    color: var(--win11-warning);
+}
+
+.win11 .rule-item.info::before {
+    background-color: var(--win11-info);
+}
+
+.win11 .rule-item.info {
+    background: linear-gradient(135deg, rgba(0, 120, 212, 0.05) 0%, rgba(255, 255, 255, 0.8) 100%);
+}
+
+.win11 .rule-item.info h3 {
+    color: var(--win11-info);
+}
+
+/* 规则目录 */
+.win11 .rules-toc {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-sm);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .rules-toc h3 {
+    color: var(--win11-primary);
+    margin-top: 0;
+    border-bottom: 1px solid var(--win11-border-color);
+    padding-bottom: var(--win11-spacing-sm);
+    position: relative;
+}
+
+.win11 .rules-toc h3::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(to right, var(--win11-primary), var(--win11-secondary));
+    border-radius: var(--win11-border-radius-full);
+}
+
+.win11 .rules-toc ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.win11 .rules-toc li {
+    padding: var(--win10-spacing-xs) 0;
+    border-radius: var(--win11-border-radius);
+    transition: var(--win11-transition);
+}
+
+.win11 .rules-toc li:hover {
+    background-color: var(--win11-surface-hover);
+}
+
+.win11 .rules-toc a {
+    color: var(--win11-text-primary);
+    text-decoration: none;
+    transition: var(--win11-transition);
+    display: block;
+    padding: var(--win11-spacing-sm);
+}
+
+.win11 .rules-toc a:hover {
+    color: var(--win11-primary);
+}
+
+/* 规则搜索 */
+.win11 .rules-search {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    box-shadow: var(--win11-shadow-sm);
+    border-radius: var(--win11-border-radius-large);
+    padding: var(--win11-spacing-md);
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .rules-search input {
+    width: 100%;
+    border: 1px solid var(--win11-border-color);
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    border-radius: var(--win11-border-radius);
+}
+
+.win11 .rules-search input:focus {
+    border-color: var(--win11-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+.win11 .rules-search button {
+    margin-top: var(--win11-spacing-sm);
+    width: 100%;
+    border-radius: var(--win11-border-radius);
+}
+
+/* 规则标签 */
+.win11 .rule-tag {
+    display: inline-block;
+    background-color: var(--win11-primary);
+    color: var(--win11-text-white);
+    padding: 4px var(--win11-spacing-sm);
+    margin-right: var(--win11-spacing-sm);
+    border-radius: var(--win11-border-radius-full);
+    font-size: 0.8em;
+    font-weight: 500;
+    box-shadow: var(--win11-shadow-sm);
+}
+
+.win11 .rule-tag.important {
+    background-color: var(--win11-error);
+}
+
+.win11 .rule-tag.warning {
+    background-color: var(--win11-warning);
+}
+
+.win11 .rule-tag.info {
+    background-color: var(--win11-info);
+}
+
+/* 规则折叠/展开 */
+.win11 .rule-toggle {
+    background: var(--win11-glass-bg);
+    backdrop-filter: var(--win11-blur);
+    -webkit-backdrop-filter: var(--win11-blur);
+    border: var(--win11-glass-border);
+    color: var(--win11-text-primary);
+    padding: var(--win11-spacing-sm) var(--win11-spacing-md);
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+    border-radius: var(--win11-border-radius);
+    box-shadow: var(--win11-shadow-sm);
+    transition: var(--win11-transition);
+}
+
+.win11 .rule-toggle:hover {
+    background-color: var(--win11-surface-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--win11-shadow-md);
+}
+
+.win11 .rule-content {
+    display: none;
+    padding: var(--win11-spacing-md);
+    border-top: 1px solid var(--win11-border-color);
+    background: var(--win11-background-primary);
+    border-radius: 0 0 var(--win11-border-radius-large) var(--win11-border-radius-large);
+}
+
+.win11 .rule-content.show {
+    display: block;
+}
+
+/* 动画效果 */
+.win11 [data-aos] {
+    transition-property: transform, opacity, filter;
+}
+
+.win11 .aos-animate {
+    transform: translateZ(0);
+    filter: blur(0);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .win11 .navbar-menu {
+        display: none;
+    }
+    
+    .win11 .mobile-menu-btn {
+        display: block;
+    }
+    
+    .win11 .glass-card {
+        padding: var(--win11-spacing-md);
+        border-radius: var(--win11-border-radius);
+    }
+    
+    .win11 footer {
+        padding: var(--win11-spacing-lg) var(--win11-spacing-md);
+    }
+    
+    .win11 .rules-container {
+        padding: var(--win11-spacing-md);
+    }
+}
+
+/* 自定义页脚样式 */
+.win11 .page-footer {
+    background: linear-gradient(135deg, var(--win11-text-primary) 0%, #2d2d2d 100%);
+    color: var(--win11-text-white);
+    padding: var(--win11-spacing-xxl) 0;
+    margin-top: var(--win11-spacing-xxl);
+}
+
+.win11 .page-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--win11-spacing-md);
+}
+
+.win11 .footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--win11-spacing-xl);
+}
+
+@media (min-width: 768px) {
+    .win11 .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .win11 .footer-content {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.win11 .footer-brand .brand-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--win11-spacing-lg);
+}
+
+.win11 .footer-brand .logo-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--win11-border-radius);
+    background: linear-gradient(90deg, var(--win11-primary) 0%, var(--win11-secondary) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--win11-text-white);
+    font-size: 1.25rem;
+}
+
+.win11 .footer-brand .logo-info {
+    margin-left: var(--win11-spacing-md);
+}
+
+.win11 .footer-brand .brand-name {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--win11-text-white);
+}
+
+.win11 .footer-brand .brand-description {
+    display: block;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.win11 .footer-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.win11 .footer-links h4,
+.win11 .footer-resources h4,
+.win11 .footer-contact h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--win11-spacing-lg);
+    color: var(--win11-text-white);
+    position: relative;
+    padding-bottom: var(--win11-spacing-md);
+}
+
+.win11 .footer-links h4::after,
+.win11 .footer-resources h4::after,
+.win11 .footer-contact h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(to right, var(--win11-primary), var(--win11-secondary));
+    border-radius: var(--win11-border-radius-full);
+}
+
+.win11 .footer-links ul,
+.win11 .footer-resources ul,
+.win11 .footer-contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.win11 .footer-links li,
+.win11 .footer-resources li,
+.win11 .footer-contact li {
+    margin-bottom: var(--win11-spacing-sm);
+}
+
+.win11 .footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: var(--win11-transition);
+    position: relative;
+    display: inline-block;
+}
+
+.win11 .footer-links a:hover {
+    color: var(--win11-text-white);
+}
+
+.win11 .footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--win11-primary);
+    transition: var(--win11-transition);
+}
+
+.win11 .footer-links a:hover::after {
+    width: 100%;
+}
+
+.win11 .contact-item {
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.win11 .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--win11-spacing-xxl);
+    padding-top: var(--win11-spacing-lg);
+}
+
+.win11 .footer-copyright {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    text-align: center;
+    margin: 0;
+}

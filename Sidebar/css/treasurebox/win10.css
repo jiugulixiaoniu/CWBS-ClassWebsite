@@ -1,0 +1,2399 @@
+/* Metro UI */
+
+:root {
+    --win10-primary: #0078d7;
+    --win10-primary-hover: #106ebe;
+    --win10-secondary: #00b294;
+    --win10-accent: #00bcf2;
+    --win10-text-primary: #000000;
+    --win10-text-secondary: #616161;
+    --win10-text-tertiary: #a6a6a6;
+    --win10-text-white: #ffffff;
+    --win10-background-primary: #ffffff;
+    --win10-background-secondary: #f5f5f5;
+    --win10-background-tertiary: #e1e1e1;
+    --win10-border-color: #d2d2d2;
+    --win10-surface: #ffffff;
+    --win10-surface-hover: #f3f3f3;
+    --win10-success: #107c10;
+    --win10-warning: #ff8c00;
+    --win10-error: #e81123;
+    --win10-info: #0078d7;
+    --win10-border-radius: 0px;
+    --win10-border-radius-small: 0px;
+    --win10-border-radius-large: 0px;
+    --win10-shadow-sm: none;
+    --win10-shadow-md: none;
+    --win10-shadow-lg: none;
+    --win10-transition: all 0.1s linear;
+    --win10-spacing-xs: 4px;
+    --win10-spacing-sm: 8px;
+    --win10-spacing-md: 16px;
+    --win10-spacing-lg: 24px;
+    --win10-spacing-xl: 32px;
+    --win10-spacing-xxl: 48px;
+    
+    /* Metro UI 字体系统 */
+    --win10-font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* 全局样式 */
+body.win10 {
+    font-family: var(--win10-font-family);
+    color: var(--win10-text-primary);
+    background-color: var(--win10-background-primary);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/* 导航栏样式 - 简洁方角 */
+.win10 .navbar {
+    background-color: var(--win10-primary) !important;
+    color: var(--win10-text-white);
+    border-bottom: none;
+    box-shadow: none;
+}
+
+.win10 .navbar .navbar-brand .site-name {
+    color: var(--win10-text-white);
+    font-weight: 600;
+}
+
+.win10 .navbar .navbar-brand .site-description {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.win10 .navbar .navbar-menu a {
+    color: var(--win10-text-white);
+    background-color: transparent;
+    border: none;
+    margin: 0 var(--win10-spacing-xs);
+    padding: var(--win10-spacing-sm) var(--win10-spacing-md);
+    border-radius: var(--win10-border-radius);
+    transition: var(--win10-transition);
+    font-weight: 500;
+}
+
+.win10 .navbar .navbar-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.win10 .navbar .navbar-menu a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.win10 .navbar .navbar-actions button {
+    background-color: transparent;
+    color: var(--win10-text-white);
+    border: none;
+    margin: 0 var(--win10-spacing-xs);
+    padding: var(--win10-spacing-sm);
+}
+
+/* 计算器样式 - Windows 10 Metro UI */
+.win10 .calculator-container {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    font-family: var(--win10-font-family);
+}
+
+/* 计算器显示区域 */
+.win10 .calculator-display-container {
+    border: 1px solid var(--win10-border-color);
+    background-color: var(--win10-text-white);
+    color: var(--win10-text-primary);
+}
+
+.win10 .calculator-history {
+    font-size: 14px;
+    color: var(--win10-text-tertiary);
+    min-height: 24px;
+}
+
+.win10 .calculator-display {
+    font-size: 28px;
+    font-weight: 600;
+    text-align: right;
+    font-family: 'Courier New', monospace;
+    color: var(--win10-text-primary);
+}
+
+.win10 .calculator-mode {
+    background-color: var(--win10-background-tertiary);
+}
+
+.win10 .calculator-mode button {
+    border: 1px solid var(--win10-border-color);
+    background-color: var(--win10-background-primary);
+    color: var(--win10-text-primary);
+    border-radius: var(--win10-border-radius);
+    font-size: 12px;
+    padding: 4px 8px;
+    transition: var(--win10-transition);
+}
+
+.win10 .calculator-mode button:hover {
+    background-color: var(--win10-background-secondary);
+}
+
+/* 计算器按钮通用样式 */
+.win10 .calc-btn {
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 8px;
+    transition: var(--win10-transition);
+    text-align: center;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* 数字按钮 */
+.win10 .calc-btn-number {
+    background-color: var(--win10-background-primary);
+    color: var(--win10-text-primary);
+}
+
+.win10 .calc-btn-number:hover {
+    background-color: var(--win10-background-secondary);
+}
+
+/* 运算符按钮 */
+.win10 .calc-btn-operator {
+    background-color: var(--win10-accent);
+    color: var(--win10-text-white);
+    font-weight: 600;
+}
+
+.win10 .calc-btn-operator:hover {
+    background-color: var(--win10-primary-hover);
+}
+
+/* 等号按钮 */
+.win10 .calc-btn-equals {
+    background-color: var(--win10-primary);
+    color: var(--win10-text-white);
+    font-weight: 600;
+}
+
+.win10 .calc-btn-equals:hover {
+    background-color: var(--win10-primary-hover);
+}
+
+/* 清除按钮 */
+.win10 .calc-btn-clear {
+    background-color: var(--win10-error);
+    color: var(--win10-text-white);
+}
+
+.win10 .calc-btn-clear:hover {
+    opacity: 0.9;
+}
+
+/* 科学计算按钮 */
+.win10 .calc-btn-scientific {
+    background-color: var(--win10-background-secondary);
+    color: var(--win10-text-primary);
+    font-size: 14px;
+}
+
+.win10 .calc-btn-scientific:hover {
+    background-color: var(--win10-background-tertiary);
+}
+
+/* 记忆功能按钮 */
+.win10 .calc-btn-memory {
+    background-color: var(--win10-secondary);
+    color: var(--win10-text-white);
+    font-size: 12px;
+}
+
+.win10 .calc-btn-memory:hover {
+    opacity: 0.9;
+}
+
+/* 计算器容器 */
+.win10 .calculator-container {
+    background: var(--win10-background-primary);
+    border: 1px solid var(--win10-border);
+}
+
+/* 计算器显示区域 */
+.win10 .calculator-display-container {
+    background: var(--win10-background-secondary);
+    border: 1px solid var(--win10-border);
+}
+
+/* 按钮容器网格布局 */
+.win10 .calculator-memory > div,
+.win10 .calculator-scientific > div {
+    display: grid;
+    gap: var(--win10-spacing-sm);
+    width: 100%;
+}
+
+.win10 .calculator-memory > div {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.win10 .calculator-scientific > div {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+/* 主计算区域网格布局 */
+.win10 #calculator-main-grid .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--win10-spacing-sm);
+    width: 100%;
+}
+
+/* 按钮样式 - 统一设置 */
+.win10 .calc-btn {
+    width: 100%;
+    box-sizing: border-box;
+    transition: none;
+    border: 1px solid var(--win10-border);
+}
+
+/* 确保按钮内边距一致 */
+.win10 .calc-btn {
+    padding: var(--win10-spacing-sm);
+}
+
+/* 等号按钮全宽 */
+.win10 .calc-btn-equals {
+    width: 100%;
+}
+    border-radius: var(--win10-border-radius);
+    transition: var(--win10-transition);
+}
+
+.win10 .navbar .navbar-actions button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 移动端菜单 */
+.win10 .mobile-menu {
+    background-color: var(--win10-primary) !important;
+    color: var(--win10-text-white);
+    border: none;
+    border-radius: var(--win10-border-radius);
+}
+
+.win10 .mobile-menu .mobile-menu-content a {
+    color: var(--win10-text-white);
+    border: none;
+    margin: var(--win10-spacing-xs);
+    padding: var(--win10-spacing-sm) var(--win10-spacing-md);
+    border-radius: var(--win10-border-radius);
+    transition: var(--win10-transition);
+}
+
+.win10 .mobile-menu .mobile-menu-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 英雄区域 */
+.win10 .glass-card {
+    background-color: var(--win10-surface);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-sm);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-xl);
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 .text-gradient {
+    background: linear-gradient(to right, var(--win10-primary), var(--win10-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.win10 .bg-primary\/10 {
+    background-color: rgba(0, 120, 215, 0.1);
+    border-radius: var(--win10-border-radius);
+}
+
+.win10 .bg-secondary\/10 {
+    background-color: rgba(0, 178, 148, 0.1);
+    border-radius: var(--win10-border-radius);
+}
+
+.win10 .text-primary {
+    color: var(--win10-primary);
+}
+
+.win10 .text-secondary {
+    color: var(--win10-secondary);
+}
+
+/* 内容区域 */
+.win10 .glass-effect {
+    background-color: var(--win10-surface);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-sm);
+    border-radius: var(--win10-border-radius);
+}
+
+/* 页脚 */
+.win10 footer {
+    background-color: var(--win10-primary) !important;
+    color: var(--win10-text-white);
+    border-top: none;
+    padding: var(--win10-spacing-xxl) 0;
+}
+
+/* 页脚网格布局 */
+.win10 .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--win10-spacing-xl);
+}
+
+@media (min-width: 768px) {
+    .win10 .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .win10 .footer-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+/* 页脚品牌 */
+.win10 .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-md);
+}
+
+.win10 .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-md);
+}
+
+.win10 .footer-logo i {
+    font-size: 2rem;
+    color: var(--win10-text-white);
+}
+
+.win10 .footer-brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.win10 .footer-brand-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--win10-text-white);
+}
+
+.win10 .footer-brand-desc {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.win10 .footer-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-top: var(--win10-spacing-md);
+}
+
+/* 页脚标题 */
+.win10 .footer-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--win10-text-white);
+    position: relative;
+    padding-bottom: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-lg);
+    border-bottom: 2px solid var(--win10-text-white);
+}
+
+/* 页脚底部 */
+.win10 .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--win10-spacing-xxl);
+    padding-top: var(--win10-spacing-lg);
+    text-align: center;
+}
+
+.win10 .footer-copyright {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* 页脚联系方式 */
+.win10 .footer-contact {
+    display: flex;
+    align-items: center;
+    gap: var(--win10-spacing-md);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.win10 .footer-contact i {
+    color: var(--win10-text-white);
+}
+
+.win10 footer h4 {
+    color: var(--win10-text-white);
+    border-bottom: 2px solid var(--win10-text-white);
+    padding-bottom: var(--win10-spacing-sm);
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 footer a {
+    color: var(--win10-text-white);
+    opacity: 0.8;
+    transition: var(--win10-transition);
+}
+
+.win10 footer a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* 返回顶部按钮 */
+.win10 #back-to-top {
+    background-color: var(--win10-primary) !important;
+    color: var(--win10-text-white);
+    border: none;
+    border-radius: var(--win10-border-radius);
+    box-shadow: var(--win10-shadow-sm);
+}
+
+.win10 #back-to-top:hover {
+    background-color: var(--win10-primary-hover) !important;
+}
+
+.win10 button {
+    background-color: var(--win10-primary);
+    color: var(--win10-text-white);
+    border: none;
+    padding: var(--win10-spacing-sm) var(--win10-spacing-lg);
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+}
+
+.win10 button:hover {
+    background-color: var(--win10-primary-hover);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+.win10 button:active {
+    background-color: var(--win10-primary);
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 次要按钮样式 */
+.win10 button.secondary {
+    background-color: transparent;
+    color: var(--win10-primary);
+    border: 1px solid var(--win10-primary);
+}
+
+.win10 button.secondary:hover {
+    background-color: rgba(0, 120, 215, 0.05);
+}
+
+/* 成功按钮样式 */
+.win10 button.success {
+    background-color: var(--win10-success);
+}
+
+.win10 button.success:hover {
+    background-color: #0d6e0d;
+}
+
+.win10 button.warning {
+    background-color: var(--win10-warning);
+}
+
+.win10 button.warning:hover {
+    background-color: #e67e00;
+}
+
+.win10 button.danger {
+    background-color: var(--win10-error);
+}
+
+.win10 button.danger:hover {
+    background-color: #c41021;
+}
+
+.win10 ul, .win10 ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.win10 .modern-list {
+    background-color: var(--win10-surface);
+    border: 1px solid var(--win10-border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.win10 .modern-list li {
+    padding: var(--win10-spacing-md);
+    border-bottom: 1px solid var(--win10-border-color);
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.win10 .modern-list li:last-child {
+    border-bottom: none;
+}
+
+.win10 .modern-list li:hover {
+    background-color: var(--win10-background-secondary);
+}
+
+.win10 .modern-list li .list-icon {
+    margin-right: var(--win10-spacing-md);
+    color: var(--win10-primary);
+    font-size: 1.2rem;
+}
+
+.win10 .modern-list li .list-content {
+    flex: 1;
+}
+
+.win10 .modern-list li .list-actions {
+    display: flex;
+    gap: var(--win10-spacing-sm);
+}
+
+/* 页脚链接列表样式优化 */
+.win10 .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-sm);
+}
+
+.win10 footer .modern-list {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.win10 footer .modern-list li {
+    border-bottom: none;
+    padding: var(--win10-spacing-xs) 0;
+    justify-content: flex-start;
+}
+
+.win10 footer .modern-list li:hover {
+    background-color: transparent;
+}
+
+.win10 .footer-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.win10 .footer-links a {
+    display: inline-block;
+    padding: var(--win10-spacing-xs) 0;
+    position: relative;
+    text-decoration: none !important;
+    color: #ffffff !important;
+}
+
+.win10 .footer-link {
+    display: inline-block;
+    padding: var(--win10-spacing-xs) 0;
+    position: relative;
+    text-decoration: none !important;
+    color: #ffffff !important;
+}
+
+.win10 .footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--win10-text-white);
+    transition: width 0.2s ease;
+}
+
+.win10 .footer-links a:hover::after {
+    width: 100%;
+}
+
+.win10 .footer-links a:hover {
+    opacity: 1;
+    text-decoration: none !important;
+}
+
+.win10 .footer-link:hover {
+    opacity: 1;
+    text-decoration: none !important;
+}
+
+/* 卡片样式 */
+.win10 .card {
+    background-color: var(--win10-surface);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-sm);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-md);
+    transition: var(--win10-transition);
+}
+
+.win10 .card:hover {
+    border-color: var(--win10-primary);
+}
+
+/* 表单样式 */
+.win10 input, 
+.win10 textarea, 
+.win10 select {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-sm) var(--win10-spacing-md);
+    color: var(--win10-text-primary);
+    font-family: inherit;
+    transition: var(--win10-transition);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.win10 input:focus, 
+.win10 textarea:focus, 
+.win10 select:focus {
+    outline: none;
+    border-color: var(--win10-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 215, 0.2);
+}
+
+.win10 select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23616161' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--win10-spacing-sm) center;
+    background-size: 16px;
+}
+
+/* 下拉菜单选项样式 */
+.win10 select option {
+    background-color: var(--win10-background-primary);
+    color: var(--win10-text-primary);
+    padding: var(--win10-spacing-sm);
+    border-radius: var(--win10-border-radius);
+}
+
+.win10 select option:hover {
+    background-color: var(--win10-background-secondary);
+}
+
+.win10 select option:checked {
+    background-color: var(--win10-primary);
+    color: var(--win10-text-white);
+}
+
+/* 宝箱页面特定样式 */
+.win10 .tools-container {
+    background-color: var(--win10-surface);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-sm);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-lg);
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 .tools-container h2 {
+    color: var(--win10-primary);
+    border-bottom: 2px solid var(--win10-primary);
+    padding-bottom: var(--win10-spacing-sm);
+    margin-top: 0;
+}
+
+.win10 .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 .tool-card {
+    background-color: var(--win10-surface);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-sm);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-md);
+    text-align: center;
+    transition: var(--win10-transition);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.win10 .tool-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.win10 .tool-card:hover {
+    border-color: var(--win10-primary);
+    transform: translateY(-2px);
+}
+
+.win10 .tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--win10-primary);
+}
+
+.win10 .tool-card:hover::before {
+    height: 8px;
+}
+
+.win10 .tool-card .tool-icon {
+    font-size: 2.5rem;
+    color: var(--win10-primary);
+    margin-bottom: var(--win10-spacing-sm);
+}
+
+.win10 .tool-card .tool-title {
+    color: var(--win10-text-primary);
+    font-weight: 600;
+    margin-bottom: var(--win10-spacing-xs);
+}
+
+.win10 .tool-card .tool-description {
+    color: var(--win10-text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--win10-spacing-md);
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* 工具按钮样式 */
+.win10 .tool-button {
+    background-color: var(--win10-primary);
+    color: var(--win10-text-white);
+    border: none;
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-sm) var(--win10-spacing-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--win10-transition);
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+}
+
+.win10 .tool-button:hover {
+    background-color: var(--win10-primary-hover);
+}
+
+.win10 .tool-button i {
+    margin-left: var(--win10-spacing-xs);
+}
+
+/* 工具分类 */
+.win10 .tool-category {
+    background-color: var(--win10-background-secondary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-sm) var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-md);
+}
+
+.win10 .tool-category h3 {
+    color: var(--win10-primary);
+    margin-top: 0;
+    margin-bottom: var(--win10-spacing-sm);
+    border-bottom: 1px solid var(--win10-border-color);
+    padding-bottom: var(--win10-spacing-sm);
+}
+
+/* 工具详情模态框 */
+.win10 .tool-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: var(--win10-spacing-lg);
+}
+
+.win10 .tool-modal.hidden {
+    display: none;
+}
+
+.win10 .tool-modal-content {
+    background-color: var(--win10-surface);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.win10 .tool-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--win10-spacing-md) var(--win10-spacing-lg);
+    background-color: var(--win10-primary);
+    border-bottom: none;
+    color: var(--win10-text-white);
+}
+
+.win10 .tool-modal-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--win10-text-white);
+    border-bottom: none;
+}
+
+.win10 .tool-modal-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--win10-text-white);
+    padding: var(--win10-spacing-xs);
+    border-radius: var(--win10-border-radius);
+    transition: var(--win10-transition);
+}
+
+.win10 .tool-modal-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.win10 .tool-modal-body {
+    padding: var(--win10-spacing-lg);
+    color: var(--win10-text-primary);
+}
+
+.win10 .tool-modal h3 {
+    color: var(--win10-primary);
+    margin-top: 0;
+    border-bottom: 2px solid var(--win10-primary);
+    padding-bottom: var(--win10-spacing-sm);
+    margin-bottom: var(--win10-spacing-md);
+}
+
+/* 工具使用区域 */
+.win10 .tool-usage {
+    background-color: var(--win10-background-secondary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-md);
+}
+
+.win10 .tool-usage h4 {
+    color: var(--win10-primary);
+    margin-top: 0;
+    margin-bottom: var(--win10-spacing-sm);
+}
+
+.win10 .tool-usage textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.win10 .button-group {
+    display: flex;
+    gap: var(--win10-spacing-md);
+    flex-wrap: wrap;
+    margin-top: var(--win10-spacing-md);
+}
+
+.win10 .tool-usage button,
+.win10 .tool-modal-body button {
+    margin-top: var(--win10-spacing-sm);
+    margin-right: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-sm);
+}
+
+/* 工具结果区域 */
+.win10 .tool-result {
+    background-color: var(--win10-background-secondary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-md);
+    margin-top: var(--win10-spacing-md);
+}
+
+.win10 .tool-result h4 {
+    color: var(--win10-primary);
+    margin-top: 0;
+    margin-bottom: var(--win10-spacing-sm);
+}
+
+.win10 .tool-result pre {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-md);
+    overflow-x: auto;
+    margin: 0;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9rem;
+    color: var(--win10-text-primary);
+}
+
+/* 工具标签 */
+.win10 .tool-tag {
+    display: inline-block;
+    background-color: var(--win10-primary);
+    color: var(--win10-text-white);
+    padding: 4px var(--win10-spacing-sm);
+    margin-right: var(--win10-spacing-sm);
+    margin-bottom: var(--win10-spacing-xs);
+    border-radius: var(--win10-border-radius);
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.win10 .tool-tag.utility {
+    background-color: var(--win10-secondary);
+}
+
+.win10 .tool-tag.development {
+    background-color: var(--win10-accent);
+}
+
+.win10 .tool-tag.converter {
+    background-color: var(--win10-warning);
+}
+
+.win10 .tool-tag.generator {
+    background-color: var(--win10-success);
+}
+
+/* 工具搜索 */
+.win10 .tools-search {
+    background-color: var(--win10-surface);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-sm);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 .tools-search input {
+    width: 100%;
+    border: 1px solid var(--win10-border-color);
+    padding: var(--win10-spacing-sm) var(--win10-spacing-md);
+    border-radius: var(--win10-border-radius);
+}
+
+.win10 .tools-search input:focus {
+    border-color: var(--win10-primary);
+}
+
+.win10 .tools-search button {
+    margin-top: var(--win10-spacing-sm);
+    width: 100%;
+}
+
+/* 工具筛选器 */
+.win10 .tools-filter {
+    background-color: var(--win10-surface);
+    border: 1px solid var(--win10-border-color);
+    box-shadow: var(--win10-shadow-sm);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 .tools-filter h3 {
+    color: var(--win10-primary);
+    margin-top: 0;
+    margin-bottom: var(--win10-spacing-sm);
+    border-bottom: 1px solid var(--win10-border-color);
+    padding-bottom: var(--win10-spacing-sm);
+}
+
+.win10 .tools-filter label {
+    display: block;
+    margin-bottom: var(--win10-spacing-sm);
+    color: var(--win10-text-primary);
+}
+
+.win10 .tools-filter input[type="checkbox"] {
+    margin-right: var(--win10-spacing-sm);
+}
+
+.win10 .tools-filter button {
+    margin-top: var(--win10-spacing-sm);
+    width: 100%;
+}
+
+/* 动画效果 */
+.win10 [data-aos] {
+    transition-property: transform, opacity;
+}
+
+.win10 .aos-animate {
+    transform: translateZ(0);
+}
+
+/* 随机数生成器样式 */
+.win10 .win10-random-generator-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-lg);
+}
+
+/* 番茄钟样式 - Windows 10 Metro UI */
+.win10 .pomodoro-timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--win10-spacing-xl);
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    margin-bottom: var(--win10-spacing-lg);
+    box-shadow: var(--win10-shadow-md);
+}
+
+.win10 .pomodoro-status {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: var(--win10-spacing-lg);
+    padding: var(--win10-spacing-sm) var(--win10-spacing-xl);
+    border-radius: var(--win10-border-radius);
+    transition: var(--win10-transition);
+}
+
+.win10 .pomodoro-status.working {
+    background-color: var(--win10-error);
+    color: var(--win10-text-white);
+}
+
+.win10 .pomodoro-status.short-break {
+    background-color: var(--win10-success);
+    color: var(--win10-text-white);
+}
+
+.win10 .pomodoro-status.long-break {
+    background-color: var(--win10-info);
+    color: var(--win10-text-white);
+}
+
+.win10 .pomodoro-progress-ring {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 .pomodoro-progress-ring-circle {
+    fill: transparent;
+    stroke-width: 8;
+    transition: stroke-dashoffset 0.35s ease;
+}
+
+.win10 .pomodoro-progress-ring-bg {
+    stroke: var(--win10-background-tertiary);
+}
+
+.win10 .pomodoro-progress-ring-progress {
+    stroke: var(--win10-error);
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+.win10 .pomodoro-progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    color: var(--win10-text-primary);
+}
+
+.win10 .pomodoro-dots {
+    display: flex;
+    gap: var(--win10-spacing-sm);
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 .pomodoro-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--win10-background-tertiary);
+    transition: var(--win10-transition);
+}
+
+.win10 .pomodoro-dot.active {
+    background-color: var(--win10-error);
+    transform: scale(1.2);
+}
+
+.win10 .pomodoro-controls {
+    display: flex;
+    gap: var(--win10-spacing-md);
+    justify-content: center;
+    margin-bottom: var(--win10-spacing-lg);
+    flex-wrap: wrap;
+}
+
+.win10 .pomodoro-control-btn {
+    padding: var(--win10-spacing-sm) var(--win10-spacing-lg);
+    border: none;
+    border-radius: var(--win10-border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--win10-transition);
+    font-size: 1rem;
+}
+
+.win10 .pomodoro-control-btn.start-btn {
+    background-color: var(--win10-success);
+    color: var(--win10-text-white);
+}
+
+.win10 .pomodoro-control-btn.pause-btn {
+    background-color: var(--win10-warning);
+    color: var(--win10-text-white);
+}
+
+.win10 .pomodoro-control-btn.reset-btn {
+    background-color: var(--win10-error);
+    color: var(--win10-text-white);
+}
+
+.win10 .pomodoro-control-btn.settings-btn {
+    background-color: var(--win10-info);
+    color: var(--win10-text-white);
+}
+
+.win10 .pomodoro-control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--win10-shadow-md);
+}
+
+.win10 .pomodoro-control-btn:active {
+    transform: translateY(0);
+}
+
+/* 成绩计算器按钮样式 */
+.win10 .grade-actions button {
+    padding: var(--win10-spacing-sm) var(--win10-spacing-lg);
+    border: none;
+    border-radius: var(--win10-border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--win10-transition);
+    font-size: 1rem;
+}
+
+.win10 .grade-actions .calculate-btn {
+    background-color: var(--win10-primary);
+    color: var(--win10-text-white);
+}
+
+.win10 .grade-actions .add-subject-btn {
+    background-color: var(--win10-success);
+    color: var(--win10-text-white);
+}
+
+.win10 .grade-actions .reset-btn {
+    background-color: var(--win10-error);
+    color: var(--win10-text-white);
+}
+
+.win10 .grade-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--win10-shadow-md);
+}
+
+.win10 .grade-actions button:active {
+    transform: translateY(0);
+}
+
+.win10 .pomodoro-presets {
+    display: flex;
+    gap: var(--win10-spacing-sm);
+    justify-content: center;
+    margin-bottom: var(--win10-spacing-lg);
+    flex-wrap: wrap;
+}
+
+.win10 .pomodoro-preset-btn {
+    padding: var(--win10-spacing-xs) var(--win10-spacing-md);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    background-color: var(--win10-background-primary);
+    color: var(--win10-text-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--win10-transition);
+}
+
+.win10 .pomodoro-preset-btn:hover {
+    background-color: var(--win10-surface-hover);
+    border-color: var(--win10-primary);
+}
+
+.win10 .pomodoro-preset-btn.active {
+    background-color: var(--win10-primary);
+    color: var(--win10-text-white);
+    border-color: var(--win10-primary);
+}
+
+.win10 .pomodoro-settings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--win10-spacing-md);
+    padding: var(--win10-spacing-md);
+    background-color: var(--win10-background-secondary);
+    border-radius: var(--win10-border-radius);
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 .pomodoro-setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-xs);
+}
+
+.win10 .pomodoro-setting-label {
+    font-weight: 500;
+    color: var(--win10-text-primary);
+    font-size: 0.9rem;
+}
+
+.win10 .pomodoro-setting-input {
+    padding: var(--win10-spacing-xs) var(--win10-spacing-sm);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    font-size: 1rem;
+    transition: var(--win10-transition);
+}
+
+.win10 .pomodoro-setting-input:focus {
+    outline: none;
+    border-color: var(--win10-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+.win10 .pomodoro-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: var(--win10-spacing-md);
+    background-color: var(--win10-background-secondary);
+    border-radius: var(--win10-border-radius);
+    font-size: 0.9rem;
+    color: var(--win10-text-secondary);
+    text-align: center;
+}
+
+/* 成绩计算器样式 - Windows 10 Metro UI */
+.win10 .grade-calculator-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-lg);
+}
+
+.win10 .grade-presets {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-md);
+    box-shadow: var(--win10-shadow-sm);
+}
+
+.win10 .grade-presets h3 {
+    margin-top: 0;
+    margin-bottom: var(--win10-spacing-md);
+    color: var(--win10-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.win10 .preset-buttons {
+    display: flex;
+    gap: var(--win10-spacing-md);
+    flex-wrap: wrap;
+}
+
+.win10 .preset-btn {
+    padding: var(--win10-spacing-xs) var(--win10-spacing-md);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    background-color: var(--win10-background-primary);
+    color: var(--win10-text-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--win10-transition);
+}
+
+.win10 .preset-btn:hover {
+    background-color: var(--win10-surface-hover);
+    border-color: var(--win10-primary);
+}
+
+.win10 .preset-btn.active {
+    background-color: var(--win10-primary);
+    color: var(--win10-text-white);
+    border-color: var(--win10-primary);
+.win10 .grade-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.win10 .grade-input-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background-color: #f5f5f5;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+}
+
+.win10 .grade-input-group label {
+    font-weight: 500;
+    color: #262626;
+    min-width: 60px;
+}
+
+.win10 .grade-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.win10 .grade-input:focus {
+    outline: none;
+    border-color: #0078d7;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.win10 .grade-percentage-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.win10 .grade-percentage {
+    width: 80px;
+    padding: 8px 12px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.win10 .btn-remove {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e74c3c;
+    color: white;
+    cursor: pointer;
+}
+
+.win10 .btn-remove:hover {
+    background-color: #c0392b;
+}var(--win10-spacing-md);
+}
+
+.win10 .grade-input-group {
+    display: flex;
+    align-items: center;
+    gap: var(--win10-spacing-md);
+    padding: var(--win10-spacing-md);
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    box-shadow: var(--win10-shadow-sm);
+}
+
+.win10 .grade-input-group label {
+    font-weight: 500;
+    min-width: 60px;
+    color: var(--win10-text-primary);
+}
+
+.win10 .grade-input-group input[type="text"],
+.win10 .grade-input-group input[type="number"] {
+    flex: 1;
+    padding: var(--win10-spacing-sm);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    font-size: 0.9rem;
+    transition: var(--win10-transition);
+}
+
+.win10 .grade-input-group input:focus {
+    outline: none;
+    border-color: var(--win10-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+.win10 .grade-input-group button {
+    padding: var(--win10-spacing-xs) var(--win10-spacing-sm);
+    border: none;
+    border-radius: var(--win10-border-radius);
+    background-color: var(--win10-error);
+    color: var(--win10-text-white);
+    cursor: pointer;
+    transition: var(--win10-transition);
+    font-size: 0.8rem;
+}
+
+.win10 .grade-input-group button:hover {
+    background-color: #b32429;
+}
+
+.win10 .grade-actions {
+    display: flex;
+    gap: var(--win10-spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 .grade-results {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-lg);
+    box-shadow: var(--win10-shadow-md);
+}
+
+.win10 .grade-results h3 {
+    margin-top: 0;
+    margin-bottom: var(--win10-spacing-lg);
+    color: var(--win10-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--win10-border-color);
+    padding-bottom: var(--win10-spacing-sm);
+}
+
+.win10 .result-section {
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 .result-section h4 {
+    margin-top: 0;
+    margin-bottom: var(--win10-spacing-md);
+    color: var(--win10-text-primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.win10 .result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--win10-spacing-sm) 0;
+    border-bottom: 1px solid var(--win10-border-color);
+}
+
+.win10 .result-item:last-child {
+    border-bottom: none;
+}
+
+.win10 .result-value {
+    font-weight: 600;
+    color: var(--win10-primary);
+    font-family: 'Courier New', monospace;
+}
+
+.win10 .grade-chart {
+    margin-top: var(--win10-spacing-lg);
+}
+
+.win10 .grade-chart h4 {
+    margin-top: 0;
+    margin-bottom: var(--win10-spacing-md);
+    color: var(--win10-text-primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.win10 .grade-bars {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-sm);
+}
+
+.win10 .grade-bar-item {
+    display: flex;
+    align-items: center;
+    gap: var(--win10-spacing-md);
+}
+
+.win10 .grade-bar-label {
+    min-width: 80px;
+    font-size: 0.9rem;
+    color: var(--win10-text-secondary);
+}
+
+.win10 .grade-bar-container {
+    flex: 1;
+    height: 20px;
+    background-color: var(--win10-background-tertiary);
+    border-radius: var(--win10-border-radius);
+    overflow: hidden;
+    position: relative;
+}
+
+.win10 .grade-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--win10-primary), var(--win10-secondary));
+    transition: width 0.5s ease;
+    border-radius: var(--win10-border-radius);
+}
+
+.win10 .grade-bar-value {
+    position: absolute;
+    right: var(--win10-spacing-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--win10-text-white);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.win10 .win10-random-control-card,
+.win10 .win10-random-result-card {
+    background-color: var(--win10-background-primary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-lg);
+    box-shadow: var(--win10-shadow-md);
+}
+
+.win10 .win10-random-card-title {
+    display: flex;
+    align-items: center;
+    gap: var(--win10-spacing-sm);
+    margin-bottom: var(--win10-spacing-lg);
+    font-weight: 600;
+    color: var(--win10-primary);
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--win10-primary-light);
+    padding-bottom: var(--win10-spacing-sm);
+}
+
+.win10 .win10-random-card-icon {
+    color: var(--win10-primary);
+    font-size: 1.3rem;
+}
+
+.win10 .win10-random-input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--win10-spacing-md);
+    margin-bottom: var(--win10-spacing-md);
+}
+
+.win10 .win10-random-input-item {
+    flex: 1;
+    min-width: 200px;
+}
+
+.win10 .win10-random-label {
+    display: block;
+    margin-bottom: var(--win10-spacing-xs);
+    font-weight: 500;
+    color: var(--win10-text-primary);
+    font-size: 0.95rem;
+}
+
+.win10 .win10-random-input,
+.win10 .win10-random-select {
+    width: 100%;
+    padding: var(--win10-spacing-md);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    background-color: var(--win10-background-secondary);
+    color: var(--win10-text-primary);
+    font-size: 1rem;
+    transition: var(--win10-transition);
+}
+
+.win10 .win10-random-input:focus,
+.win10 .win10-random-select:focus {
+    outline: none;
+    border-color: var(--win10-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+/* 快捷预设 */
+.win10 .win10-random-presets {
+    margin-bottom: var(--win10-spacing-lg);
+}
+
+.win10 .win10-random-presets-title {
+    margin-bottom: var(--win10-spacing-sm);
+    font-weight: 600;
+    color: var(--win10-text-primary);
+    font-size: 1rem;
+}
+
+.win10 .win10-random-presets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--win10-spacing-sm);
+}
+
+.win10 .win10-random-preset-btn {
+    padding: var(--win10-spacing-sm) var(--win10-spacing-md);
+    background-color: var(--win10-background-secondary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    color: var(--win10-text-primary);
+    cursor: pointer;
+    transition: var(--win10-transition);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.win10 .win10-random-preset-btn:hover {
+    background-color: var(--win10-primary);
+    color: var(--win10-text-white);
+    border-color: var(--win10-primary);
+    transform: translateY(-1px);
+    box-shadow: var(--win10-shadow-md);
+}
+
+/* 生成按钮 */
+.win10 .win10-random-generate-btn {
+    width: 100%;
+    padding: var(--win10-spacing-md);
+    background-color: var(--win10-primary);
+    color: var(--win10-text-white);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--win10-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--win10-spacing-sm);
+}
+
+.win10 .win10-random-generate-btn:hover {
+    background-color: var(--win10-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--win10-shadow-lg);
+}
+
+.win10 .win10-random-generate-btn:active {
+    transform: translateY(0);
+}
+
+/* 结果显示 */
+.win10 .win10-random-result-display {
+    background-color: var(--win10-background-secondary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-xl);
+    transition: var(--win10-transition);
+    position: relative;
+}
+
+.win10 .win10-random-result-placeholder {
+    color: var(--win10-text-tertiary);
+    font-size: 1.1rem;
+}
+
+.win10 .win10-random-error {
+    color: var(--win10-error);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.win10 .win10-random-result-content {
+    width: 100%;
+}
+
+.win10 .win10-random-result-numbers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--win10-spacing-md);
+}
+
+.win10 .win10-random-result-number {
+    background: linear-gradient(135deg, var(--win10-primary), #005a9e);
+    color: var(--win10-text-white);
+    padding: var(--win10-spacing-xl) calc(var(--win10-spacing-xl) * 1.8);
+    border-radius: var(--win10-border-radius);
+    font-size: 2rem !important; /* H2字号大小，使用!important确保优先级 */
+    font-weight: 900;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 0 0 4px rgba(0, 120, 212, 0.2);
+    min-width: 80px;
+    text-align: center;
+    border: 3px solid var(--win10-text-white);
+    position: relative;
+    overflow: hidden;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: glowPulse 2s infinite alternate;
+    white-space: nowrap;
+    display: inline-block;
+    word-break: keep-all;
+    line-height: 1.2;
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 0 0 4px rgba(0, 120, 212, 0.2);
+    }
+    100% {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 20px 8px rgba(0, 120, 212, 0.4);
+    }
+}
+
+.win10 .win10-random-result-number:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.win10 .win10-random-result-number::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
+    transform: rotate(30deg);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(30deg); }
+    100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* 统计信息 */
+.win10 .win10-random-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--win10-spacing-md);
+    margin-top: var(--win10-spacing-lg);
+    padding-top: var(--win10-spacing-md);
+    border-top: 1px solid var(--win10-border-color);
+}
+
+.win10 .win10-random-stat-item {
+    flex: 1;
+    min-width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--win10-spacing-sm);
+    background-color: var(--win10-background-secondary);
+    border-radius: var(--win10-border-radius);
+    border: 1px solid var(--win10-border-color);
+}
+
+.win10 .win10-random-stat-value {
+    font-weight: 600;
+    color: var(--win10-primary);
+    font-size: 1.1rem;
+}
+
+/* 动画效果 */
+.win10 .win10-random-result-pulse {
+    animation: win10RandomPulse 0.5s ease-in-out;
+}
+
+@keyframes win10RandomPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 120, 212, 0.7);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 10px rgba(0, 120, 212, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 120, 212, 0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .win10 .win10-random-input-group {
+        flex-direction: column;
+    }
+    
+    .win10 .win10-random-input-item {
+        width: 100%;
+    }
+    
+    .win10 .win10-random-presets-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .win10 .win10-random-result-number {
+        font-size: 2rem;
+        padding: var(--win10-spacing-md) var(--win10-spacing-lg);
+    }
+    
+    .win10 .win10-random-stats {
+        flex-direction: column;
+    }
+}
+
+/* 单位转换器样式 */
+.win10 .converter-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-md);
+}
+
+.win10 .converter-card {
+    background-color: var(--win10-background-secondary);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius);
+    padding: var(--win10-spacing-md);
+    box-shadow: var(--win10-shadow-md);
+}
+
+.win10 .converter-card-title {
+    display: flex;
+    align-items: center;
+    gap: var(--win10-spacing-sm);
+    margin-bottom: var(--win10-spacing-md);
+    font-weight: 600;
+    color: var(--win10-text-primary);
+    font-size: 1.1rem;
+}
+
+.win10 .converter-card-icon {
+    font-size: 1.2rem;
+}
+
+.win10 .converter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--win10-spacing-sm);
+    margin-bottom: var(--win10-spacing-sm);
+}
+
+.win10 .converter-tab {
+    padding: var(--win10-spacing-sm) var(--win10-spacing-md);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius-small);
+    background-color: var(--win10-background-primary);
+    color: var(--win10-text-primary);
+    cursor: pointer;
+    transition: var(--win10-transition);
+    font-size: 0.9rem;
+}
+
+.win10 .converter-tab:hover {
+    background-color: var(--win10-surface-hover);
+    border-color: var(--win10-primary);
+}
+
+.win10 .converter-tab.active {
+    background-color: var(--win10-primary);
+    color: var(--win10-text-white);
+    border-color: var(--win10-primary);
+}
+
+.win10 .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--win10-spacing-md);
+}
+
+.win10 .converter-input {
+    width: 100%;
+    padding: var(--win10-spacing-md);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius-small);
+    font-size: 1rem;
+    background-color: var(--win10-background-primary);
+    color: var(--win10-text-primary);
+    transition: var(--win10-transition);
+}
+
+.win10 .converter-input:focus {
+    outline: none;
+    border-color: var(--win10-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+.win10 .converter-select {
+    width: 100%;
+    padding: var(--win10-spacing-md);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius-small);
+    font-size: 1rem;
+    background-color: var(--win10-background-primary);
+    color: var(--win10-text-primary);
+    cursor: pointer;
+    transition: var(--win10-transition);
+}
+
+.win10 .converter-select:focus {
+    outline: none;
+    border-color: var(--win10-primary);
+    box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+.win10 .converter-btn {
+    width: 100%;
+    padding: var(--win10-spacing-md);
+    background-color: var(--win10-primary);
+    color: var(--win10-text-white);
+    border: none;
+    border-radius: var(--win10-border-radius-small);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--win10-transition);
+}
+
+.win10 .converter-btn:hover {
+    background-color: var(--win10-primary-hover);
+}
+
+.win10 .converter-btn:active {
+    transform: translateY(1px);
+}
+
+.win10 .result-display {
+    padding: var(--win10-spacing-md);
+    background-color: var(--win10-background-primary);
+    border-radius: var(--win10-border-radius-small);
+    border: 1px solid var(--win10-border-color);
+    min-height: 100px;
+}
+
+.win10 .result-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--win10-primary);
+    margin-bottom: var(--win10-spacing-sm);
+}
+
+.win10 .result-formula {
+    font-size: 0.9rem;
+    color: var(--win10-text-secondary);
+    margin-bottom: var(--win10-spacing-xs);
+}
+
+.win10 .result-ratio {
+    font-size: 0.8rem;
+    color: var(--win10-text-tertiary);
+}
+
+.win10 .quick-convert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--win10-spacing-sm);
+}
+
+.win10 .quick-convert-btn {
+    padding: var(--win10-spacing-sm);
+    border: 1px solid var(--win10-border-color);
+    border-radius: var(--win10-border-radius-small);
+    background-color: var(--win10-background-primary);
+    color: var(--win10-text-primary);
+    cursor: pointer;
+    transition: var(--win10-transition);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.win10 .quick-convert-btn:hover {
+    background-color: var(--win10-surface-hover);
+    border-color: var(--win10-primary);
+}
+
+.win10 .converter-history {
+    max-height: 150px;
+    overflow-y: auto;
+    padding: var(--win10-spacing-sm);
+    background-color: var(--win10-background-primary);
+    border-radius: var(--win10-border-radius-small);
+    border: 1px solid var(--win10-border-color);
+}
+
+.win10 .converter-history-item {
+    padding: var(--win10-spacing-sm);
+    border-bottom: 1px solid var(--win10-border-color);
+    font-size: 0.9rem;
+}
+
+.win10 .converter-history-item:last-child {
+    border-bottom: none;
+}
+
+/* 响应式设计 - 单位转换器 */
+@media (min-width: 768px) {
+    .win10 .input-group {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .win10 .converter-input,
+    .win10 .converter-select {
+        width: calc(50% - var(--win10-spacing-md));
+    }
+    
+    .win10 .converter-btn {
+        width: auto;
+        align-self: stretch;
+        padding: var(--win10-spacing-md) var(--win10-spacing-lg);
+    }
+}
+
+/* 学习网站样式 */
+.win10 .websites-section {
+    padding: 40px 0;
+    background-color: #f2f2f2;
+}
+
+.win10 .websites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.win10 .website-card {
+    background-color: white;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.win10 .website-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.win10 .website-icon {
+    width: 72px;
+    height: 72px;
+    background-color: #0078d7;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-size: 1.75rem;
+}
+
+.win10 .website-icon.website-icon-secondary {
+    background-color: #50e6ff;
+}
+
+.win10 .website-icon.website-icon-accent {
+    background-color: #00b7c3;
+}
+
+.win10 .website-icon.website-icon-warning {
+    background-color: #ffb900;
+}
+
+.win10 .website-icon.website-icon-danger {
+    background-color: #e74c3c;
+}
+
+.win10 .website-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #262626;
+    margin-bottom: 8px;
+}
+
+.win10 .website-description {
+    color: #595959;
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+.win10 .website-link {
+    display: inline-flex;
+    align-items: center;
+    color: #0078d7;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.win10 .website-link:hover {
+    color: #004578;
+    text-decoration: underline;
+}
+
+/* 回声墙样式 */
+.win10 .echo-section {
+    padding: 40px 0;
+    background-color: #f2f2f2;
+}
+
+.win10 .echo-container {
+    margin-top: 32px;
+    background-color: white;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    padding: 32px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.win10 .echo-description {
+    margin-bottom: 24px;
+    text-align: center;
+    color: #595959;
+}
+
+.win10 .echo-input-container {
+    margin-bottom: 24px;
+}
+
+.win10 .echo-input-wrapper {
+    display: flex;
+    gap: 16px;
+}
+
+.win10 .echo-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    background-color: white;
+    color: #262626;
+    font-size: 14px;
+}
+
+.win10 .echo-input:focus {
+    outline: none;
+    border-color: #0078d7;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.win10 .echo-button {
+    padding: 12px 24px;
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.win10 .echo-button:hover {
+    background-color: #004578;
+}
+
+.win10 .echo-display {
+    min-height: 120px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #262626;
+    line-height: 1.6;
+    position: relative;
+    overflow: hidden;
+}
+
+.win10 .echo-placeholder {
+    color: #595959;
+    font-style: italic;
+    text-align: center;
+}
+
+.win10 .echo-text {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 回声消息样式 */
+.win10 .echo-message {
+    background-color: white;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 打字效果样式 */
+.win10 .typing-text {
+    position: relative;
+    display: inline;
+}
+
+.win10 .typing-text.typing-cursor::after {
+    content: '|';
+    position: absolute;
+    right: -10px;
+    color: #0078d7;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .win10 .navbar-menu {
+        display: none;
+    }
+    
+    .win10 .mobile-menu-btn {
+        display: block;
+    }
+    
+    .win10 .glass-card {
+        padding: var(--win10-spacing-md);
+    }
+    
+    .win10 footer {
+        padding: var(--win10-spacing-lg) var(--win10-spacing-md);
+    }
+    
+    .win10 .tools-container {
+        padding: var(--win10-spacing-md);
+    }
+    
+    .win10 .tools-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: var(--win10-spacing-sm);
+    }
+    
+    .win10 .tool-modal {
+        padding: var(--win10-spacing-md);
+    }
+    
+    .win10 .tool-modal-content {
+        background-color: var(--win10-surface);
+        border: 1px solid var(--win10-border-color);
+        box-shadow: var(--win10-shadow-md);
+        border-radius: var(--win10-border-radius);
+    }
+    
+    .win10 .tool-modal-header {
+        background-color: var(--win10-primary);
+        color: var(--win10-text-white);
+        border-bottom: none;
+    }
+    
+    .win10 .tool-modal-title {
+        color: var(--win10-text-white);
+        border-bottom: none;
+        margin: 0;
+    }
+    
+    .win10 .tool-modal-close {
+        color: var(--win10-text-white);
+        background-color: transparent;
+        border: none;
+        padding: var(--win10-spacing-xs);
+        border-radius: var(--win10-border-radius);
+    }
+    
+    .win10 .tool-modal-close:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .win10 .tool-modal-body {
+        color: var(--win10-text-primary);
+    }
+}

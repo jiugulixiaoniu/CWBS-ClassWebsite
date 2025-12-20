@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通知公告 - 九（2）班 班级网站</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- 引入站点配置 -->
+    <script src="../js/site-config.js"></script>
+    <!-- 引入侧边栏主题加载器 - 负责动态加载win10-sidebar.css或win11-sidebar.css -->
+    <script src="css/theme-loader.js"></script>
+    
+    <!-- 引入Markdown渲染相关库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.2/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    
+    <!-- 引入通知公告页面特定JavaScript -->
+    <script src="js/notice.js"></script>
+</head>
+<body class="main-body custom-scrollbar">
+    <!-- 页面加载中占位符 -->
+    <div id="page-loader" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #f3f2f1; display: flex; align-items: center; justify-content: center; z-index: 9999;">
+        <div style="text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;"><i class="fas fa-bullhorn"></i></div>
+            <p style="font-size: 1.2rem; color: #6e6e6e;">加载中...</p>
+        </div>
+    </div>
+
+    <!-- 导航栏 - 动态主题类名将在sidebar-theme-loader.js中应用 -->
+    <nav id="navbar" class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-brand">
+                    <div class="logo-container">
+                        <div class="logo animate-glow">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="logo-status"></div>
+                    </div>
+                    <div class="brand-info">
+                        <span class="site-name">九（2）班</span>
+                        <span class="site-description">通知公告</span>
+                    </div>
+                </div>
+
+                <div class="navbar-menu">
+                    <a href="../index.html" class="win11-navbar-link nav-home">首页</a>
+                    <a href="#" class="win11-navbar-link">通知公告</a>
+                    <a href="Rules.html" class="win11-navbar-link">数据管理规则</a>
+                    <a href="about.html" class="win11-navbar-link nav-about">关于我们</a>
+                </div>
+
+                <div class="navbar-actions">
+                    <button class="win11-btn-text notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <button class="win11-btn-text mobile-menu-btn" id="mobile-menu-button">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="mobile-menu win11-card">
+            <div class="mobile-menu-content">
+                <a href="../index.html" class="win11-navbar-link nav-home">首页</a>
+                <a href="#" class="win11-navbar-link">通知公告</a>
+                <a href="Rules.html" class="win11-navbar-link">数据管理规则</a>
+                <a href="about.html" class="win11-navbar-link nav-about">关于我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="hero-section pt-20 pb-15 md:pt-40 md:pb-15 px-4 sm:px-4 lg:px-6">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto text-center glass-card p-8 rounded-2xl" data-aos="fade-up">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-accent text-gradient">
+                    班级通知公告
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+                    了解我们班级的最新活动和重要通知
+                </p>
+                <div class="hero-tags">
+                    <div class="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary">
+                        <i class="fas fa-bell"></i>
+                        <span>最新通知</span>
+                    </div>
+                    <div class="inline-flex items-center px-4 py-2 bg-secondary/10 rounded-full text-secondary">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>定期更新</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 通知筛选区域 -->
+    <section class="py-8 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto notice-filters" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button class="filter-btn px-4 py-2 rounded-full active" data-filter="all">
+                            全部通知
+                        </button>
+                        <button class="filter-btn px-4 py-2 rounded-full" data-filter="1">
+                            <i class="fas fa-file-text mr-1"></i>
+                            普通
+                        </button>
+                        <button class="filter-btn px-4 py-2 rounded-full" data-filter="2">
+                            <i class="fas fa-file-alt mr-1"></i>
+                            报告/公示
+                        </button>
+                        <button class="filter-btn px-4 py-2 rounded-full" data-filter="3">
+                            <i class="fas fa-star mr-1"></i>
+                            活动/表彰
+                        </button>
+                    </div>
+                    <div class="notification-count-container">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="text-sm">共 <span id="notification-count">2</span> 条通知</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 通知列表区域 -->
+    <section class="py-8 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto space-y-6" id="notifications-container">
+                <!-- 通知项将由JavaScript动态生成 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div data-aos="fade-up">
+                    <div class="flex items-center mb-4">
+
+                        <div class="ml-3">
+                            <span class="block text-sm font-semibold text-white">九（2）班</span>
+                            <span class="block text-xs text-gray-400">班级网站</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        专业的班级管理与交流平台，助力班级建设与同学成长。
+                    </p>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2 modern-list">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">首页</a></li>
+                        <li><a href="../index.html#class-info" class="text-gray-400 hover:text-white transition-colors duration-200">班级介绍</a></li>
+                        <li><a href="../index.html#recent-activities" class="text-gray-400 hover:text-white transition-colors duration-200">班级动态</a></li>
+                        <li><a href="Rules.html" class="text-gray-400 hover:text-white transition-colors duration-200">班级规章</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors duration-200">关于我们</a></li>
+                    </ul>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-lg font-semibold mb-4">资源中心</h4>
+                    <ul class="space-y-2 modern-list">
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">班级相册</a></li>
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">学习资源</a></li>
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">活动记录</a></li>
+                        <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors duration-200">荣誉展示</a></li>
+                        <li><a href="notice.html" class="text-gray-400 hover:text-white transition-colors duration-200">通知公告</a></li>
+                    </ul>
+                </div>
+
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-lg font-semibold mb-4">联系信息</h4>
+                    <ul class="space-y-2 modern-list">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-gray-400 mr-2"></i>
+                            <span class="text-gray-400">联系管理员</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0 footer-copyright">
+                    © 2024 JGL STUDIO. 保留所有权利。
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" style="position: fixed; bottom: 32px; right: 32px; left: auto; width: 48px; height: 48px; border-radius: 50%; background: #0078d4; color: white; display: none; border: none; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 9999; opacity: 1; visibility: visible;">
+        <span style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; font-size: 18px;">
+            <i class="fas fa-arrow-up" style="margin: 0; padding: 0;"></i>
+        </span>
+    </button>
+
+    <script>
+        // 返回顶部按钮功能
+        function initBackToTop() {
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            if (backToTopButton) {
+                // 初始隐藏按钮，但覆盖base.css中的样式
+                backToTopButton.style.display = 'none';
+                backToTopButton.style.opacity = '1';
+                backToTopButton.style.visibility = 'visible';
+                
+                // 滚动时显示/隐藏按钮
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.style.display = 'block';
+                        backToTopButton.style.opacity = '1';
+                        backToTopButton.style.visibility = 'visible';
+                    } else {
+                        backToTopButton.style.display = 'none';
+                        backToTopButton.style.opacity = '0';
+                        backToTopButton.style.visibility = 'hidden';
+                    }
+                });
+                
+                // 点击按钮平滑滚动到顶部
+                backToTopButton.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        }
+        
+        // 移动端菜单功能
+        function initMobileMenu() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                // 点击菜单按钮切换菜单显示
+                mobileMenuButton.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('active');
+                    
+                    // 添加动画效果
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.style.display = 'block';
+                        setTimeout(() => {
+                            mobileMenu.style.opacity = '1';
+                            mobileMenu.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        mobileMenu.style.opacity = '0';
+                        mobileMenu.style.transform = 'translateY(-10px)';
+                        setTimeout(() => {
+                            mobileMenu.style.display = 'none';
+                        }, 300);
+                    }
+                });
+                
+                // 点击页面其他区域关闭菜单
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                        mobileMenu.classList.remove('active');
+                        mobileMenu.style.opacity = '0';
+                        mobileMenu.style.transform = 'translateY(-10px)';
+                        setTimeout(() => {
+                            mobileMenu.style.display = 'none';
+                        }, 300);
+                    }
+                });
+                
+                // 阻止菜单内部点击事件冒泡
+                mobileMenu.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            }
+        }
+        
+        // 页面加载后初始化
+        window.addEventListener('sidebar.theme.render.ready', function() {
+            // 1. 隐藏加载中占位符
+            const pageLoader = document.getElementById('page-loader');
+            if (pageLoader) {
+                pageLoader.style.display = 'none';
+            }
+            
+            // 2. 显示页面内容
+            document.body.style.visibility = 'visible';
+            
+            // 3. 初始化AOS动画
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+            
+            // 4. 初始化移动端菜单
+            initMobileMenu();
+            
+            // 5. 初始化返回顶部按钮
+            initBackToTop();
+            
+            // 6. 初始化通知页面功能
+            if (typeof initNoticePage === 'function') {
+                initNoticePage();
+            }
+            
+            // 7. 刷新AOS动画
+            AOS.refresh();
+        });
+    </script>
+</body></html>

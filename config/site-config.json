@@ -1,0 +1,56 @@
+{
+  "site": {
+    "name": "九（2）班",
+    "title": "九（2）班班级网站",
+    "description": "助力学习成长与团队协作",
+    "uiStyle": "win11"
+    },
+  "pages": {
+    "index": {
+      "title": "九（2）班 - 首页",
+      "heroTitle": "欢迎来到九（2）班",
+      "heroSubtitle": "团结协作，共同进步"
+    },
+    "about": {
+      "title": "关于九（2）班",
+      "heroTitle": "了解我们的班级",
+      "heroSubtitle": "班级文化与特色"
+    },
+    "rules": {
+      "title": "班级规则",
+      "heroTitle": "班级管理规则",
+      "heroSubtitle": "积分制度与管理规范"
+    },
+    "notice": {
+      "title": "通知公告",
+      "heroTitle": "班级通知",
+      "heroSubtitle": "重要信息与活动安排"
+    },
+    "treasurebox": {
+      "title": "班级宝库",
+      "heroTitle": "学习资源",
+      "heroSubtitle": "资料与工具集合"
+    },
+    "classstyle": {
+      "title": "班级风采",
+      "heroTitle": "我们的风采",
+      "heroSubtitle": "展示班级文化与活力"
+    },
+    "article": {
+      "title": "文章详情",
+      "heroSubtitle": "班级动态与活动记录"
+    }
+  },
+  "navigation": {
+    "home": "首页",
+    "about": "关于",
+    "rules": "规则",
+    "notice": "通知",
+    "treasurebox": "宝库",
+    "classstyle": "风采"
+  },
+  "footer": {
+    "copyright": "© 2025 九（2）班. 保留所有权利。",
+    "description": ""
+  }
+}
