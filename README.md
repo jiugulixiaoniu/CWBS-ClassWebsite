@@ -5,6 +5,7 @@
 ![GitHub Stars](https://img.shields.io/github/stars/jiugulixiaoniu/CWBS-ClassWebsite)
 
 查看宣传片：[想要有一个属于自己的班级网站吗？——CWBS-ClassWebSite-V2.5宣传片](https://www.bilibili.com/video/BV1WJxNzKEiX)
+查看预览：https://jiugulixiaoniu.github.io/CWBS-ClassWebsite/
 
 ## ✨ 核心功能
 
@@ -16,6 +17,7 @@
 ## 📞 联系我们
 
 - 📧 邮箱：Lavachicken2512@outlook.com
+- QQ群：1073991226
 
 ## 📜 开源协议
 
@@ -156,6 +158,7 @@ Attention:我们即将更换许可证，可以转到最下方查看或进入本�
 ---
 
 **JGL Studio**  
+
 
 
 
