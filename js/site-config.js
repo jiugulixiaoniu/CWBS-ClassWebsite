@@ -1,12 +1,15 @@
+
 class SiteConfig {
   constructor() {
     this.config = null;
     this.loaded = false;
     this.initPromise = this.init();
   }
+
+  
   async init() {
     try {
-      const response = await fetch('https://jiugulixiaoniu.github.io/CWBS-ClassWebsite/config/site-config.json');
+      const response = await fetch('../config/site-config.json');
       this.config = await response.json();
       console.log('配置文件加载完成:', this.config);
       // 设置加载完成标志
@@ -47,12 +50,17 @@ class SiteConfig {
     }
     return Promise.resolve();
   }
+
+  
   getConfig() {
     return this.config;
   }
+
+  
   getSiteInfo() {
     return this.config?.site || {};
   }
+
   
   getUIStyle() {
     console.log('获取UI风格:', this.config?.site?.uiStyle || 'win11');
@@ -145,14 +153,22 @@ const siteConfigInstance = new SiteConfig();
 window.siteConfig = siteConfigInstance;
 // 导出Promise供其他模块等待配置加载完成
 window.siteConfigLoaded = siteConfigInstance.initPromise;
+
+// 导出实例供其他模块使用（如果支持模块系统）
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  module.exports = siteConfigInstance;
+}
+
 // 当DOM加载完成后应用配置
 document.addEventListener('DOMContentLoaded', () => {
   // 输出ClassWebSite的ASCII艺术字
   logClassWebSiteASCII();
+  
   // 获取当前页面类型
   const path = window.location.pathname;
   const href = window.location.href;
   let pageKey = 'index'; // 默认为首页
+
   // 改进的页面检测逻辑，同时检查路径和URL
   if (path.includes('about') || href.includes('about')) pageKey = 'about';
   else if (path.includes('rules') || href.includes('Rules')) pageKey = 'rules';
@@ -164,11 +180,4 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     window.siteConfig.applyPageConfig(pageKey);
   }, 100);
-
 });
-
-
-
-
-
-

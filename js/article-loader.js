@@ -44,11 +44,12 @@ async function loadAndRenderArticle(articleId, container) {
                 <h3 class="text-lg font-semibold text-red-800 mb-2">加载失败</h3>
                 <p class="text-red-600">无法加载文章内容，请稍后重试。</p>
                 <p class="text-sm text-red-500 mt-2">错误信息: ${error.message}</p>
-                <p class="text-sm text-red-500 mt-2">错误栈(请发给开发者这段内容): ${error.stack}</p>
             </div>
         `;
     }
 }
+
+
 function postProcessRenderedContent(container) {
     // 代码高亮
     if (typeof hljs !== 'undefined') {
@@ -56,10 +57,12 @@ function postProcessRenderedContent(container) {
             hljs.highlightElement(block);
         });
     }
+    
     // 图片懒加载
     container.querySelectorAll('img').forEach(img => {
         img.loading = 'lazy';
     });
+    
     // 表格响应式处理
     container.querySelectorAll('table').forEach(table => {
         const wrapper = document.createElement('div');
@@ -67,11 +70,14 @@ function postProcessRenderedContent(container) {
         table.parentNode.insertBefore(wrapper, table);
         wrapper.appendChild(table);
     });
+    
     // 初始化AOS动画
     if (typeof AOS !== 'undefined') {
         AOS.refresh();
     }
 }
+
+
 function extractAndSetTitle(markdownContent) {
     // 提取第一个一级标题
     const titleMatch = markdownContent.match(/^#\s+(.+)$/m);
@@ -112,4 +118,13 @@ function initArticleLoader() {
     } else {
         loadArticleFromURL();
     }
+}
+
+// 导出函数
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        loadAndRenderArticle,
+        loadArticleFromURL,
+        initArticleLoader
+    };
 }
