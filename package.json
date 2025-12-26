@@ -1,0 +1,32 @@
+{
+  "name": "classwebsite",
+  "version": "2.5.8",
+  "description": "![GitHub License](https://img.shields.io/github/license/jiugulixiaoniu/CWBS-ClassWebsite)\r ![GitHub last commit](https://img.shields.io/github/last-commit/jiugulixiaoniu/CWBS-ClassWebsite)\r ![GitHub Stars](https://img.shields.io/github/stars/jiugulixiaoniu/CWBS-ClassWebsite)",
+  "homepage": "https://github.com/jiugulixiaoniu/CWBS-ClassWebsite#readme",
+  "bugs": {
+    "url": "https://github.com/jiugulixiaoniu/CWBS-ClassWebsite/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiugulixiaoniu/CWBS-ClassWebsite.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "",
+  "files": [
+    "node"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node node/minify",
+    "dev": "node node/dev"
+  },
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "fs-extra": "^11.3.3",
+    "html-minifier": "^4.0.0",
+    "mime-types": "^3.0.2",
+    "terser": "^5.44.1"
+  }
+}

@@ -1,0 +1,42 @@
+name: Release on Tag
+permissions:
+  contents: write
+on:
+  push:
+    tags: # 在 push tag时开始
+      - 'v*'
+jobs:
+  build-and-release:
+    name: Build and Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # 确保能获取到 tag 信息
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm install
+      - name: Build project
+        run: npm run build
+      - name: Zip dist folder
+        run: zip -r dist.zip dist/
+
+      - name: Release to GitHub Releases
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist.zip
+          tag_name: ${{ steps.extract_tag.outputs.TAG_NAME }}
+          name: ClassWebsite ${{ steps.extract_tag.outputs.TAG_NAME }}
+          body: |
+            # ClassWebsite 发布版
+            提交信息 ：
+              > ${{ github.event.head_commit.message }}
+            文件列表 ：
+              dist.zip - 压缩后版本
+              SourceCode - 自动生成的源码
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
