@@ -4,7 +4,12 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/jiugulixiaoniu/CWBS-ClassWebsite)
 ![GitHub Stars](https://img.shields.io/github/stars/jiugulixiaoniu/CWBS-ClassWebsite)
 
-查看宣传片：[想要有一个属于自己的班级网站吗？——CWBS-ClassWebSite-V2.5宣传片](https://www.bilibili.com/video/BV1WJxNzKEiX)
+查看宣传片：
+
+[想要有一个属于自己的班级网站吗？——CWBS-ClassWebSite-V2.5宣传片](https://www.bilibili.com/video/BV1WJxNzKEiX)
+
+[让班级网站更加便捷，展示班级风采——CWBS-ClassWebSite-V2.5.3宣传片](https://www.bilibili.com/video/BV15kqmBSE89)
+           
 查看预览：https://jiugulixiaoniu.github.io/CWBS-ClassWebsite/
 
 ## ✨ 核心功能
@@ -79,7 +84,7 @@ Attention:我们即将更换许可证，可以转到最下方查看或进入本�
 |发布/开发时间|隶属系列|版本号|功能/安全更新|状态|宣传片|发布人|
 | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
 |2025年10月26日|ClassWebsite V2.5|2.5.1.499778|功能更新|已发布|[想要有一个属于自己的班级网站吗？](https://www.bilibili.com/video/BV1WJxNzKEiX/)|旧故里小牛|
-|2025年11月23日|ClassWebsite V2.5|2.5.3.290042|功能更新|未发布，内部已完成|暂无宣传片|旧故里小牛|
+|2025年11月23日|ClassWebsite V2.5|2.5.3.290042|功能更新|已发布|[让班级网站更加便捷，展示班级风采——CWBS-ClassWebSite-V2.5.3宣传片](https://www.bilibili.com/video/BV15kqmBSE89)|旧故里小牛|
 
 
 
@@ -158,6 +163,9 @@ Attention:我们即将更换许可证，可以转到最下方查看或进入本�
 ---
 
 **JGL Studio**  
+
+
+
 
 
 

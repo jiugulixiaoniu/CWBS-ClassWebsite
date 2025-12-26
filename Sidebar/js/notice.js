@@ -67,7 +67,7 @@ async function parseMarkdownArticle(filename) {
                 const configResponse = await fetch('../config/article.json');
                 if (!configResponse.ok) throw new Error('Failed to fetch article.json');
                 const config = await configResponse.json();
-                articleFiles = config.articles?.noticeFiles || [];
+                articleFiles = config.articleFiles || [];
             } catch (error) {
                 console.error('加载配置文件失败，使用备用列表:', error);
                 // 备用列表，防止文件加载失败
