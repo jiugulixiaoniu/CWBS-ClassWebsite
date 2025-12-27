@@ -1,0 +1,27 @@
+name: Push Dist to Target Repo
+on: [push]
+
+jobs:
+  push-dist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Project
+        run: npm install && npm run build
+      - name: Init Git in dist
+        run: |
+          cd dist
+          git init
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git remote add origin git@github.com:jiugulixiaoniu/CWBS-ClassWebsite-show.git
+      - name: Add SSH Key
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Push to Target
+        run: |
+          cd dist
+          git add -A
+          git commit -m "Deploy: ${{ github.sha }}"
+          git push origin main --force
