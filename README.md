@@ -10,7 +10,7 @@
 
 [让班级网站更加便捷，展示班级风采——CWBS-ClassWebSite-V2.5.3宣传片](https://www.bilibili.com/video/BV15kqmBSE89)
            
-查看预览：https://jiugulixiaoniu.github.io/CWBS-ClassWebsite/
+查看预览：https://jiugulixiaoniu.github.io/CWBS-ClassWebsite-show/
 
 ## ✨ 核心功能
 
@@ -163,6 +163,7 @@ Attention:我们即将更换许可证，可以转到最下方查看或进入本�
 ---
 
 **JGL Studio**  
+
 
 
 
