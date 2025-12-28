@@ -6,20 +6,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Build Project
         run: npm install && npm run build
-      - name: Init Git in dist
+
+      - name: Setup SSH key
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Prepare and push dist
         run: |
+          set -e
+          # 保证 known_hosts 有 github.com，避免交互提示
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
           cd dist
           git init -b main
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
+
+          # 如果 remote 已存在则先移除（避免重复添加失败）
+          git remote remove origin 2>/dev/null || true
           git remote add origin git@github.com:jiugulixiaoniu/CWBS-ClassWebsite-show.git
-          echo ${{ secrets.SSH_PRIVATE_KEY }} > ~/.ssh/id_ed25519
-      - name: Push to Target
-        run: |
-          ssh -T git@github.com
-          cd dist
+
           git add -A
-          git commit -m "Deploy: ${{ github.sha }}"
+          git commit -m "Deploy: ${{ github.sha }}" || true
           git push origin main --force
