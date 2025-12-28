@@ -15,6 +15,7 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git remote add origin git@github.com:jiugulixiaoniu/CWBS-ClassWebsite-show.git
+          echo ${{ secrets.SSH_PRIVATE_KEY }} > ~/.ssh/id_ed25519
       - name: Push to Target
         run: |
           ssh -T git@github.com
