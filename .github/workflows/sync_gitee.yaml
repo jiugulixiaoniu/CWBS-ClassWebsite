@@ -15,10 +15,6 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git remote add origin git@github.com:jiugulixiaoniu/CWBS-ClassWebsite-show.git
-      - name: Add SSH Key
-        uses: webfactory/ssh-agent@v0.8.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Push to Target
         run: |
           ssh -T git@github.com
