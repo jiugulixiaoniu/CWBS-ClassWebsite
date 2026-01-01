@@ -1,76 +1,75 @@
-const fs = require('fs-extra');
 const htmlMinify = require('html-minifier').minify;
 const CleanCSS = require('clean-css');
 const {
   minify
 } = require('terser');
 const path = require('path')
-const fs_ = require('fs/promises')
-// 压缩HTML
-const compressHTML = async (filePath) => {
-  const html = await fs.readFile(filePath, 'utf8');
-  const compressed = htmlMinify(html, {
+const fs = require('fs/promises')
+const outdir = path.join(__dirname, "../dist");
+const sourceDir = path.join(__dirname, "../src")
+const compressHTML = (fileContext) => {
+  const compressed = htmlMinify(fileContext, {
     collapseWhitespace: true,
     removeComments: true
   });
-  await fs.outputFile(filePath.replace('src', 'dist'), compressed);
+  return compressed;
 };
-
-// 压缩CSS
-const compressCSS = async (filePath) => {
-  const css = await fs.readFile(filePath, 'utf8');
+const compressCSS = (fileContext) => {
   const {
     styles
-  } = new CleanCSS().minify(css);
-  await fs.outputFile(filePath.replace('src', 'dist'), styles);
+  } = new CleanCSS().minify(fileContext);
+  return styles;
 };
-
-// 压缩JS
-const compressJS = async (filePath) => {
-  const code = await fs.readFile(filePath, 'utf8');
-  const result = await minify(code, {
+const compressJS = async (fileContext) => {
+  const result = await minify(fileContext, {
     compress: {
       drop_console: true
     }
   });
-  await fs.outputFile(filePath.replace('src', 'dist'), result.code);
+  return result.code;
 };
-
-// 遍历文件并执行压缩
-const processFiles = async (dir) => {
-  const files = await fs.readdir(dir, {
-    withFileTypes: true
-  });
-  for (const file of files) {
-    const filePath = path.join(dir, file.name);
-    const name = file.name;
-    if (file.isFile()) {
-      switch (path.extname(name)) {
-        case ".html":
-          await compressHTML(filePath);
-          break;
-        case ".css":
-          await compressCSS(filePath);
-          break
-        case ".js":
-          await compressJS(filePath);
-          break;
-        default:
-          await fs_.cp(filePath, filePath.replace('src', 'dist'), {
-            force: true,
-            recursive: true
-          })
+const processDir = async (dir) => {
+  try {
+    const files = await fs.readdir(path.join(sourceDir, dir), {
+      withFileTypes: true
+    });
+    for (const file of files) {
+      const filePath = path.join(sourceDir, dir, file.name);
+      const name = file.name;
+      if (file.isFile()) {
+        const fileContext = await fs.readFile(filePath, "utf-8");
+        let context = "";
+        switch (path.extname(name)) {
+          case ".html":
+            context = compressHTML(fileContext);
+            break;
+          case ".css":
+            context = compressCSS(fileContext);
+            break
+          case ".js":
+            context = await compressJS(fileContext);
+            break;
+          default:
+            context = await fs.readFile(filePath);
+        }
+        context = context.toString();
+        await fs.mkdir(path.join(outdir, dir), {
+          recursive: true
+        }).catch(() => null)
+        await fs.writeFile(path.join(outdir, dir, file.name), context)
+      } else {
+        await processDir(path.join(dir, file.name));
       }
-    } else {
-      await processFiles(filePath);
     }
+  } catch (err) {
+    console.error(dir, err.stack)
   }
 };
 async function main() {
   try {
-    await fs_.rm(path.join(__dirname, "./../dist"))
+    await fs.rm(outdir)
   } catch {}
-  await processFiles(path.join(__dirname, "./../src"))
+  await processDir("./")
   console.log("压缩完成")
 }
 main()
