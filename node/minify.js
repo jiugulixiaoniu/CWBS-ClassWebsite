@@ -1,5 +1,4 @@
 const htmlMinify = require('html-minifier').minify;
-const CleanCSS = require('clean-css');
 const {
   minify
 } = require('terser');
@@ -7,6 +6,7 @@ const path = require('path')
 const fs = require('fs/promises')
 const outdir = path.join(__dirname, "../dist");
 const sourceDir = path.join(__dirname, "../src")
+
 const compressHTML = (fileContext) => {
   const compressed = htmlMinify(fileContext, {
     collapseWhitespace: true,
@@ -14,12 +14,7 @@ const compressHTML = (fileContext) => {
   });
   return compressed;
 };
-const compressCSS = (fileContext) => {
-  const {
-    styles
-  } = new CleanCSS().minify(fileContext);
-  return styles;
-};
+
 const compressJS = async (fileContext) => {
   const result = await minify(fileContext, {
     compress: {
@@ -28,6 +23,7 @@ const compressJS = async (fileContext) => {
   });
   return result.code;
 };
+
 const processDir = async (dir) => {
   try {
     const files = await fs.readdir(path.join(sourceDir, dir), {
@@ -43,14 +39,12 @@ const processDir = async (dir) => {
           case ".html":
             context = compressHTML(fileContext);
             break;
-          case ".css":
-            context = compressCSS(fileContext);
-            break
           case ".js":
             context = await compressJS(fileContext);
             break;
           default:
-            context = await fs.readFile(filePath);
+            // 对于CSS和其他文件，直接复制，不进行压缩
+            context = fileContext;
         }
         context = context.toString();
         await fs.mkdir(path.join(outdir, dir), {
@@ -65,6 +59,7 @@ const processDir = async (dir) => {
     console.error(dir, err.stack)
   }
 };
+
 async function main() {
   try {
     await fs.rm(outdir)
@@ -72,5 +67,6 @@ async function main() {
   await processDir("./")
   console.log("压缩完成")
 }
+
 main()
 console.log("开始压缩")
